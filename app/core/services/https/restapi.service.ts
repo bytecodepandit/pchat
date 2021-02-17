@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { APIDef, APIInput } from './ApiEndPoints';
-import { httpErrorHandler } from '../../utils';
+import { httpErrorHandler } from '@app/core/utils';
 
 export class RestApiService {
     public invoke<T>(def: APIDef, apiInput: APIInput = {}, data?: T, queryMap?: any, additionalHeaders?: any, handleError?: boolean) {

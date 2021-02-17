@@ -1,5 +1,5 @@
 
-import { AUTH_BASE_URL, SURVEY_BASE_URL } from "@app/app.config";
+import { AUTH_BASE_URL } from "@app/app.config";
 
 const ApiEndPoints = {
     signIn: {
