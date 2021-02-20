@@ -1,3 +1,3 @@
 export default {
-    "log": "ersdsa"
+    greeting: 'adfadsf'
 } 
