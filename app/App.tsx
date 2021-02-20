@@ -5,6 +5,8 @@ import theme from '@app/theme';
 import { Box, Text } from '@app/shared/atoms';
 import { Card } from 'react-native-elements';
 
+import I18n from '@app/i18n';
+
 
 const App = () => {
 
@@ -19,7 +21,7 @@ const App = () => {
     >
       <Box>
         <Card>
-          <Card.Title><Text variant="title">HELLO WORLD</Text></Card.Title>
+          <Card.Title><Text variant="title">{I18n.t('greeting')}</Text></Card.Title>
           <Card.Divider />
         </Card>
       </Box>
