@@ -7,6 +7,7 @@ import cardVariants from './card-variants';
 
 
 const theme: BaseTheme = createTheme({
+  // @ts-ignore
     colors,
     spacing,
     breakpoints,
