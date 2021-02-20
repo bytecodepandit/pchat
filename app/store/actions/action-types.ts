@@ -1,1 +1,1 @@
-export const TOGGLE_LOADER = 'TOGGLE_LOADER';
+export const toggleLoader = 'TOGGLE_LOADER';

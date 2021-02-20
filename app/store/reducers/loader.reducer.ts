@@ -1,4 +1,4 @@
-import { TOGGLE_LOADER } from '@app/store/actions/action-types';
+import { toggleLoader } from '@app/store/actions/action-types';
 import { Action } from '@app/store/actions/Action.interface';
 
 const initialState = {
@@ -7,7 +7,7 @@ const initialState = {
 
 const LoaderReducer = (state = initialState, action: Action) => {
     switch (action.type) {
-        case TOGGLE_LOADER:
+        case toggleLoader:
             return { show: action.payload };
         default:
             return state;
