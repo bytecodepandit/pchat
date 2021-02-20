@@ -306,7 +306,7 @@ PODS:
     - React-jsi (= 0.63.4)
   - RNCAsyncStorage (1.12.1):
     - React-Core
-  - RNI18n (1.0.0):
+  - RNI18n (2.0.15):
     - React
   - RNVectorIcons (8.0.0):
     - React-Core
@@ -491,7 +491,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: ae4f914cfe8de7d4de95ae1ea6cc8f6315d73d9d
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
   RNCAsyncStorage: cb9a623793918c6699586281f0b51cbc38f046f9
-  RNI18n: b4106e324e080bdab08c7df811a0b60e787e496d
+  RNI18n: e2f7e76389fcc6e84f2c8733ea89b92502351fd8
   RNVectorIcons: f67a1abce2ec73e62fe4606e8110e95a832bc859
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
