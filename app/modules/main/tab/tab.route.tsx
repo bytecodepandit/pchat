@@ -12,6 +12,9 @@ import { scale, verticalScale } from 'react-native-size-matters';
 import { RFValue } from 'react-native-responsive-fontsize';
 import Device from 'react-native-device-detection';
 import i18n from '@app/i18n';
+import { useSelector } from 'react-redux';
+
+
 const Tab = createBottomTabNavigator();
 
 const AppTabIcons = (tabName: string, focused: boolean, color: string, size: number) => {
@@ -32,6 +35,7 @@ const AppTabIcons = (tabName: string, focused: boolean, color: string, size: num
 
 
 export const AppTab = () => {
+    const { tabBarVisible } = useSelector((state: any) => state);
     return <Tab.Navigator
         initialRouteName={CHAT_LIST_SCREEN}
         screenOptions={({ route }) => ({
@@ -42,6 +46,7 @@ export const AppTab = () => {
                 fontSize: RFValue(8),
                 fontWeight: 'bold'
             },
+            tabBarVisible: tabBarVisible,
             iconStyle: {
                 fontSize: RFValue(8),
                 marginBottom: verticalScale(!Device.isTablet ? 3 : 2)
@@ -59,19 +64,23 @@ export const AppTab = () => {
             labelStyle: {
                 marginLeft: scale(0)
             },
-            style: {
+            style: tabBarVisible ? {
                 backgroundColor: colors.tabBackground,
                 borderTopColor: colors.divider,
-                paddingBottom: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 15: 7) : 12),
+                paddingBottom: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 15 : 7) : 12),
                 paddingTop: verticalScale(!Device.isTablet ? 5 : 9),
                 height: verticalScale(!Device.isTablet ? 58 : 48)
-            }
+            } : null
         }}
     >
         <Tab.Screen name={STATUS_SCREEN} component={StatusScreen} options={{ title: i18n.t('status') }} />
         <Tab.Screen name={CALL_HISTORY_SCREEN} component={CallHistoryScreen} options={{ title: i18n.t('calls') }} />
         <Tab.Screen name={CAMERA_SCREEN} component={CameraScreen} options={{ title: i18n.t('camera') }} />
-        <Tab.Screen name={CHAT_LIST_SCREEN} component={ChatScreen} options={{ title: i18n.t('chats'), tabBarBadge: 5 }} />
+        <Tab.Screen name={CHAT_LIST_SCREEN} component={ChatScreen}
+            options={{
+                title: i18n.t('chats'),
+                tabBarBadge: 5
+            }} />
         <Tab.Screen name={SETTINGS_SCREEN} component={SettingsScreen} options={{ title: i18n.t('settings') }} />
     </Tab.Navigator>
 }

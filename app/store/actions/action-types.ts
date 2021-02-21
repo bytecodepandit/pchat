@@ -1,1 +1,3 @@
-export const toggleLoader = 'TOGGLE_LOADER';
+export const TOGGLE_LOADER = 'TOGGLE_LOADER';
+export const TOGGLE_BOTTOM_TAB = 'TOGGLE_BOTTOM_TAB';
+export const SET_USER_LOGIN_STATE = 'SET_USER_LOGIN_STATE';
