@@ -8,8 +8,9 @@ import { ChatScreen } from './chat-list';
 import { SettingsScreen } from './settings';
 import { StatusScreen } from './status';
 import colors from '@app/theme/colors';
-import { verticalScale } from 'react-native-size-matters';
+import { scale, verticalScale } from 'react-native-size-matters';
 import { RFValue } from 'react-native-responsive-fontsize';
+import Device from 'react-native-device-detection';
 
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +27,6 @@ const AppTabIcons = (tabName: string, focused: boolean, color: string, size: num
             return tabIcon(focused ? 'md-chatbubbles-sharp' : 'md-chatbubbles-outline');
         case SETTINGS_SCREEN:
             return tabIcon(focused ? 'ios-settings' : 'ios-settings-outline');
-
     }
 }
 
@@ -44,19 +44,27 @@ export const AppTab = () => {
             },
             iconStyle: {
                 fontSize: RFValue(8),
-                marginBottom: verticalScale(3)
+                marginBottom: verticalScale(!Device.isTablet ? 3 : 2)
             }
         })}
         tabBarOptions={{
             activeTintColor: colors.activeTintColor,
             inactiveTintColor: colors.inactiveTintColor,
-        
+            tabStyle: {
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flex: 1
+            },
+            labelStyle: {
+                marginLeft: scale(0)
+            },
             style: {
                 backgroundColor: colors.tabBackground,
                 borderTopColor: colors.divider,
-                paddingBottom: verticalScale(7),
-                paddingTop: verticalScale(5),
-                height: verticalScale(58)
+                paddingBottom: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 15: 7) : 12),
+                paddingTop: verticalScale(!Device.isTablet ? 5 : 9),
+                height: verticalScale(!Device.isTablet ? 58 : 48)
             }
         }}
     >
