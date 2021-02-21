@@ -1,3 +1,7 @@
 export default {
-    greeting: 'adfadsf'
+    status: 'Statut',
+    calls: 'Appels',
+    camera: 'Caméra',
+    chats: 'Chattes',
+    settings: 'Réglages'
 } 

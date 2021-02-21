@@ -1,5 +1,8 @@
-import { MainRoute } from '@app/modules/main/main.route';
+import React from 'react';
+import { MainNavigator } from '@app/modules/main/main.route';
+import { AuthNavigator } from '@app/modules/auth/auth.route';
 
 export const AppRoute = () => {
-    return MainRoute();
+    const isLoggedIn = true;
+    return isLoggedIn ? <MainNavigator /> : <AuthNavigator />;
 }

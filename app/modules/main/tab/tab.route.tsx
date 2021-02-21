@@ -11,7 +11,7 @@ import colors from '@app/theme/colors';
 import { scale, verticalScale } from 'react-native-size-matters';
 import { RFValue } from 'react-native-responsive-fontsize';
 import Device from 'react-native-device-detection';
-
+import i18n from '@app/i18n';
 const Tab = createBottomTabNavigator();
 
 const AppTabIcons = (tabName: string, focused: boolean, color: string, size: number) => {
@@ -68,10 +68,10 @@ export const AppTab = () => {
             }
         }}
     >
-        <Tab.Screen name={STATUS_SCREEN} component={StatusScreen} options={{ title: 'Status' }} />
-        <Tab.Screen name={CALL_HISTORY_SCREEN} component={CallHistoryScreen} options={{ title: 'Calls' }} />
-        <Tab.Screen name={CAMERA_SCREEN} component={CameraScreen} options={{ title: 'Camera' }} />
-        <Tab.Screen name={CHAT_LIST_SCREEN} component={ChatScreen} options={{ title: 'Chats', tabBarBadge: 5 }} />
-        <Tab.Screen name={SETTINGS_SCREEN} component={SettingsScreen} options={{ title: 'Settings' }} />
+        <Tab.Screen name={STATUS_SCREEN} component={StatusScreen} options={{ title: i18n.t('status') }} />
+        <Tab.Screen name={CALL_HISTORY_SCREEN} component={CallHistoryScreen} options={{ title: i18n.t('calls') }} />
+        <Tab.Screen name={CAMERA_SCREEN} component={CameraScreen} options={{ title: i18n.t('camera') }} />
+        <Tab.Screen name={CHAT_LIST_SCREEN} component={ChatScreen} options={{ title: i18n.t('chats'), tabBarBadge: 5 }} />
+        <Tab.Screen name={SETTINGS_SCREEN} component={SettingsScreen} options={{ title: i18n.t('settings') }} />
     </Tab.Navigator>
 }

@@ -1,3 +1,8 @@
 export default {
-    greeting: 'Hi!'
+    status: 'Status',
+    calls: 'Calls',
+    camera: 'Camera',
+    chats: 'Chats',
+    settings: 'Settings'
+    
 } 
