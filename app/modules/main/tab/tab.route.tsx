@@ -50,7 +50,7 @@ export const AppTab = () => {
             tabBarVisible: tabBarVisible,
             iconStyle: {
                 fontSize: RFValue(8),
-                marginBottom: verticalScale(!Device.isTablet ? 3 : 2)
+                marginBottom: verticalScale(!Device.isTablet ? 5 : 2)
             }
         })}
         tabBarOptions={{
@@ -62,14 +62,14 @@ export const AppTab = () => {
                 flex: 1
             },
             labelStyle: {
-                marginLeft: scale(Device.isTablet ? 15 : 0)
+                marginLeft: scale(Device.isTablet ? 12 : 0)
             },
             style: tabBarVisible ? {
                 backgroundColor: colors.tabBackground,
                 borderTopColor: colors.divider,
                 paddingBottom: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 15 : 5) : 5),
                 paddingTop: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 5 : 5) : 5),
-                height: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 55 : 48) : 40)
+                height: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 55 : 50) : 40)
             } : null
         }}
     >
