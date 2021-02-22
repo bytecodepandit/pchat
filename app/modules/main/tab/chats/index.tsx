@@ -5,11 +5,11 @@ import Device from 'react-native-device-detection';
 import { useDispatch, useSelector } from 'react-redux';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 import toggleTabVisibility from '@app/store/actions/tab-visibility.action';
-interface ChatScreenProps {
+interface ChatsScreenProps {
 
 }
 
-export const ChatScreen: React.FC = (props: ChatScreenProps)=> {
+export const ChatsScreen: React.FC = (props: ChatsScreenProps)=> {
     const dispatch = useDispatch();
     const { networkConnection }  = useSelector((state: any) => state);
     return (

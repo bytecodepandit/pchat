@@ -1,10 +1,10 @@
 import React from 'react';
-import { CALL_HISTORY_SCREEN, CAMERA_SCREEN, CHAT_LIST_SCREEN, SETTINGS_SCREEN, STATUS_SCREEN } from '@app/routes/app-route-labels';
+import { CALL_HISTORY_SCREEN, CAMERA_SCREEN, CHATS_SCREEN, SETTINGS_SCREEN, STATUS_SCREEN } from '@app/routes/app-route-labels';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { CallHistoryScreen } from './call-history';
 import { CameraScreen } from './camera';
-import { ChatScreen } from './chat-list';
+import { ChatsScreen } from './chats';
 import { SettingsScreen } from './settings';
 import { StatusScreen } from './status';
 import colors from '@app/theme/colors';
@@ -26,7 +26,7 @@ const AppTabIcons = (tabName: string, focused: boolean, color: string, size: num
             return tabIcon(focused ? 'call' : 'call-outline');
         case CAMERA_SCREEN:
             return tabIcon(focused ? 'camera' : 'camera-outline');
-        case CHAT_LIST_SCREEN:
+        case CHATS_SCREEN:
             return tabIcon(focused ? 'md-chatbubbles-sharp' : 'md-chatbubbles-outline');
         case SETTINGS_SCREEN:
             return tabIcon(focused ? 'ios-settings' : 'ios-settings-outline');
@@ -37,7 +37,7 @@ const AppTabIcons = (tabName: string, focused: boolean, color: string, size: num
 export const AppTab = () => {
     const { tabBarVisible } = useSelector((state: any) => state);
     return <Tab.Navigator
-        initialRouteName={CHAT_LIST_SCREEN}
+        initialRouteName={CHATS_SCREEN}
         screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
                 return AppTabIcons(route.name, focused, color, size);
@@ -57,27 +57,26 @@ export const AppTab = () => {
             activeTintColor: colors.activeTintColor,
             inactiveTintColor: colors.inactiveTintColor,
             tabStyle: {
-                flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flex: 1
             },
             labelStyle: {
-                marginLeft: scale(0)
+                marginLeft: scale(Device.isTablet ? 15 : 0)
             },
             style: tabBarVisible ? {
                 backgroundColor: colors.tabBackground,
                 borderTopColor: colors.divider,
-                paddingBottom: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 15 : 5) : 12),
-                paddingTop: verticalScale(!Device.isTablet ? 5 : 9),
-                height: verticalScale(!Device.isTablet ? 50 : 48)
+                paddingBottom: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 15 : 0) : 12),
+                paddingTop: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 5 : 0) : 9),
+                height: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 55 : 30) : 48)
             } : null
         }}
     >
         <Tab.Screen name={STATUS_SCREEN} component={StatusScreen} options={{ title: i18n.t('status') }} />
         <Tab.Screen name={CALL_HISTORY_SCREEN} component={CallHistoryScreen} options={{ title: i18n.t('calls') }} />
         <Tab.Screen name={CAMERA_SCREEN} component={CameraScreen} options={{ title: i18n.t('camera') }} />
-        <Tab.Screen name={CHAT_LIST_SCREEN} component={ChatScreen}
+        <Tab.Screen name={CHATS_SCREEN} component={ChatsScreen}
             options={{
                 title: i18n.t('chats'),
                 tabBarBadge: 5
