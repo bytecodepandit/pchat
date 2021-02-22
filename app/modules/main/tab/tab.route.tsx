@@ -43,8 +43,9 @@ export const AppTab = () => {
                 return AppTabIcons(route.name, focused, color, size);
             },
             tabBarBadgeStyle: {
-                fontSize: RFValue(8),
+                fontSize: RFValue(10),
                 fontWeight: 'bold'
+
             },
             tabBarVisible: tabBarVisible,
             iconStyle: {
