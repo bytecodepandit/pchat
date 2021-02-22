@@ -67,9 +67,9 @@ export const AppTab = () => {
             style: tabBarVisible ? {
                 backgroundColor: colors.tabBackground,
                 borderTopColor: colors.divider,
-                paddingBottom: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 15 : 0) : 12),
-                paddingTop: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 5 : 0) : 9),
-                height: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 55 : 30) : 48)
+                paddingBottom: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 15 : 5) : 5),
+                paddingTop: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 5 : 5) : 5),
+                height: verticalScale(!Device.isTablet ? (Device.isIphoneX ? 55 : 48) : 40)
             } : null
         }}
     >
