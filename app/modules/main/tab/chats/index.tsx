@@ -8,6 +8,7 @@ import toggleTabVisibility from '@app/store/actions/tab-visibility.action';
 import ChatsEditBottomBar from './components/ChatsEditBottomBar';
 import UserInlineCard from '@app/shared/molecules/UserInlineCard';
 import image from '@app/assets/images';
+import colors from '@app/theme/colors';
 interface ChatsScreenProps {
 
 }
@@ -22,9 +23,9 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps)=> {
         chatsEditBottomBarRef.current.toggleActionBar(value);
     }
     return (
-        <SafeAreaView style={{flex: 1, justifyContent: 'space-between'}}>
+        <SafeAreaView style={{flex: 1, justifyContent: 'space-between', backgroundColor: colors.mainBackground}}>
             <View>
-            <Text>sdfsfsdf{JSON.stringify(Device.isTablet)}</Text>
+            {/* <Text>sdfsfsdf{JSON.stringify(Device.isTablet)}</Text>
             <Text>sdfsfsdf{JSON.stringify(Device.isIphoneX)}</Text>
             <Text>{!networkConnection.isConnected ? 'Waiting for network...' : null}</Text>
             <TouchableHighlight onPress={() =>  {dispatch(toggleTabVisibility(false)); toggleActionBar(false)}} >
@@ -32,15 +33,23 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps)=> {
             </TouchableHighlight>
             <TouchableHighlight onPress={() =>  {dispatch(toggleTabVisibility(true)); toggleActionBar(true)}} >
                 <Text>Show Tab</Text>
-            </TouchableHighlight>
+            </TouchableHighlight> */}
             <UserInlineCard 
-                avatar = {
-                    {
-                        source: image.userPlaceHolder
-                    }
-                }
-                name="Jone Doe"
-                children={<Text>sdfsdfsdfsdf</Text>}
+                name="Shimla Tripsdfsddf sdflkjashdflashdfsf "
+                children={<Text style={{color: colors.primary}}>sdfsdfsdfsdf</Text>}
+                rightChidren={<Text style={{color: colors.primary}}>5:24 PM</Text>}
+            />
+            <UserInlineCard 
+                avatar = {{source: {uri: 'https://image.freepik.com/free-vector/businessman-character-avatar-icon-vector-illustration-design_24877-18271.jpg'}, imageSize: 'sm'}}
+                name="Shimla Tripsdfsddf sdflkjashdflashdfsf "
+                children={<Text style={{color: colors.primary}}>sdfsdfsdfsdf</Text>}
+                rightChidren={<Text style={{color: colors.primary}}>5:24 PM</Text>}
+            />
+            <UserInlineCard 
+                avatar = {{source: image.userPlaceHolder}}
+                name="Shimla Tripsdfsddf sdflkjashdflashdfsf "
+                children={<Text style={{color: colors.primary}}>sdfsdfsdfsdf</Text>}
+                rightChidren={<Text style={{color: colors.primary}}>5:24 PM</Text>}
             />
             </View>
             <ChatsEditBottomBar ref={chatsEditBottomBarRef}/>
