@@ -2,7 +2,7 @@ import React, { useRef, useImperativeHandle, forwardRef } from 'react'
 import { View, Text, Animated } from 'react-native';
 
 const ChatsEditBottomBar = (props: any, ref: any) => {
-    const transitionValue = {
+    const TRANSITION_VALUE = {
         hide: 150,
         show: 0
     }
@@ -11,7 +11,7 @@ const ChatsEditBottomBar = (props: any, ref: any) => {
 
     const transitionY = animatedViewRef.interpolate({
         inputRange: [0, 1],
-        outputRange: [transitionValue.hide, transitionValue.show],
+        outputRange: [TRANSITION_VALUE.hide, TRANSITION_VALUE.show],
     });
 
     const toggleActionBar = (isHide: boolean) => {

@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 import toggleTabVisibility from '@app/store/actions/tab-visibility.action';
 import ChatsEditBottomBar from './components/ChatsEditBottomBar';
+import UserInlineCard from '@app/shared/molecules/UserInlineCard';
+import image from '@app/assets/images';
 interface ChatsScreenProps {
 
 }
@@ -31,6 +33,15 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps)=> {
             <TouchableHighlight onPress={() =>  {dispatch(toggleTabVisibility(true)); toggleActionBar(true)}} >
                 <Text>Show Tab</Text>
             </TouchableHighlight>
+            <UserInlineCard 
+                avatar = {
+                    {
+                        source: image.userPlaceHolder
+                    }
+                }
+                name="Jone Doe"
+                children={<Text>sdfsdfsdfsdf</Text>}
+            />
             </View>
             <ChatsEditBottomBar ref={chatsEditBottomBarRef}/>
         </SafeAreaView>
