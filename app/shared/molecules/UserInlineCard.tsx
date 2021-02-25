@@ -28,7 +28,7 @@ const UserInlineCard = (props: UserInlineCardProps) => {
             <Avatar
                 size={props.avatar && props.avatar.imageSize === 'sm' ? moderateScale(45) :  moderateScale(54)}
                 source={props.avatar ? props.avatar.source : image.userPlaceHolder}
-                iconStyle={{width: '100%', height: '100%'}}
+                imageProps={{borderRadius: 100}}
                 {...props.avatar} />
             <ListItem.Content style={{
                 marginLeft: scale(0),

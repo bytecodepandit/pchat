@@ -40,7 +40,7 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps)=> {
                 rightChidren={<Text style={{color: colors.primary}}>5:24 PM</Text>}
             />
             <UserInlineCard 
-                avatar = {{source: {uri: 'https://image.freepik.com/free-vector/businessman-character-avatar-icon-vector-illustration-design_24877-18271.jpg'}, imageSize: 'sm'}}
+                avatar = {{source: {uri: 'https://image.freepik.com/free-vector/businessman-character-avatar-icon-vector-illustration-design_24877-18271.jpg'}}}
                 name="Shimla Tripsdfsddf sdflkjashdflashdfsf "
                 children={<Text style={{color: colors.primary}}>sdfsdfsdfsdf</Text>}
                 rightChidren={<Text style={{color: colors.primary}}>5:24 PM</Text>}
