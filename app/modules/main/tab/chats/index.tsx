@@ -13,6 +13,7 @@ import ChatListItem from './components/ChatListItem';
 import ChatType from '@app/core/model/enums/chats/ChatType';
 import ChatCommunicationType from '@app/core/model/enums/chats/ChatCommunicationType';
 import ChatStatus from '@app/core/model/enums/chats/ChatStatus';
+import ChatList from './ChatList';
 interface ChatsScreenProps {
 
 }
@@ -28,7 +29,7 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
     }
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', backgroundColor: colors.mainBackground }}>
-            <View>
+            <View style={{flex: 1}}>
                 {/* <Text>sdfsfsdf{JSON.stringify(Device.isTablet)}</Text>
             <Text>sdfsfsdf{JSON.stringify(Device.isIphoneX)}</Text>
             <Text>{!networkConnection.isConnected ? 'Waiting for network...' : null}</Text>
@@ -38,14 +39,9 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
             <TouchableHighlight onPress={() =>  {dispatch(toggleTabVisibility(true)); toggleActionBar(true)}} >
                 <Text>Show Tab</Text>
             </TouchableHighlight> */}
-                <ChatListItem
-                    title="Pagli"
-                    time="5:30 PM"
-                    chatStatus={ChatStatus.VIEWED}
-                    chatType={ChatType.IMAGE}
-                    chatCommunicationType={ChatCommunicationType.SENDER}
-                    content="Dhek patnitop pe show ne kuch ese welcome kiya tha😆"
-                />
+                <View style={{flex: 1}}>
+                    <ChatList id="1"/>
+                </View>
             </View>
             <ChatsEditBottomBar ref={chatsEditBottomBarRef} />
         </SafeAreaView>

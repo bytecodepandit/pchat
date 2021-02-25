@@ -20,7 +20,7 @@ const ChatTypeIcon = ({ chatType, content }: ChatTypeIconProps) => {
             case ChatType.IMAGE:
                 return <Text style={{marginRight: scale(4)}}>
                     <Entypo name="camera" size={RFValue(16)} color={colors.primary} style={style.chatTypeIconStyle} />
-                    {!content ? '  Photo' : null}
+                   <Text>{!content ? '  Photo' : null}</Text>
                 </Text>
             case ChatType.VIDEO:
                 return <Text>
@@ -44,8 +44,7 @@ export default ChatTypeIcon;
 
 const style = StyleSheet.create({
     chatTypeIconStyle: {
-        marginLeft: scale(5),
-        marginRight: scale(3),
+        marginRight: scale(6),
     }
 })
 

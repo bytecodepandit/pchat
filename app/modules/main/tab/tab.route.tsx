@@ -29,7 +29,7 @@ const AppTabIcons = (tabName: string, focused: boolean, color: string, size: num
         case CHATS_SCREEN:
             return tabIcon(focused ? 'md-chatbubbles-sharp' : 'md-chatbubbles-outline');
         case SETTINGS_SCREEN:
-            return tabIcon(focused ? 'cog-outline' : 'cog');
+            return tabIcon(focused ? 'cog-outline' : 'cog-outline');
     }
 }
 

@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1",
+        "image": "https://media.allure.com/photos/5e18dbcddd598a0008b3f783/master/pass/kaia-gerber-tattoo.jpg",
+        "title": "Allure",
+        "time": "5:30 AM",
+        "chatStatus": "PENDING",
+        "chatType": "IMAGE",
+        "chatCommunicationType": "SENDER",
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+    },
+    {
+        "id": "1",
+        "image": "https://i.pinimg.com/originals/b5/a5/bb/b5a5bbaf4c0e744001eb1d1eff2b6c0b.jpg",
+        "title": "Wahaj Ali",
+        "time": "5:30 AM",
+        "chatStatus": "PENDING",
+        "chatType": "VIDEO",
+        "chatCommunicationType": "RECEIVER",
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+    }
+]

@@ -5,13 +5,13 @@ import { StyleProp, StyleSheet, Text, TextStyle, View } from 'react-native'
 import { Avatar, AvatarProps, ListItem, ListItemProps, Overlay, TextProps } from 'react-native-elements'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters'
+import { AvatarAtom } from '../atoms'
+import { AvatarAtomProps } from '../atoms/AvatarAtom'
 
-interface UserImageProps extends AvatarProps {
-    imageSize?: 'sm' | 'bg'
-}
+
 interface UserInlineCardProps extends ListItemProps {
     name: string;
-    avatar?: UserImageProps,
+    avatar?: AvatarAtomProps,
     nameStyle?: React.ComponentType<TextProps & { right?: boolean }>;
     content?: React.ReactElement<any>;
     rightChidren?: React.ReactElement<any>;
@@ -21,11 +21,9 @@ const UserInlineCard = (props: UserInlineCardProps) => {
     return (
         <ListItem containerStyle={styles.containerStyle}
             {...props}>
-            <Avatar
-                size={props.avatar && props.avatar.imageSize === 'sm' ? moderateScale(45) : moderateScale(54)}
-                source={props.avatar ? props.avatar.source : image.userPlaceHolder}
-                imageProps={{ borderRadius: 100 }}
-                {...props.avatar} />
+            <AvatarAtom
+                {...props.avatar}
+            />
             <ListItem.Content style={styles.listItemContentStyle}>
                 <View style={styles.listItemHeaderStyle}>
                     <ListItem.Title

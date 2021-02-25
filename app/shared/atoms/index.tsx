@@ -1,7 +1,8 @@
-import Box from "./Box.atom";
-import Text from "./Text.atom";
-
+import Box from "./BoxAtom";
+import Text from "./TextAtom";
+import AvatarAtom from './AvatarAtom';
 export  {
     Text,
-    Box
+    Box,
+    AvatarAtom
 }

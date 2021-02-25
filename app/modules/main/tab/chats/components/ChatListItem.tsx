@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, ImageSourcePropType } from 'react-native';
 import ChatCommunicationType from '@app/core/model/enums/chats/ChatCommunicationType'
 import ChatStatus from '@app/core/model/enums/chats/ChatStatus'
 import ChatType from '@app/core/model/enums/chats/ChatType'
@@ -18,6 +18,7 @@ interface ChatListItemProps {
     chatStatus: ChatStatus;
     chatCommunicationType: ChatCommunicationType,
     content?: string;
+    image?: ImageSourcePropType
 }
 
 const ChatListItem = ({
@@ -26,22 +27,23 @@ const ChatListItem = ({
     chatType,
     chatStatus,
     chatCommunicationType,
-    content
+    content,
+    image
 }: ChatListItemProps) => {
-
-
 
     const _renderContent = () => {
         return (
             <Text style={{ color: colors.primary, lineHeight: RFValue(24) }}>
-                {chatCommunicationType === ChatCommunicationType.SENDER && <ChatStatusIcon chatStatus={chatStatus}/>}
+                {chatCommunicationType === ChatCommunicationType.SENDER && <Text><ChatStatusIcon chatStatus={chatStatus}/> </Text>}
                 <ChatTypeIcon chatType={chatType} content={content}/>
                 <Text style={{marginLeft: scale(10)}}> {content}</Text>
             </Text>
         )
     }
+    
     return (
         <UserInlineCard
+            avatar={{source: image}}
             name={title}
             content={_renderContent()}
             rightChidren={<Text style={{ color: colors.primary }}>{time}</Text>}
