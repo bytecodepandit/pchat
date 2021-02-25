@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {  Text, StyleSheet } from 'react-native';
 import ChatType from '@app/core/model/enums/chats/ChatType'
 import colors from '@app/theme/colors';
 import { RFValue } from 'react-native-responsive-fontsize';

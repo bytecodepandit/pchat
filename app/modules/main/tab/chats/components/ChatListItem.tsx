@@ -1,16 +1,11 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native';
-import IonIcons from 'react-native-vector-icons/Ionicons';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
-import Entypo from 'react-native-vector-icons/Entypo';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { Text, StyleSheet } from 'react-native';
 import ChatCommunicationType from '@app/core/model/enums/chats/ChatCommunicationType'
 import ChatStatus from '@app/core/model/enums/chats/ChatStatus'
 import ChatType from '@app/core/model/enums/chats/ChatType'
 import UserInlineCard from '@app/shared/molecules/UserInlineCard'
 import colors from '@app/theme/colors'
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { scale, verticalScale } from 'react-native-size-matters';
+import { scale } from 'react-native-size-matters';
 import { RFValue } from 'react-native-responsive-fontsize';
 import ChatTypeIcon from './ChatTypeIcon';
 import ChatStatusIcon from './ChatStatusIcon';
