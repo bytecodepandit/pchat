@@ -9,23 +9,27 @@ import ChatsEditBottomBar from './components/ChatsEditBottomBar';
 import UserInlineCard from '@app/shared/molecules/UserInlineCard';
 import image from '@app/assets/images';
 import colors from '@app/theme/colors';
+import ChatListItem from './components/ChatListItem';
+import ChatType from '@app/core/model/enums/chats/ChatType';
+import ChatCommunicationType from '@app/core/model/enums/chats/ChatCommunicationType';
+import ChatStatus from '@app/core/model/enums/chats/ChatStatus';
 interface ChatsScreenProps {
 
 }
 
-export const ChatsScreen: React.FC = (props: ChatsScreenProps)=> {
+export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
     const dispatch = useDispatch();
     const chatsEditBottomBarRef = useRef<any>(null);
-    const { networkConnection }  = useSelector((state: any) => state);
+    const { networkConnection } = useSelector((state: any) => state);
 
-    
+
     const toggleActionBar = (value: boolean) => {
         chatsEditBottomBarRef.current.toggleActionBar(value);
     }
     return (
-        <SafeAreaView style={{flex: 1, justifyContent: 'space-between', backgroundColor: colors.mainBackground}}>
+        <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', backgroundColor: colors.mainBackground }}>
             <View>
-            {/* <Text>sdfsfsdf{JSON.stringify(Device.isTablet)}</Text>
+                {/* <Text>sdfsfsdf{JSON.stringify(Device.isTablet)}</Text>
             <Text>sdfsfsdf{JSON.stringify(Device.isIphoneX)}</Text>
             <Text>{!networkConnection.isConnected ? 'Waiting for network...' : null}</Text>
             <TouchableHighlight onPress={() =>  {dispatch(toggleTabVisibility(false)); toggleActionBar(false)}} >
@@ -34,25 +38,16 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps)=> {
             <TouchableHighlight onPress={() =>  {dispatch(toggleTabVisibility(true)); toggleActionBar(true)}} >
                 <Text>Show Tab</Text>
             </TouchableHighlight> */}
-            <UserInlineCard 
-                name="Shimla Tripsdfsddf sdflkjashdflashdfsf "
-                children={<Text style={{color: colors.primary}}>sdfsdfsdfsdf</Text>}
-                rightChidren={<Text style={{color: colors.primary}}>5:24 PM</Text>}
-            />
-            <UserInlineCard 
-                avatar = {{source: {uri: 'https://image.freepik.com/free-vector/businessman-character-avatar-icon-vector-illustration-design_24877-18271.jpg'}}}
-                name="Shimla Tripsdfsddf sdflkjashdflashdfsf "
-                children={<Text style={{color: colors.primary}}>sdfsdfsdfsdf</Text>}
-                rightChidren={<Text style={{color: colors.primary}}>5:24 PM</Text>}
-            />
-            <UserInlineCard 
-                avatar = {{source: image.userPlaceHolder}}
-                name="Shimla Tripsdfsddf sdflkjashdflashdfsf "
-                children={<Text style={{color: colors.primary}}>sdfsdfsdfsdf</Text>}
-                rightChidren={<Text style={{color: colors.primary}}>5:24 PM</Text>}
-            />
+                <ChatListItem
+                    title="Pagli"
+                    time="5:30 PM"
+                    chatStatus={ChatStatus.VIEWED}
+                    chatType={ChatType.IMAGE}
+                    chatCommunicationType={ChatCommunicationType.SENDER}
+                    content="Dhek patnitop pe show ne kuch ese welcome kiya tha😆"
+                />
             </View>
-            <ChatsEditBottomBar ref={chatsEditBottomBarRef}/>
+            <ChatsEditBottomBar ref={chatsEditBottomBarRef} />
         </SafeAreaView>
     )
 }
