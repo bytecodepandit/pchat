@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import Device from 'react-native-device-detection';
 import { useDispatch, useSelector } from 'react-redux';
 import { TouchableHighlight } from 'react-native-gesture-handler';
-import toggleTabVisibility from '@app/store/actions/tab-visibility.action';
+import { toggleTabVisibility } from '@app/store/actions';
 import ChatsEditBottomBar from './components/ChatsEditBottomBar';
 import UserInlineCard from '@app/shared/molecules/UserInlineCard';
 import image from '@app/assets/images';
@@ -14,6 +14,8 @@ import ChatType from '@app/core/model/enums/chats/ChatType';
 import ChatCommunicationType from '@app/core/model/enums/chats/ChatCommunicationType';
 import ChatStatus from '@app/core/model/enums/chats/ChatStatus';
 import ChatList from './ChatList';
+import { BASE_URL } from '@app/app.config';
+
 interface ChatsScreenProps {
 
 }
@@ -29,7 +31,7 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
     }
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', backgroundColor: colors.mainBackground }}>
-            <View style={{flex: 1}}>
+            <View style={{ flex: 1 }}>
                 {/* <Text>sdfsfsdf{JSON.stringify(Device.isTablet)}</Text>
             <Text>sdfsfsdf{JSON.stringify(Device.isIphoneX)}</Text>
             <Text>{!networkConnection.isConnected ? 'Waiting for network...' : null}</Text>
@@ -39,8 +41,8 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
             <TouchableHighlight onPress={() =>  {dispatch(toggleTabVisibility(true)); toggleActionBar(true)}} >
                 <Text>Show Tab</Text>
             </TouchableHighlight> */}
-                <View style={{flex: 1}}>
-                    <ChatList id="1"/>
+                <View style={{ flex: 1 }}>
+                    <ChatList id="1" />
                 </View>
             </View>
             <ChatsEditBottomBar ref={chatsEditBottomBarRef} />

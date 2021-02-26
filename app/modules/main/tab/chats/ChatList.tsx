@@ -2,8 +2,11 @@ import ChatCommunicationType from '@app/core/model/enums/chats/ChatCommunication
 import ChatStatus from '@app/core/model/enums/chats/ChatStatus';
 import ChatType from '@app/core/model/enums/chats/ChatType';
 import ChatItem from '@app/core/model/interfaces/ChatItem.interface';
-import React from 'react';
+import { ListLoaderAtom } from '@app/shared/atoms';
+import { fetchChats } from '@app/store/actions';
+import React, { useEffect } from 'react';
 import { VirtualizedList } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import ChatListItem from './components/ChatListItem';
 
 interface ChatListProps {
@@ -11,35 +14,27 @@ interface ChatListProps {
 }
 
 const ChatList = ({ id }: ChatListProps) => {
+    const dispatch = useDispatch();
+    const {chatList} = useSelector((state: any) => state);
+    const paginationDetails = {
+        pageSize: 15, 
+        pageNumber: 0
+    }
 
-    const DATA: ChatItem[] = [
-        {
-            id: '1',
-            image: 'https://media.allure.com/photos/5e18dbcddd598a0008b3f783/master/pass/kaia-gerber-tattoo.jpg',
-            title: 'Allure',
-            time: '5:30 AM',
-            chatStatus: ChatStatus.PENDING,
-            chatType: ChatType.IMAGE,
-            chatCommunicationType: ChatCommunicationType.SENDER,
-            content: 'Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆'
-        },
-        {
-            id: '2',
-            image: 'https://i.pinimg.com/originals/b5/a5/bb/b5a5bbaf4c0e744001eb1d1eff2b6c0b.jpg',
-            title: 'Wahaj Ali',
-            time: '6:30 AM',
-            chatStatus: ChatStatus.VIEWED,
-            chatType: ChatType.IMAGE,
-            chatCommunicationType: ChatCommunicationType.RECEIVER,
-            content: 'Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆'
+    useEffect(() => {
+        getChats(false);
+    }, []);
+
+    const getChats = (scroll: boolean) => {
+        if (scroll) {
+            paginationDetails.pageNumber = paginationDetails.pageNumber + 1;
         }
-    ];
+        dispatch(fetchChats({userId: 1, scroll, ...paginationDetails}));
+    }
 
 
     const getItem = (data: ChatItem[], index: any) => (data[index]);
-
     const getItemCount = (data: ChatItem[]) => data.length;
-
 
     const _renderChatItem = ({ item, index }: any) => {
         const { id, image, title, time, chatStatus, chatType, chatCommunicationType, content } = item;
@@ -58,12 +53,15 @@ const ChatList = ({ id }: ChatListProps) => {
     }
     return (
         <VirtualizedList
-            data={DATA}
+            data={chatList.data}
             initialNumToRender={20}
             renderItem={_renderChatItem}
-            keyExtractor={item => item.id}
+            keyExtractor={item => `chatListUnique_${Math.random()}`}
             getItemCount={getItemCount}
             getItem={getItem}
+            // onEndReached={() => getChats(true)}
+            onEndReachedThreshold={0.5}
+            ListFooterComponent={<ListLoaderAtom show={chatList.loading}/>}
         />
     )
 }
