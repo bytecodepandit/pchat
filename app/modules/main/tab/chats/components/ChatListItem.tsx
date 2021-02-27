@@ -1,9 +1,10 @@
 import React from 'react'
-import { Text, StyleSheet, ImageSourcePropType } from 'react-native';
+import { StyleSheet, ImageSourcePropType } from 'react-native';
 import ChatCommunicationType from '@app/core/model/enums/chats/ChatCommunicationType'
 import ChatStatus from '@app/core/model/enums/chats/ChatStatus'
 import ChatType from '@app/core/model/enums/chats/ChatType'
-import UserInlineCard from '@app/shared/molecules/UserInlineCard'
+import UserInlineCard from '@app/shared/molecules/UserInlineCard';
+import { Text } from '@app/shared/atoms';
 import colors from '@app/theme/colors'
 import { scale } from 'react-native-size-matters';
 import { RFValue } from 'react-native-responsive-fontsize';

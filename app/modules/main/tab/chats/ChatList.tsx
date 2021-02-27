@@ -1,13 +1,12 @@
-import ChatCommunicationType from '@app/core/model/enums/chats/ChatCommunicationType';
-import ChatStatus from '@app/core/model/enums/chats/ChatStatus';
-import ChatType from '@app/core/model/enums/chats/ChatType';
-import ChatItem from '@app/core/model/interfaces/ChatItem.interface';
-import { ListLoaderAtom } from '@app/shared/atoms';
-import { fetchChats } from '@app/store/actions';
 import React, { useEffect } from 'react';
-import { VirtualizedList } from 'react-native';
+import ChatItem from '@app/core/model/interfaces/ChatItem.interface';
+import { ListLoaderAtom, Text } from '@app/shared/atoms';
+import { fetchChats } from '@app/store/actions';
+import { View } from 'react-native';
+import { SwipeListView } from 'react-native-swipe-list-view';
 import { useDispatch, useSelector } from 'react-redux';
 import ChatListItem from './components/ChatListItem';
+import { scale } from 'react-native-size-matters';
 
 interface ChatListProps {
     id: string;
@@ -15,9 +14,9 @@ interface ChatListProps {
 
 const ChatList = ({ id }: ChatListProps) => {
     const dispatch = useDispatch();
-    const {chatList} = useSelector((state: any) => state);
+    const { chatList } = useSelector((state: any) => state);
     const paginationDetails = {
-        pageSize: 15, 
+        pageSize: 15,
         pageNumber: 0
     }
 
@@ -29,7 +28,7 @@ const ChatList = ({ id }: ChatListProps) => {
         if (scroll) {
             paginationDetails.pageNumber = paginationDetails.pageNumber + 1;
         }
-        dispatch(fetchChats({userId: 1, scroll, ...paginationDetails}));
+        dispatch(fetchChats({ userId: 1, scroll, ...paginationDetails }));
     }
 
 
@@ -40,7 +39,7 @@ const ChatList = ({ id }: ChatListProps) => {
         const { id, image, title, time, chatStatus, chatType, chatCommunicationType, content } = item;
         return (
             <ChatListItem
-                key={`${id}_${index}` }
+                key={`${id}_${index}`}
                 image={{ uri: image }}
                 title={title}
                 time={time}
@@ -51,17 +50,25 @@ const ChatList = ({ id }: ChatListProps) => {
             />
         )
     }
+
+    const _renderLeftSwapOption = (data: any, rowMap: any) => {
+        return <View style={{flexDirection: 'row'}}>
+            <Text>{data.item.title}</Text>
+            <Text>Right</Text>
+        </View>
+    }
     return (
-        <VirtualizedList
+        <SwipeListView
             data={chatList.data}
             initialNumToRender={20}
             renderItem={_renderChatItem}
             keyExtractor={item => `chatListUnique_${Math.random()}`}
-            getItemCount={getItemCount}
-            getItem={getItem}
             onEndReached={() => getChats(true)}
             onEndReachedThreshold={0.5}
-            ListFooterComponent={<ListLoaderAtom show={chatList.loading}/>}
+            ListFooterComponent={<ListLoaderAtom show={chatList.loading} />}
+            renderHiddenItem={_renderLeftSwapOption}
+            leftOpenValue={scale(100)}
+            rightOpenValue={-75}
         />
     )
 }
