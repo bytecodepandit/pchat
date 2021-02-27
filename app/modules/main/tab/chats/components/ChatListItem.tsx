@@ -33,7 +33,7 @@ const ChatListItem = ({
 
     const _renderContent = () => {
         return (
-            <Text style={{ color: colors.primary, lineHeight: RFValue(24) }}>
+            <Text style={{ color: colors.primary, lineHeight: RFValue(23), alignItems: 'center', flexDirection: 'row' }}>
                 {chatCommunicationType === ChatCommunicationType.SENDER && <Text><ChatStatusIcon chatStatus={chatStatus}/> </Text>}
                 <ChatTypeIcon chatType={chatType} content={content}/>
                 <Text style={{marginLeft: scale(10)}}> {content}</Text>

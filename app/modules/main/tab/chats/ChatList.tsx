@@ -59,7 +59,7 @@ const ChatList = ({ id }: ChatListProps) => {
             keyExtractor={item => `chatListUnique_${Math.random()}`}
             getItemCount={getItemCount}
             getItem={getItem}
-            // onEndReached={() => getChats(true)}
+            onEndReached={() => getChats(true)}
             onEndReachedThreshold={0.5}
             ListFooterComponent={<ListLoaderAtom show={chatList.loading}/>}
         />

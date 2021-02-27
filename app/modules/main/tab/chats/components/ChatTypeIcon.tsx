@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import ChatType from '@app/core/model/enums/chats/ChatType'
 import colors from '@app/theme/colors';
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -11,16 +11,16 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 interface ChatTypeIconProps {
     chatType: ChatType;
     content?: string;
-    
+
 }
 
 const ChatTypeIcon = ({ chatType, content }: ChatTypeIconProps) => {
     const _renderChatType = () => {
         switch (chatType) {
             case ChatType.IMAGE:
-                return <Text style={{marginRight: scale(4)}}>
+                return <Text style={{ marginRight: scale(4) }}>
                     <Entypo name="camera" size={RFValue(16)} color={colors.primary} style={style.chatTypeIconStyle} />
-                   <Text>{!content ? '  Photo' : null}</Text>
+                    <Text>{!content ? '  Photo' : null}</Text>
                 </Text>
             case ChatType.VIDEO:
                 return <Text>
@@ -29,7 +29,7 @@ const ChatTypeIcon = ({ chatType, content }: ChatTypeIconProps) => {
                 </Text>
             case ChatType.VOICE:
                 return <Text>
-                    <MaterialIcons name="keyboard-voice" size={RFValue(16)} color={colors.primary} style={[style.chatTypeIconStyle, ]} />
+                    <MaterialIcons name="keyboard-voice" size={RFValue(16)} color={colors.primary} style={[style.chatTypeIconStyle,]} />
                     {!content ? '  Voice' : null}
                 </Text>
             default:

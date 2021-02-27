@@ -22,6 +22,7 @@ const UserInlineCard = (props: UserInlineCardProps) => {
         <ListItem containerStyle={styles.containerStyle}
             {...props}>
             <AvatarAtom
+                title={props.name[0]}
                 {...props.avatar}
             />
             <ListItem.Content style={styles.listItemContentStyle}>
