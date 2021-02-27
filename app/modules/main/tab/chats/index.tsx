@@ -29,14 +29,20 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
     const toggleActionBar = (value: boolean) => {
         chatsEditBottomBarRef.current.toggleActionBar(value);
     }
+
+    const selectChats = (value: boolean) => {
+        chatsEditBottomBarRef.current.toggleActionBar(!value);
+        chatListRef.current.toggleSelectable(value);
+        dispatch(toggleTabVisibility(!value));
+    }
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', backgroundColor: colors.mainBackground }}>
             <View style={{ flex: 1 }}>
-            <TouchableHighlight onPress={() =>  toggleSelectable(true)} >
-                <Text>show Action</Text>
+            <TouchableHighlight onPress={() =>  selectChats(true)} >
+                <Text>Edit</Text>
             </TouchableHighlight>
-            <TouchableHighlight onPress={() =>  toggleSelectable(false)} >
-                <Text>hide Action</Text>
+            <TouchableHighlight onPress={() =>  selectChats(false)} >
+                <Text>Done</Text>
             </TouchableHighlight>
                 {/* <Text>sdfsfsdf{JSON.stringify(Device.isTablet)}</Text>
             <Text>sdfsfsdf{JSON.stringify(Device.isIphoneX)}</Text>
