@@ -6,7 +6,7 @@ interface ListLoaderAtomProps {
 }
 
 const ListLoaderAtom = ({show}: ListLoaderAtomProps) => {
-    return show ? <View style={{paddingTop: verticalScale(15)}}>
+    return show ? <View style={{paddingVertical: verticalScale(15)}}>
     <ActivityIndicator size="small" />
 </View> : null
 }
