@@ -1,5 +1,5 @@
 import React, { useRef, useImperativeHandle, forwardRef } from 'react'
-import { View, Text, Animated } from 'react-native';
+import { Text, Animated } from 'react-native';
 
 const ChatsEditBottomBar = (props: any, ref: any) => {
     const TRANSITION_VALUE = {

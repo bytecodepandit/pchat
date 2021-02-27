@@ -6,15 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 import { toggleTabVisibility } from '@app/store/actions';
 import ChatsEditBottomBar from './components/ChatsEditBottomBar';
-import UserInlineCard from '@app/shared/molecules/UserInlineCard';
-import image from '@app/assets/images';
 import colors from '@app/theme/colors';
 import ChatListItem from './components/ChatListItem';
 import ChatType from '@app/core/model/enums/chats/ChatType';
 import ChatCommunicationType from '@app/core/model/enums/chats/ChatCommunicationType';
 import ChatStatus from '@app/core/model/enums/chats/ChatStatus';
 import ChatList from './ChatList';
-import { BASE_URL } from '@app/app.config';
 
 interface ChatsScreenProps {
 
