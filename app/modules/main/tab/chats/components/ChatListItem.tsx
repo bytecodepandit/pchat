@@ -10,9 +10,8 @@ import { scale } from 'react-native-size-matters';
 import { RFValue } from 'react-native-responsive-fontsize';
 import ChatTypeIcon from './ChatTypeIcon';
 import ChatStatusIcon from './ChatStatusIcon';
-import { useDispatch, useSelector } from 'react-redux';
 import { Store } from '@app/core/model/interfaces';
-import { toggleChatSelection } from '@app/store/actions/chat.action';
+import { useSelector } from 'react-redux';
 
 
 interface ChatListItemProps {
@@ -39,13 +38,11 @@ const ChatListItem = ({
     content,
     image,
     selectable,
-    isSelected,
     onPress
 }: ChatListItemProps) => {
 
     const { selectedChats } = useSelector((state: Store) => state);
-    const dispatch = useDispatch();
-
+    
     const _renderContent = () => {
         return (
             <Text style={{ color: colors.primary, lineHeight: RFValue(23), alignItems: 'center', flexDirection: 'row' }}>
@@ -56,20 +53,14 @@ const ChatListItem = ({
         )
     }
 
-    const onSelect = (id: string) => {
-        if (!selectable) {
-            console.log('do something else');
-        } else {
-            dispatch(toggleChatSelection({ id })); 
-        }
-    }
+    
 
     return (
         <UserInlineCard
             avatar={{ source: image }}
             name={title}
             content={_renderContent()}
-            onPress={() => onSelect(id)}
+            onPress={onPress}
             selectable={selectable}
             isSelected={selectedChats.data.includes(id)}
             rightChidren={<Text style={{ color: colors.primary }}>{time}</Text>}
@@ -78,22 +69,3 @@ const ChatListItem = ({
 }
 
 export default ChatListItem;
-
-const style = StyleSheet.create({
-    chatStatusIconStyle: {
-        fontSize: RFValue(16)
-    },
-    chatStatusTextStyle: {
-        color: colors.primary,
-        marginLeft: scale(5),
-        fontSize: RFValue(16),
-        flexWrap: 'wrap'
-    },
-    chatTypeContainerStyle: {
-        flexDirection: 'row',
-    },
-    chatTypeIconStyle: {
-        marginLeft: scale(5),
-        marginRight: scale(3),
-    }
-})

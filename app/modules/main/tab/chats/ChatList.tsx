@@ -13,6 +13,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Swipeout from 'react-native-swipeout';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { toggleChatSelection } from '@app/store/actions/chat.action';
 
 interface ChatListProps {
     id: string;
@@ -44,6 +45,13 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
         dispatch(fetchChats({ userId: 1, scroll, ...paginationDetails }));
     }
 
+    const onSelect = (id: string) => {
+        if (!selectable) {
+            console.log('do something else');
+        } else {
+            dispatch(toggleChatSelection({ id })); 
+        }
+    }
 
     const getItem = (data: ChatItem[], index: any) => (data[index]);
     const getItemCount = (data: ChatItem[]) => data.length;
@@ -68,7 +76,7 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
                     chatCommunicationType={chatCommunicationType}
                     content={content}
                     selectable={selectable}
-                    onSelect={() => console.log('sfsdfsdf')}
+                    onPress={() => onSelect(id)}
                 />
             </Swipeout>
         )

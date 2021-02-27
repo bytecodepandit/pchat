@@ -24,7 +24,7 @@ interface UserInlineCardProps extends ListItemProps {
 
 const UserInlineCard = (props: UserInlineCardProps) => {
     return (
-        <ListItem containerStyle={[styles.containerStyle, {backgroundColor: props.isSelected ? colors.offWhite : colors.white}]}
+        <ListItem activeOpacity={1} containerStyle={[styles.containerStyle, {backgroundColor: props.isSelected ? colors.offWhite : colors.white}]}
             {...props}>
             {props.selectable && ( props.isSelected ? <FontAwesome name="check-circle" color={colors.darkBlue} size={RFValue(27)}/> : <Feather name="circle" color={colors.primary} size={RFValue(23)}/>)}
             <AvatarAtom
