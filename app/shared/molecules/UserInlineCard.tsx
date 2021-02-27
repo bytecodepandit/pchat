@@ -1,12 +1,14 @@
 import image from '@app/assets/images'
 import colors from '@app/theme/colors'
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { GestureResponderEvent, StyleSheet, View } from 'react-native'
 import { ListItem, ListItemProps, TextProps } from 'react-native-elements'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { scale, verticalScale } from 'react-native-size-matters'
 import { AvatarAtom } from '../atoms'
 import { AvatarAtomProps } from '../atoms/AvatarAtom'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Feather from 'react-native-vector-icons/Feather';
 
 
 interface UserInlineCardProps extends ListItemProps {
@@ -15,12 +17,16 @@ interface UserInlineCardProps extends ListItemProps {
     nameStyle?: React.ComponentType<TextProps & { right?: boolean }>;
     content?: React.ReactElement<any>;
     rightChidren?: React.ReactElement<any>;
+    selectable?: boolean;
+    isSelected?: boolean;
+    onPress?: (event: GestureResponderEvent) => void;
 }
 
 const UserInlineCard = (props: UserInlineCardProps) => {
     return (
-        <ListItem containerStyle={styles.containerStyle}
+        <ListItem containerStyle={[styles.containerStyle, {backgroundColor: props.isSelected ? colors.offWhite : colors.white}]}
             {...props}>
+            {props.selectable && ( props.isSelected ? <FontAwesome name="check-circle" color={colors.darkBlue} size={RFValue(27)}/> : <Feather name="circle" color={colors.primary} size={RFValue(23)}/>)}
             <AvatarAtom
                 title={props.name[0]}
                 {...props.avatar}

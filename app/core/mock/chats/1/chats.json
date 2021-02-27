@@ -14,7 +14,7 @@
         "image": "https://i.pinimg.com/originals/b5/a5/bb/b5a5bbaf4c0e744001eb1d1eff2b6c0b.jpg",
         "title": "Wahaj Ali",
         "time": "Today",
-        "chatStatus": "PENDING",
+        "chatStatus": "VIEWED",
         "chatType": "VIDEO",
         "chatCommunicationType": "RECEIVER",
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
@@ -24,7 +24,7 @@
         "image": "https://i.imgur.com/zj0t895.jpg",
         "title": "Anna Kendrick",
         "time": "10:30 PM",
-        "chatStatus": "PENDING",
+        "chatStatus": "VIEWED",
         "chatType": "VIDEO",
         "chatCommunicationType": "SENDER",
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
@@ -40,41 +40,41 @@
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
     },
     {
-        "id": "3",
+        "id": "5",
         "image": "https://i.pinimg.com/originals/6a/e0/6c/6ae06cd2b03a2906be528207fa87544e.jpg",
         "title": "Scarlett Johansson",
         "time": "5:30 AM",
-        "chatStatus": "PENDING",
+        "chatStatus": "DELIVERED",
         "chatType": "VIDEO",
         "chatCommunicationType": "SENDER",
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
     },
     {
-        "id": "4",
+        "id": "6",
         "image": "https://hollywoodlife.com/wp-content/uploads/2017/01/deepika-padukone-biopic.jpg?w=330",
         "title": "Deepika Padukone",
         "time": "5:30 AM",
-        "chatStatus": "VIWED",
+        "chatStatus": "REACHED",
         "chatType": "VOICE",
-        "chatCommunicationType": "SENDER",
+        "chatCommunicationType": "RECEIVER",
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
     },
     {
-        "id": "3",
+        "id": "7",
         "image": "https://cdn.wallpaperjam.com/static/images/m/09/54/095457819d00a8ac486e10e0f7aedca398a82427.jpg",
         "title": "Kristen Stewat",
         "time": "Today",
         "chatStatus": "PENDING",
         "chatType": "VIDEO",
-        "chatCommunicationType": "SENDER",
+        "chatCommunicationType": "RECEIVER",
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
     },
     {
-        "id": "4",
+        "id": "8",
         "image": "https://hollywoodlife.com/wp-content/uploads/2015/06/alicia-cargile-bio-getty.jpg?w=330",
         "title": "Alicia Cargile",
         "time": "Yesterday",
-        "chatStatus": "VIWED",
+        "chatStatus": "VIEWED",
         "chatType": "VOICE",
         "chatCommunicationType": "SENDER",
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"

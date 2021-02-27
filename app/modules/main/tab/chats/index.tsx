@@ -20,15 +20,24 @@ interface ChatsScreenProps {
 export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
     const dispatch = useDispatch();
     const chatsEditBottomBarRef = useRef<any>(null);
+    const chatListRef = useRef<any>(null);
     const { networkConnection } = useSelector((state: any) => state);
 
-
+    const toggleSelectable = (value: boolean) => {
+        chatListRef.current.toggleSelectable(value);
+    }
     const toggleActionBar = (value: boolean) => {
         chatsEditBottomBarRef.current.toggleActionBar(value);
     }
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', backgroundColor: colors.mainBackground }}>
             <View style={{ flex: 1 }}>
+            <TouchableHighlight onPress={() =>  toggleSelectable(true)} >
+                <Text>show Action</Text>
+            </TouchableHighlight>
+            <TouchableHighlight onPress={() =>  toggleSelectable(false)} >
+                <Text>hide Action</Text>
+            </TouchableHighlight>
                 {/* <Text>sdfsfsdf{JSON.stringify(Device.isTablet)}</Text>
             <Text>sdfsfsdf{JSON.stringify(Device.isIphoneX)}</Text>
             <Text>{!networkConnection.isConnected ? 'Waiting for network...' : null}</Text>
@@ -39,7 +48,7 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
                 <Text>Show Tab</Text>
             </TouchableHighlight> */}
                 <View style={{ flex: 1 }}>
-                    <ChatList id="1" />
+                    <ChatList id="1" ref={chatListRef}/>
                 </View>
             </View>
             <ChatsEditBottomBar ref={chatsEditBottomBarRef} />
