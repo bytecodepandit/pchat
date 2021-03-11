@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import ChatType from '@app/core/model/enums/chats/ChatType'
 import colors from '@app/theme/colors';
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -7,6 +7,7 @@ import { scale } from 'react-native-size-matters';
 import Entypo from 'react-native-vector-icons/Entypo';
 import IonIcons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { Text } from '@app/shared/atoms';
 
 interface ChatTypeIconProps {
     chatType: ChatType;

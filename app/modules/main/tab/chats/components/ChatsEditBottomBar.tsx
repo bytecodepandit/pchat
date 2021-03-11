@@ -1,6 +1,7 @@
+import { Text } from '@app/shared/atoms';
 import colors from '@app/theme/colors';
 import React, { useRef, useImperativeHandle, forwardRef } from 'react'
-import { Text, Animated, StyleSheet } from 'react-native';
+import { Animated, StyleSheet } from 'react-native';
 import Device from 'react-native-device-detection';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RFValue } from 'react-native-responsive-fontsize';
