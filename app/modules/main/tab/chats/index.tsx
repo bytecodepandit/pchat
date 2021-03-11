@@ -12,6 +12,7 @@ import ChatType from '@app/core/model/enums/chats/ChatType';
 import ChatCommunicationType from '@app/core/model/enums/chats/ChatCommunicationType';
 import ChatStatus from '@app/core/model/enums/chats/ChatStatus';
 import ChatList from './ChatList';
+import { removeChatSelection } from '@app/store/actions/chat.action';
 
 interface ChatsScreenProps {
 
@@ -34,6 +35,7 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
         chatsEditBottomBarRef.current.toggleActionBar(!value);
         chatListRef.current.toggleSelectable(value);
         dispatch(toggleTabVisibility(!value));
+        dispatch(removeChatSelection());
     }
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', backgroundColor: colors.mainBackground }}>

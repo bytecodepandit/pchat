@@ -1,4 +1,4 @@
-import { FETCH_CHAT_LIST, FETCH_CHAT_LIST_REJECTED, FETCH_CHAT_LIST_RESOLVED, TOGGLE_CHAT_SELECTION } from "../actions/action-types";
+import { FETCH_CHAT_LIST, FETCH_CHAT_LIST_REJECTED, FETCH_CHAT_LIST_RESOLVED, REMOVE_CHAT_SELECTION, TOGGLE_CHAT_SELECTION } from "../actions/action-types";
 import { Action } from "../actions/Action.interface";
 
 
@@ -29,8 +29,8 @@ const chatSelectionInitialState: { data: string[] } = {
 
 export const chatSelectionReducer = (state = chatSelectionInitialState, action: Action) => {
     const { type, payload } = action;
-
     const { data } = state;
+
     switch (type) {
         case TOGGLE_CHAT_SELECTION:
             if (!data.includes(payload.id)) {
@@ -40,6 +40,8 @@ export const chatSelectionReducer = (state = chatSelectionInitialState, action: 
                 data.splice(index, 1);
             }
             return { data };
+        case REMOVE_CHAT_SELECTION:
+            return { data: [] }
         default:
             return { ...state };
     }

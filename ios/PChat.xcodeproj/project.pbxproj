@@ -793,6 +793,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4ZKM63AK2K;
@@ -895,7 +896,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.legacyfantasysports;
+				PRODUCT_BUNDLE_IDENTIFIER = com.legacyfantasysportsllc;
 				PRODUCT_NAME = PChat;
 				PROVISIONING_PROFILE_SPECIFIER = LegacyFantacySportsDevelopement;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -911,6 +912,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4ZKM63AK2K;
@@ -1005,7 +1007,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.legacyfantasysports;
+				PRODUCT_BUNDLE_IDENTIFIER = com.legacyfantasysportsllc;
 				PRODUCT_NAME = PChat;
 				PROVISIONING_PROFILE_SPECIFIER = LegacyFantacySportsDevelopement;
 				SWIFT_VERSION = 5.0;
@@ -1152,6 +1154,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1212,6 +1215,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
