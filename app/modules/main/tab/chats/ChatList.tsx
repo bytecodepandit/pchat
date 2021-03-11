@@ -14,6 +14,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Swipeout from 'react-native-swipeout';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { toggleChatSelection } from '@app/store/actions/chat.action';
+import ChatListScrollableHeader from './components/ChatListScrollableHeader';
 
 interface ChatListProps {
     id: string;
@@ -68,7 +69,7 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
                 <ChatListItem
                     id={id}
                     key={`${id}_${index}`}
-                    image={{ uri: image, cache: 'only-if-cached' }}
+                    image={{ uri: image}}
                     title={title}
                     time={time}
                     chatStatus={chatStatus}
@@ -129,6 +130,7 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
             onEndReached={() => getChats(true)}
             onEndReachedThreshold={0.5}
             ListFooterComponent={<ListLoaderAtom show={chatList.loading} />}
+            ListHeaderComponent={<ChatListScrollableHeader />}
             getItem={getItem}
             getItemCount={getItemCount}
         />

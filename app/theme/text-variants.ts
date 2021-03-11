@@ -2,6 +2,11 @@ import { RFValue } from "react-native-responsive-fontsize";
 import palette from "./palette";
 
 export default {
+    headingXL: {
+        fontSize: RFValue(30),
+        fontWeight: 'bold',
+        color: 'black'
+    },
     title: {
         fontSize: RFValue(20),
         fontWeight: '100',
