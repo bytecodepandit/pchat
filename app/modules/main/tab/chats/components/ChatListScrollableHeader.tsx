@@ -1,10 +1,11 @@
 import { Box, CircleAtom, Text } from '@app/shared/atoms'
 import colors from '@app/theme/colors';
+import { transform } from 'lodash';
 import React from 'react'
 import { Animated, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { moderateScale, verticalScale } from 'react-native-size-matters';
+import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
@@ -17,16 +18,23 @@ const ChatListScrollableHeader = (props: any) => {
                     fontSize: RFValue(30),
                     fontWeight: 'bold',
                     color: '#000',
-                    opacity: props.opacity
+                    opacity: props.opacity,
+                    transform: [
+                        {
+                            scale: props.headingScale
+                        }
+                    ]
                 }}>Chats</Animated.Text>
             </Box>
-            <Box
-                marginBottom="vs"
-                marginTop="vs"
-                flexDirection="row"
-                justifyContent="space-between"
-                paddingHorizontal="hm"
-                alignItems="center"
+            <Animated.View
+                style={{
+                    marginVertical: verticalScale(10),
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    paddingHorizontal: scale(15),
+                    alignItems: 'center'
+                }}
+
             >
                 <Box flexDirection="row" alignItems="center">
                     <CircleAtom
@@ -35,7 +43,7 @@ const ChatListScrollableHeader = (props: any) => {
                     <Text paddingLeft="s" color="darkBlue" fontSize={RFValue(16)}>Archived Chats</Text>
                 </Box>
                 <Text color="primary" fontSize={RFValue(16)}>1</Text>
-            </Box>
+            </Animated.View>
             <Box
                 flexDirection="row"
                 justifyContent="space-between"

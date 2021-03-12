@@ -23,17 +23,28 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
     const dispatch = useDispatch();
     const { chatList } = useSelector((state: any) => state);
     const [selectable, setSelectable] = useState<boolean>(false);
-    const opacity = useRef(new Animated.Value(0)).current;
+    const scrollY = useRef(new Animated.Value(0)).current;
     const paginationDetails = {
         pageSize: 15,
         pageNumber: 0
     }
 
     
-    const opacityValue = opacity.interpolate({
+    const opacityValue = scrollY.interpolate({
         inputRange: [ 40, 60 ],
         outputRange: [0, 1 ]
     })
+
+    const headingOpacity = scrollY.interpolate({
+        inputRange: [ 0, 40 ],
+        outputRange: [1, 0 ]
+    })
+
+    const headingScale = scrollY.interpolate({
+        inputRange: [ 0, 500 ],
+        outputRange: [1, 1.3 ]
+    })
+
 
     useEffect(() => {
         getChats(false);
@@ -137,9 +148,11 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
             onEndReached={() => getChats(true)}
             onEndReachedThreshold={0.5}
             ListFooterComponent={<ListLoaderAtom show={chatList.loading} />}
-            ListHeaderComponent={<ChatListScrollableHeader opacity={scale} />}
+            ListHeaderComponent={<ChatListScrollableHeader opacity={headingOpacity} headingScale={headingScale}/>}
             onScroll={Animated.event(
-                [{nativeEvent: {contentOffset: {y: opacity}}}],
+                [
+                    {nativeEvent: {contentOffset: {y: scrollY}}},
+                ],
                 {useNativeDriver: true}
             )}
         />
