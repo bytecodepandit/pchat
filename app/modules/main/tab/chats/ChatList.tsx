@@ -28,7 +28,6 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
         pageSize: 15,
         pageNumber: 0
     }
-
     
     const opacityValue = scrollY.interpolate({
         inputRange: [ 40, 60 ],
@@ -71,9 +70,6 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
             dispatch(toggleChatSelection({ id }));
         }
     }
-
-    const getItem = (data: ChatItem[], index: any) => (data[index]);
-    const getItemCount = (data: ChatItem[]) => data.length;
 
     const _renderChatItem = ({ item, index }: any) => {
         const { id, image, title, time, chatStatus, chatType, chatCommunicationType, content } = item;

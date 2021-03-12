@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Text } from '@app/shared/atoms';
-import { Animated, GestureResponderEvent } from 'react-native';
+import { ActivityIndicator, Animated, GestureResponderEvent } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import colors from '@app/theme/colors';
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -13,9 +13,10 @@ interface ChatListHeaderProps {
     edit: (event?: GestureResponderEvent) => void;
     done: (event?: GestureResponderEvent) => void;
     opacity: number;
+    networkConnection: boolean
 }
 
-const ChatListHeader = ({ edit, done, opacity }: ChatListHeaderProps) => {
+const ChatListHeader = ({ edit, done, opacity, networkConnection }: ChatListHeaderProps) => {
     const [isEditing, setIsEditing] = useState<boolean>(false);
 
     return (
@@ -38,11 +39,12 @@ const ChatListHeader = ({ edit, done, opacity }: ChatListHeaderProps) => {
                         <Text color="darkBlue">Edit</Text>
                     </TouchableOpacity>}
             </View>
-            <Animated.Text style={{
+            {!networkConnection && <Text style={{alignItems: 'center', flexDirection: 'column'}}><ActivityIndicator size="small"/> <Text style={{marginBottom: verticalScale(10)}}>Waiting for newtwork</Text></Text>}
+            {networkConnection && <Animated.Text style={{
                 opacity: opacity,
                 color: colors.black,
                 fontWeight: 'bold',
-            }}>Chats</Animated.Text>
+            }}>Chats</Animated.Text>}
             <View>
                 <TouchableOpacity onPress={() => { setIsEditing(false); done() }} >
                     <Feather name="edit" color={colors.darkBlue} size={RFValue(18)} />
