@@ -1,8 +1,8 @@
-import React, { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
+import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState} from 'react';
 import ChatItem from '@app/core/model/interfaces/ChatItem.interface';
 import { ListLoaderAtom, Text } from '@app/shared/atoms';
 import { fetchChats } from '@app/store/actions';
-import { View, VirtualizedList } from 'react-native';
+import { View, VirtualizedList, Animated } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import ChatListItem from './components/ChatListItem';
 import { scale } from 'react-native-size-matters';
@@ -15,7 +15,6 @@ import Swipeout from 'react-native-swipeout';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { toggleChatSelection } from '@app/store/actions/chat.action';
 import ChatListScrollableHeader from './components/ChatListScrollableHeader';
-
 interface ChatListProps {
     id: string;
 }
@@ -24,10 +23,17 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
     const dispatch = useDispatch();
     const { chatList } = useSelector((state: any) => state);
     const [selectable, setSelectable] = useState<boolean>(false);
+    const opacity = useRef(new Animated.Value(0)).current;
     const paginationDetails = {
         pageSize: 15,
         pageNumber: 0
     }
+
+    
+    const opacityValue = opacity.interpolate({
+        inputRange: [ 40, 60 ],
+        outputRange: [0, 1 ]
+    })
 
     useEffect(() => {
         getChats(false);
@@ -35,7 +41,8 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
 
     useImperativeHandle(ref, () => (
         {
-            toggleSelectable: (value: boolean) => setSelectable(value)
+            toggleSelectable: (value: boolean) => setSelectable(value),
+            opacity: opacityValue
         }
     ));
 
@@ -50,7 +57,7 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
         if (!selectable) {
             console.log('do something else');
         } else {
-            dispatch(toggleChatSelection({ id })); 
+            dispatch(toggleChatSelection({ id }));
         }
     }
 
@@ -63,13 +70,13 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
             <Swipeout
                 right={_renderLeftSwapOption(item)}
                 left={_renderRightSwapOption(item)}
-                buttonWidth={scale(80)}
+                buttonWidth={80}
                 disabled={selectable}
             >
                 <ChatListItem
                     id={id}
                     key={`${id}_${index}`}
-                    image={{ uri: image}}
+                    image={{ uri: image }}
                     title={title}
                     time={time}
                     chatStatus={chatStatus}
@@ -122,19 +129,21 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
     ])
 
     return (
-        <VirtualizedList
+        <Animated.FlatList
             data={chatList.data}
             initialNumToRender={20}
             renderItem={_renderChatItem}
-            keyExtractor={item => `chatListUnique_${Math.random()}`}
+            keyExtractor={() => `chatListUnique_${Math.random()}`}
             onEndReached={() => getChats(true)}
             onEndReachedThreshold={0.5}
             ListFooterComponent={<ListLoaderAtom show={chatList.loading} />}
-            ListHeaderComponent={<ChatListScrollableHeader />}
-            getItem={getItem}
-            getItemCount={getItemCount}
+            ListHeaderComponent={<ChatListScrollableHeader opacity={scale} />}
+            onScroll={Animated.event(
+                [{nativeEvent: {contentOffset: {y: opacity}}}],
+                {useNativeDriver: true}
+            )}
         />
     )
 }
 
-export default forwardRef(ChatList); 
+export default forwardRef(ChatList);

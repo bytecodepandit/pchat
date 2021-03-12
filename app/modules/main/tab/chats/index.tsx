@@ -29,7 +29,7 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', backgroundColor: colors.mainBackground }}>
             <Box style={{ flex: 1 }} paddingVertical="vs">
-                <ChatListHeader edit={() => selectChats(true)} done={() => selectChats(false)} />
+                <ChatListHeader edit={() => selectChats(true)} done={() => selectChats(false)} opacity={chatListRef && chatListRef.current? chatListRef.current.opacity : 0} />
                 {/* <Text>sdfsfsdf{JSON.stringify(Device.isTablet)}</Text>
             <Text>sdfsfsdf{JSON.stringify(Device.isIphoneX)}</Text>
             <Text>{!networkConnection.isConnected ? 'Waiting for network...' : null}</Text>

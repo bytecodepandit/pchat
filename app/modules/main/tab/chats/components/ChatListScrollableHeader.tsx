@@ -1,7 +1,7 @@
 import { Box, CircleAtom, Text } from '@app/shared/atoms'
 import colors from '@app/theme/colors';
 import React from 'react'
-import { View } from 'react-native';
+import { Animated, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { moderateScale, verticalScale } from 'react-native-size-matters';
@@ -9,11 +9,16 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
 
-const ChatListScrollableHeader = () => {
+const ChatListScrollableHeader = (props: any) => {
     return (
         <Box>
             <Box paddingHorizontal="hm" marginBottom="vs" marginTop="vm">
-                <Text variant="headingXL">Chats</Text>
+                <Animated.Text style={{
+                    fontSize: RFValue(30),
+                    fontWeight: 'bold',
+                    color: '#000',
+                    opacity: props.opacity
+                }}>Chats</Animated.Text>
             </Box>
             <Box
                 marginBottom="vs"

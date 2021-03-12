@@ -1,31 +1,34 @@
 import React, { useState } from 'react';
 import { Box, Text } from '@app/shared/atoms';
-import { GestureResponderEvent } from 'react-native';
+import { Animated, GestureResponderEvent } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import colors from '@app/theme/colors';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { View } from 'native-base';
-import { verticalScale } from 'react-native-size-matters';
+import { scale, verticalScale } from 'react-native-size-matters';
 
 
 interface ChatListHeaderProps {
     edit: (event?: GestureResponderEvent) => void;
     done: (event?: GestureResponderEvent) => void;
+    opacity: number;
 }
 
-const ChatListHeader = ({ edit, done }: ChatListHeaderProps) => {
+const ChatListHeader = ({ edit, done, opacity }: ChatListHeaderProps) => {
     const [isEditing, setIsEditing] = useState<boolean>(false);
 
     return (
-        <Box
-            flexDirection='row'
-            justifyContent='space-between'
-            alignItems='center'
-            paddingHorizontal="vm"
-            borderBottomColor="divider"
-            paddingBottom="vs"
-            borderBottomWidth={verticalScale(1)}
+        <Animated.View
+            style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                paddingHorizontal: scale(15),
+                borderBottomColor: colors.divider,
+                paddingBottom: verticalScale(10),
+                borderBottomWidth: 1
+            }}
         >
             <View>
                 {isEditing ?
@@ -35,13 +38,17 @@ const ChatListHeader = ({ edit, done }: ChatListHeaderProps) => {
                         <Text color="darkBlue">Edit</Text>
                     </TouchableOpacity>}
             </View>
-            <Text color="black" fontWeight="bold">Chats</Text>
+            <Animated.Text style={{
+                opacity: opacity,
+                color: colors.black,
+                fontWeight: 'bold',
+            }}>Chats</Animated.Text>
             <View>
                 <TouchableOpacity onPress={() => { setIsEditing(false); done() }} >
                     <Feather name="edit" color={colors.darkBlue} size={RFValue(18)} />
                 </TouchableOpacity>
             </View>
-        </Box>
+        </Animated.View>
     )
 }
 
