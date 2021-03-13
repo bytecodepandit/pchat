@@ -44,6 +44,11 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
         outputRange: [1, 1.3 ]
     })
 
+    const searchBarScale = scrollY.interpolate({
+        inputRange: [ 0, 80 ],
+        outputRange: [1, 0 ]
+    })
+
 
     useEffect(() => {
         getChats(false);
@@ -144,7 +149,7 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
             onEndReached={() => getChats(true)}
             onEndReachedThreshold={0.5}
             ListFooterComponent={<ListLoaderAtom show={chatList.loading} />}
-            ListHeaderComponent={<ChatListScrollableHeader opacity={headingOpacity} headingScale={headingScale}/>}
+            ListHeaderComponent={<ChatListScrollableHeader opacity={headingOpacity} headingScale={headingScale} searchBarScale={searchBarScale}/>}
             onScroll={Animated.event(
                 [
                     {nativeEvent: {contentOffset: {y: scrollY}}},

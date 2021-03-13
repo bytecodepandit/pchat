@@ -3,10 +3,14 @@ import colors from '@app/theme/colors';
 import { transform } from 'lodash';
 import React from 'react'
 import { Animated, View } from 'react-native';
+import { SearchBar } from 'react-native-elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import spacing from '@app/theme/spacing';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import ChatListSearch from './ChatListSearch';
 
 
 
@@ -26,6 +30,13 @@ const ChatListScrollableHeader = (props: any) => {
                     ]
                 }}>Chats</Animated.Text>
             </Box>
+            <Animated.View>
+                <ChatListSearch
+                    value={''}
+                    onChangeText={(value) => { }}
+                />
+            </Animated.View>
+
             <Animated.View
                 style={{
                     marginVertical: verticalScale(10),
