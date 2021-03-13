@@ -13,11 +13,12 @@ import i18n from '@app/i18n';
 interface ChatListHeaderProps {
     edit: (event?: GestureResponderEvent) => void;
     done: (event?: GestureResponderEvent) => void;
+    create: (event?: GestureResponderEvent) => void;
     opacity: number;
     networkConnection: boolean
 }
 
-const ChatListHeader = ({ edit, done, opacity, networkConnection }: ChatListHeaderProps) => {
+const ChatListHeader = ({ edit, done, create, opacity, networkConnection, }: ChatListHeaderProps) => {
     const [isEditing, setIsEditing] = useState<boolean>(false);
 
     return (
@@ -40,15 +41,15 @@ const ChatListHeader = ({ edit, done, opacity, networkConnection }: ChatListHead
                         <Text color="darkBlue">{i18n.t('edit')}</Text>
                     </TouchableOpacity>}
             </View>
-            {!networkConnection && <Text style={{alignItems: 'center', flexDirection: 'column'}}><ActivityIndicator size="small"/> <Text style={{marginBottom: verticalScale(10)}}>Waiting for newtwork</Text></Text>}
+            {!networkConnection && <Text style={{ alignItems: 'center', flexDirection: 'column' }}><ActivityIndicator size="small" /> <Text style={{ marginBottom: verticalScale(10) }}>Waiting for newtwork</Text></Text>}
             {networkConnection && <Animated.Text style={{
                 opacity: opacity,
                 color: colors.black,
                 fontWeight: 'bold',
             }}>{i18n.t('chats')}</Animated.Text>}
             <View>
-                <TouchableOpacity onPress={() => { setIsEditing(false); done() }} >
-                    <Feather name="edit" color={colors.darkBlue} size={RFValue(18)} />
+                <TouchableOpacity onPress={create} >
+                    <Feather name="edit" color={colors.darkBlue} size={RFValue(18)}/>
                 </TouchableOpacity>
             </View>
         </Animated.View>
