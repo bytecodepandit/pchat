@@ -7,11 +7,11 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 import i18n from '@app/i18n';
 
-interface ChatListSearchProps extends SearchBarProps {
+interface SearchInputBoxProps extends SearchBarProps {
 
 }
 
-const ChatListSearch = (props: ChatListSearchProps) => {
+const SearchInputBox = (props: SearchInputBoxProps) => {
     return <SearchBar
         {...props}
         placeholder={`${i18n.t('typeHere')}...`}
@@ -39,4 +39,4 @@ const ChatListSearch = (props: ChatListSearchProps) => {
     />
 }
 
-export default ChatListSearch;
+export default SearchInputBox;

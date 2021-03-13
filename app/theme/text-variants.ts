@@ -7,6 +7,11 @@ export default {
         fontWeight: 'bold',
         color: 'black'
     },
+    headingM: {
+        color: 'black',
+        fontWeight: 'bold',
+        fontSize: RFValue(16),
+    },
     title: {
         fontSize: RFValue(20),
         fontWeight: '100',

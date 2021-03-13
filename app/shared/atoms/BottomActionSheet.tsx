@@ -3,11 +3,11 @@ import { Dimensions, Text, View, ModalProps } from 'react-native';
 import Modal from 'react-native-modalbox';
 var screen = Dimensions.get('window')
 
-interface NewChatBottomActionSheet extends ModalProps {
-    content: any;
+interface BottomActionSheetProps extends ModalProps {
+    children?: any;
 }
 
-const NewChatBottomActionSheet = (props: any, ref: any) => {
+const BottomActionSheet = (props: BottomActionSheetProps, ref: any) => {
     const [show, setShow] = useState<boolean>(false);
     useImperativeHandle(ref, () => ({
         toggle: (value: boolean) => setShow(value)
@@ -23,10 +23,12 @@ const NewChatBottomActionSheet = (props: any, ref: any) => {
                 onClosed={() => setShow(false)}
                 {...props}
             >
-                {props.content}
+                <View style={{ flex: 1 }}>
+                    {props.children}
+                </View>
             </Modal>
         </>
     )
 }
 
-export default forwardRef(NewChatBottomActionSheet)
+export default forwardRef(BottomActionSheet)

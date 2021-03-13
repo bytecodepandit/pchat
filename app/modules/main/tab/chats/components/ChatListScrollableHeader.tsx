@@ -1,17 +1,13 @@
 import { Box, CircleAtom, Text } from '@app/shared/atoms'
 import colors from '@app/theme/colors';
-import { transform } from 'lodash';
 import React from 'react'
-import { Animated, View } from 'react-native';
-import { SearchBar } from 'react-native-elements';
+import { Animated } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
+import { scale, verticalScale } from 'react-native-size-matters';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import spacing from '@app/theme/spacing';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import ChatListSearch from './ChatListSearch';
 import i18n from '@app/i18n';
+import SearchInputBox from '@app/shared/molecules/SearchInputBox';
 
 
 
@@ -32,7 +28,7 @@ const ChatListScrollableHeader = (props: any) => {
                 }}>{i18n.t('chats')}</Animated.Text>
             </Box>
             <Animated.View>
-                <ChatListSearch
+                <SearchInputBox
                     value={''}
                     onChangeText={(value) => { }}
                 />

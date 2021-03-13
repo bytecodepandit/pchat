@@ -9,7 +9,8 @@ import ChatList from './ChatList';
 import { removeChatSelection } from '@app/store/actions/chat.action';
 import ChatListHeader from './components/ChatListHeader';
 import { Box } from '@app/shared/atoms';
-import NewChatBottomActionSheet from './components/NewChatBottomActionSheet';
+import { BottomActionSheet } from '@app/shared/atoms';
+import NewChatActionSheet from './components/NewChatActionSheet';
 
 interface ChatsScreenProps {
 
@@ -43,7 +44,10 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
                 </View>
             </Box>
             <ChatsEditBottomBar ref={chatsEditBottomBarRef} />
-            <NewChatBottomActionSheet ref={newChatBottomActionSheetRef} />
+            <BottomActionSheet
+                ref={newChatBottomActionSheetRef}
+                children={<NewChatActionSheet close={() => newChatBottomActionSheetRef.current.toggle(false)} />}
+            />
         </SafeAreaView>
     )
 }
