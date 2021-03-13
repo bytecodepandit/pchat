@@ -11,6 +11,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import spacing from '@app/theme/spacing';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ChatListSearch from './ChatListSearch';
+import i18n from '@app/i18n';
 
 
 
@@ -28,7 +29,7 @@ const ChatListScrollableHeader = (props: any) => {
                             scale: props.headingScale
                         }
                     ]
-                }}>Chats</Animated.Text>
+                }}>{i18n.t('chats')}</Animated.Text>
             </Box>
             <Animated.View>
                 <ChatListSearch
@@ -51,7 +52,7 @@ const ChatListScrollableHeader = (props: any) => {
                     <CircleAtom
                         content={<FontAwesome name="archive" color={colors.darkBlue} size={RFValue(16)} />}
                     />
-                    <Text paddingLeft="s" color="darkBlue" fontSize={RFValue(16)}>Archived Chats</Text>
+                    <Text paddingLeft="s" color="darkBlue" fontSize={RFValue(16)}>{i18n.t('archived')}</Text>
                 </Box>
                 <Text color="primary" fontSize={RFValue(16)}>1</Text>
             </Animated.View>
@@ -66,10 +67,10 @@ const ChatListScrollableHeader = (props: any) => {
                 paddingVertical="vm"
             >
                 <TouchableOpacity onPress={() => { }}>
-                    <Text color="darkBlue" fontSize={RFValue(16)}>Broadcast Lists</Text>
+                    <Text color="darkBlue" fontSize={RFValue(16)}>{i18n.t('broadcastList')}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => { }}>
-                    <Text color="darkBlue" fontSize={RFValue(16)}>New Group</Text>
+                    <Text color="darkBlue" fontSize={RFValue(16)}>{i18n.t('newGroup')}</Text>
                 </TouchableOpacity>
             </Box>
         </Box>

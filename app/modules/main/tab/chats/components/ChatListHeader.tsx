@@ -7,6 +7,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { View } from 'native-base';
 import { scale, verticalScale } from 'react-native-size-matters';
+import i18n from '@app/i18n';
 
 
 interface ChatListHeaderProps {
@@ -34,9 +35,9 @@ const ChatListHeader = ({ edit, done, opacity, networkConnection }: ChatListHead
             <View>
                 {isEditing ?
                     <TouchableOpacity onPress={() => { setIsEditing(false); done() }} >
-                        <Text color="darkBlue">Done</Text>
+                        <Text color="darkBlue">{i18n.t('done')}</Text>
                     </TouchableOpacity> : <TouchableOpacity onPress={() => { setIsEditing(true); edit() }}>
-                        <Text color="darkBlue">Edit</Text>
+                        <Text color="darkBlue">{i18n.t('edit')}</Text>
                     </TouchableOpacity>}
             </View>
             {!networkConnection && <Text style={{alignItems: 'center', flexDirection: 'column'}}><ActivityIndicator size="small"/> <Text style={{marginBottom: verticalScale(10)}}>Waiting for newtwork</Text></Text>}
@@ -44,7 +45,7 @@ const ChatListHeader = ({ edit, done, opacity, networkConnection }: ChatListHead
                 opacity: opacity,
                 color: colors.black,
                 fontWeight: 'bold',
-            }}>Chats</Animated.Text>}
+            }}>{i18n.t('chats')}</Animated.Text>}
             <View>
                 <TouchableOpacity onPress={() => { setIsEditing(false); done() }} >
                     <Feather name="edit" color={colors.darkBlue} size={RFValue(18)} />

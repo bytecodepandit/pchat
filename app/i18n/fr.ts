@@ -3,5 +3,11 @@ export default {
     calls: 'Appels',
     camera: 'Caméra',
     chats: 'Chattes',
-    settings: 'Réglages'
-} 
+    settings: 'Réglages',
+    edit: 'Éditer',
+    done: 'Fait',
+    archived: 'Archivé',
+    broadcastList: 'Des listes de diffusion',
+    newGroup: 'Nouveau groupe',
+    typeHere: 'Écrivez ici'
+}

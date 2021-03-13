@@ -5,6 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import colors from '@app/theme/colors';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
+import i18n from '@app/i18n';
 
 interface ChatListSearchProps extends SearchBarProps {
 
@@ -13,7 +14,7 @@ interface ChatListSearchProps extends SearchBarProps {
 const ChatListSearch = (props: ChatListSearchProps) => {
     return <SearchBar
         {...props}
-        placeholder="Type Here..."
+        placeholder={`${i18n.t('typeHere')}...`}
         lightTheme={true}
         showCancel={true}
         containerStyle={{
