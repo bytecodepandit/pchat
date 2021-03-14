@@ -8,6 +8,6 @@ export default {
   tertiary: '#226df5',
   skyblue: '#59acf8',
   darkBlue: '#3478f5',
-  offWhite: '#f2f1f6',
-  fadeGray: '#cfcfcf7a'
+  offWhite: '#f6f6f6',
+  fadeGrey: '#cfcfcf7a'
 };

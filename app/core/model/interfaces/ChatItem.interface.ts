@@ -6,7 +6,8 @@ interface ChatItem {
     chatStatus: string,
     chatType: string,
     chatCommunicationType: string,
-    content: string
+    content: string;
+    status?: string;
 }
 
 export default ChatItem; 

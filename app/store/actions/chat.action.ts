@@ -1,7 +1,12 @@
-import { FETCH_CHAT_LIST, REMOVE_CHAT_SELECTION, TOGGLE_CHAT_SELECTION } from "./action-types";
+import { FETCH_CHAT_LIST, FETCH_USER_WITH_SECTIONS, REMOVE_CHAT_SELECTION, TOGGLE_CHAT_SELECTION } from "./action-types";
 
 export const fetchChats = (payload: any) => ({
     type: FETCH_CHAT_LIST,
+    payload
+});
+
+export const fetchUsersWithSection = (payload: any) => ({
+    type: FETCH_USER_WITH_SECTIONS,
     payload
 });
 

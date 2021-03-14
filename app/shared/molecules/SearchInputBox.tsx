@@ -14,7 +14,7 @@ interface SearchInputBoxProps extends SearchBarProps {
 const SearchInputBox = (props: SearchInputBoxProps) => {
     return <SearchBar
         {...props}
-        placeholder={`${i18n.t('typeHere')}...`}
+        placeholder={`${i18n.t('search')}...`}
         lightTheme={true}
         showCancel={true}
         containerStyle={{
@@ -25,10 +25,10 @@ const SearchInputBox = (props: SearchInputBoxProps) => {
             paddingHorizontal: spacing.hm
         }}
         inputContainerStyle={{
-            backgroundColor: colors.fadeGray,
+            backgroundColor: colors.fadeGrey,
             borderRadius: moderateScale(10),
             maxHeight: verticalScale(40),
-            paddingHorizontal: scale(5)
+            paddingHorizontal: scale(0)
         }}
         inputStyle={{
             paddingVertical: verticalScale(0),

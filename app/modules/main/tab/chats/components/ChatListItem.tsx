@@ -57,7 +57,7 @@ const ChatListItem = ({
 
     return (
         <UserInlineCard
-            avatar={{ source: image }}
+            avatar={{ source: image}}
             name={title}
             content={_renderContent()}
             onPress={onPress}

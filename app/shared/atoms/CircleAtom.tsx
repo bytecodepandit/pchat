@@ -11,7 +11,7 @@ const CircleAtom = (props: any) => {
             width={moderateScale(30)}
             height={moderateScale(30)}
             borderRadius={100}
-            backgroundColor="fadeGray"
+            backgroundColor="fadeGrey"
             justifyContent="center"
             alignItems="center"
             flexDirection="column"

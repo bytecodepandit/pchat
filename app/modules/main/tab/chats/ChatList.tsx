@@ -15,13 +15,14 @@ import Swipeout from 'react-native-swipeout';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { toggleChatSelection } from '@app/store/actions/chat.action';
 import ChatListScrollableHeader from './components/ChatListScrollableHeader';
+import { Store } from '@app/core/model/interfaces';
 interface ChatListProps {
     id: string;
 }
 
 const ChatList = ({ id }: ChatListProps, ref: any) => {
     const dispatch = useDispatch();
-    const { chatList } = useSelector((state: any) => state);
+    const { chatList } = useSelector((state: Store) => state);
     const [selectable, setSelectable] = useState<boolean>(false);
     const scrollY = useRef(new Animated.Value(0)).current;
     const paginationDetails = {

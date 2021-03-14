@@ -15,12 +15,12 @@ type Params = {
 
 const getState = (state: Store) => state;
 
-export function* fetchChats({ payload }: Params) {
+export function* fetchChats({ payload }: Params): any {
     const { userId, scroll } = payload;
     const restApiService = new RestApiService();
     const { chatList } = yield select(getState);
     try {
-        const res = yield restApiService.invoke(ApiEndPoints.getChatsByUserId, { userId });
+        const res: any = yield restApiService.invoke(ApiEndPoints.getChatsByUserId, { userId });
         if (res.status === 200) {
             yield put({
                 type: FETCH_CHAT_LIST_RESOLVED,
@@ -35,4 +35,4 @@ export function* fetchChats({ payload }: Params) {
     }
 }
 
-export default fetchChats; 
+export default fetchChats;

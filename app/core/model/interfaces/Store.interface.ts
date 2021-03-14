@@ -6,6 +6,15 @@ export default interface Store {
     tabBarVisible: boolean,
     userLoginStatus: boolean,
     networkConnection: boolean,
-    chatList: ChatItem,
-    selectedChats: {data: string[]}
+    chatList: {
+        loading: boolean;
+        data: ChatItem[],
+        error: any;
+    },
+    userWithSection: {
+        loading: boolean;
+        data: { title: string, data: ChatItem }[];
+        error: any;
+    },
+    selectedChats: { data: string[] }
 }

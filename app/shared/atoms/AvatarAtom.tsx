@@ -9,12 +9,13 @@ export interface AvatarAtomProps extends AvatarProps {
 
 const AvatarAtom = (props: AvatarAtomProps) => {
     return <Avatar
-        {...props}
         rounded
         title={props.title}
-        size={props && props.imageSize === 'sm' ? moderateScale(45) : moderateScale(54)}
+        size={props && props.imageSize === 'sm' ? moderateScale(40) : moderateScale(54)}
         source={props.source || image.userPlaceHolder}
+        {...props}
+
     />
 }
 
-export default AvatarAtom; 
+export default AvatarAtom;

@@ -7,7 +7,7 @@ import tabBarVisible from './reducers/tab-visibility.reducer';
 import userLoginStatus from './reducers/user-login-status.reducer';
 import networkConnection from './reducers/network.reducer';
 import {chatsReducer as chatList, chatSelectionReducer as selectedChats} from './reducers/chats.reducer';
-
+import userWithSection from './reducers/users-with-section.reducer';
 
 
 const sagaMiddleware = createSagaMiddleware();
@@ -18,7 +18,8 @@ const store = createStore(
         userLoginStatus,
         networkConnection,
         chatList,
-        selectedChats
+        selectedChats,
+        userWithSection
     }), applyMiddleware(sagaMiddleware, logger)
 );
 

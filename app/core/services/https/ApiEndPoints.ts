@@ -9,6 +9,10 @@ const ApiEndPoints = {
     getChatsByUserId: {
         method: 'GET',
         api: (input: APIInput) => `${BASE_URL}/chats/${input.userId}/chats.json`
+    },
+    getUserWithSectionByUserId: {
+        method: 'GET',
+        api: (input: APIInput) => `${BASE_URL}/chats/${input.userId}/user-with-section.json`
     }
 }
 

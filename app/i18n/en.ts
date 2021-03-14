@@ -8,6 +8,13 @@ export default {
     done: 'Done',
     archived: 'Archived',
     broadcastList: 'Broadcast Lists',
+    broadcast: 'Broadcast',
+    list: 'List',
     newGroup: 'New Group',
-    typeHere: 'Type Here'
+    typeHere: 'Type Here',
+    search: 'Search',
+    new: 'New',
+    group: 'Group',
+    cancel: 'Cancel',
+    chat: 'Chat',
 }

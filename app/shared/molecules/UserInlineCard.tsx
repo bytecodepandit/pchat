@@ -1,7 +1,7 @@
 import image from '@app/assets/images'
 import colors from '@app/theme/colors'
 import React from 'react'
-import { GestureResponderEvent, StyleSheet, View } from 'react-native'
+import { GestureResponderEvent, StyleProp, StyleSheet, TextStyle, View, ViewStyle } from 'react-native'
 import { ListItem, ListItemProps, TextProps } from 'react-native-elements'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { scale, verticalScale } from 'react-native-size-matters'
@@ -20,21 +20,24 @@ interface UserInlineCardProps extends ListItemProps {
     selectable?: boolean;
     isSelected?: boolean;
     onPress?: (event: GestureResponderEvent) => void;
+    listItemContentStyle?: StyleProp<ViewStyle>;
+    listItemHeaderStyle?: StyleProp<ViewStyle>;
+    listItemTitleStyle?: StyleProp<TextStyle>;
 }
 
 const UserInlineCard = (props: UserInlineCardProps) => {
     return (
-        <ListItem activeOpacity={1} containerStyle={[styles.containerStyle, {backgroundColor: props.isSelected ? colors.offWhite : colors.white}]}
+        <ListItem activeOpacity={1} containerStyle={[styles.containerStyle, { backgroundColor: props.isSelected ? colors.offWhite : colors.white }]}
             {...props}>
-            {props.selectable && ( props.isSelected ? <FontAwesome name="check-circle" color={colors.darkBlue} size={RFValue(27)}/> : <Feather name="circle" color={colors.primary} size={RFValue(23)}/>)}
+            {props.selectable && (props.isSelected ? <FontAwesome name="check-circle" color={colors.darkBlue} size={RFValue(27)} /> : <Feather name="circle" color={colors.primary} size={RFValue(23)} />)}
             <AvatarAtom
                 title={props.name[0]}
                 {...props.avatar}
             />
-            <ListItem.Content style={styles.listItemContentStyle}>
-                <View style={styles.listItemHeaderStyle}>
+            <ListItem.Content style={[styles.listItemContentStyle, props.listItemContentStyle]}>
+                <View style={[styles.listItemHeaderStyle, props.listItemHeaderStyle]}>
                     <ListItem.Title
-                        style={styles.listItemTitleStyle}
+                        style={[styles.listItemTitleStyle, props.listItemTitleStyle]}
                         numberOfLines={1}
                         {...props.nameStyle}
                     >{props.name}</ListItem.Title>

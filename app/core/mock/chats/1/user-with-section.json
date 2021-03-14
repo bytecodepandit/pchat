@@ -1,0 +1,25 @@
+[
+    {
+        "title": "Frequently Contacted",
+        "data": [
+            {
+                "id": "1",
+                "image": "https://media.allure.com/photos/5e18dbcddd598a0008b3f783/master/pass/kaia-gerber-tattoo.jpg",
+                "title": "Pagli 🤡 😂",
+                "status": "Who cares, do better move on"
+            },
+            {
+                "id": "2",
+                "image": "https://i.pinimg.com/originals/b5/a5/bb/b5a5bbaf4c0e744001eb1d1eff2b6c0b.jpg",
+                "title": "Big Bose Voda",
+                "status": "Can't talk, whatup only"
+            },
+            {
+                "id": "3",
+                "image": "https://i.imgur.com/zj0t895.jpg",
+                "title": "Rashmi Gym Partner",
+                "status": "Avoiding certian people to protect emotions"
+            }
+        ]
+    }
+]
