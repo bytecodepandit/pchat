@@ -17,4 +17,7 @@ export default {
     group: 'Group',
     cancel: 'Cancel',
     chat: 'Chat',
+    add: 'Add',
+    participants: 'Participants',
+    next: 'Next'
 }

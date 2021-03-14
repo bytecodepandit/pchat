@@ -1,7 +1,7 @@
 import { Box, CircleAtom, Text } from '@app/shared/atoms'
 import colors from '@app/theme/colors';
 import React from 'react'
-import { Animated } from 'react-native';
+import { Animated, GestureResponderEvent } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { scale, verticalScale } from 'react-native-size-matters';
@@ -9,9 +9,14 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import i18n from '@app/i18n';
 import SearchInputBox from '@app/shared/molecules/SearchInputBox';
 
+interface ChatListScrollableHeaderProps {
+    opacity: any,
+    headingScale: any,
+    onCreatNewGroup: (event?: GestureResponderEvent) => void;
+}
 
 
-const ChatListScrollableHeader = (props: any) => {
+const ChatListScrollableHeader = ({ opacity, headingScale, onCreatNewGroup }: ChatListScrollableHeaderProps) => {
     return (
         <Box>
             <Box paddingHorizontal="hm" marginBottom="vs" marginTop="vm">
@@ -19,10 +24,10 @@ const ChatListScrollableHeader = (props: any) => {
                     fontSize: RFValue(30),
                     fontWeight: 'bold',
                     color: '#000',
-                    opacity: props.opacity,
+                    opacity: opacity,
                     transform: [
                         {
-                            scale: props.headingScale
+                            scale: headingScale
                         }
                     ]
                 }}>{i18n.t('chats')}</Animated.Text>
@@ -65,7 +70,7 @@ const ChatListScrollableHeader = (props: any) => {
                 <TouchableOpacity onPress={() => { }}>
                     <Text color="darkBlue" fontSize={RFValue(16)}>{i18n.t('broadcastList')}</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => { }}>
+                <TouchableOpacity onPress={onCreatNewGroup}>
                     <Text color="darkBlue" fontSize={RFValue(16)}>{i18n.t('newGroup')}</Text>
                 </TouchableOpacity>
             </Box>

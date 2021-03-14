@@ -2,7 +2,7 @@ import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState} fr
 import ChatItem from '@app/core/model/interfaces/ChatItem.interface';
 import { ListLoaderAtom, Text } from '@app/shared/atoms';
 import { fetchChats } from '@app/store/actions';
-import { View, VirtualizedList, Animated } from 'react-native';
+import { View, VirtualizedList, Animated, GestureResponderEvent } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import ChatListItem from './components/ChatListItem';
 import { scale } from 'react-native-size-matters';
@@ -18,9 +18,10 @@ import ChatListScrollableHeader from './components/ChatListScrollableHeader';
 import { Store } from '@app/core/model/interfaces';
 interface ChatListProps {
     id: string;
+    onCreatNewGroup: (event?: GestureResponderEvent) => void;
 }
 
-const ChatList = ({ id }: ChatListProps, ref: any) => {
+const ChatList = ({ id, onCreatNewGroup }: ChatListProps, ref: any) => {
     const dispatch = useDispatch();
     const { chatList } = useSelector((state: Store) => state);
     const [selectable, setSelectable] = useState<boolean>(false);
@@ -150,7 +151,7 @@ const ChatList = ({ id }: ChatListProps, ref: any) => {
             onEndReached={() => getChats(true)}
             onEndReachedThreshold={0.5}
             ListFooterComponent={<ListLoaderAtom show={chatList.loading} />}
-            ListHeaderComponent={<ChatListScrollableHeader opacity={headingOpacity} headingScale={headingScale} searchBarScale={searchBarScale}/>}
+            ListHeaderComponent={<ChatListScrollableHeader opacity={headingOpacity} headingScale={headingScale} onCreatNewGroup={onCreatNewGroup}/>}
             onScroll={Animated.event(
                 [
                     {nativeEvent: {contentOffset: {y: scrollY}}},

@@ -10,7 +10,7 @@ import { removeChatSelection } from '@app/store/actions/chat.action';
 import ChatListHeader from './components/ChatListHeader';
 import { Box } from '@app/shared/atoms';
 import { BottomActionSheet } from '@app/shared/atoms';
-import NewChatActionSheet from './components/NewChatActionSheet';
+import NewChatGroupActionSheet from './components/NewChatGroupActionSheet';
 
 interface ChatsScreenProps {
 
@@ -21,6 +21,7 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
     const chatsEditBottomBarRef = useRef<any>(null);
     const chatListRef = useRef<any>(null);
     const newChatBottomActionSheetRef = useRef<any>(null);
+    const newChatGroupActionSheetRef = useRef<any>(null);
     const { networkConnection } = useSelector((state: any) => state);
 
     const selectChats = (value: boolean) => {
@@ -37,19 +38,35 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
                     done={() => selectChats(false)}
                     opacity={chatListRef && chatListRef.current ? chatListRef.current.opacity : 0}
                     networkConnection={networkConnection.isConnected}
-                    create={() => newChatBottomActionSheetRef.current.toggle(true)}
+                    create={() => {
+                        newChatBottomActionSheetRef.current.toggle(true);
+                        setTimeout(() => {
+                            newChatGroupActionSheetRef.current.setActivePageNumber(1)
+                        })
+                    }}
                 />
                 <View style={{ flex: 1 }}>
-                    <ChatList id="1" ref={chatListRef} />
+                    <ChatList
+                        id="1"
+                        ref={chatListRef}
+                        onCreatNewGroup={() => {
+                            newChatBottomActionSheetRef.current.toggle(true);
+                            setTimeout(() => {
+                                newChatGroupActionSheetRef.current.setActivePageNumber(2)
+                            })
+                        }}
+                    />
                 </View>
             </Box>
             <ChatsEditBottomBar ref={chatsEditBottomBarRef} />
             <BottomActionSheet
                 ref={newChatBottomActionSheetRef}
-                children={<NewChatActionSheet
-                    close={() => newChatBottomActionSheetRef.current.toggle(false)}
-                    
-                />}
+                children={
+                    <NewChatGroupActionSheet
+                        ref={newChatGroupActionSheetRef}
+                        close={() => newChatBottomActionSheetRef.current.toggle(false)}
+
+                    />}
             />
         </SafeAreaView>
     )

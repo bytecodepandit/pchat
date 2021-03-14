@@ -23,11 +23,12 @@ interface UserInlineCardProps extends ListItemProps {
     listItemContentStyle?: StyleProp<ViewStyle>;
     listItemHeaderStyle?: StyleProp<ViewStyle>;
     listItemTitleStyle?: StyleProp<TextStyle>;
+    containerStyle?: StyleProp<TextStyle>;
 }
 
 const UserInlineCard = (props: UserInlineCardProps) => {
     return (
-        <ListItem activeOpacity={1} containerStyle={[styles.containerStyle, { backgroundColor: props.isSelected ? colors.offWhite : colors.white }]}
+        <ListItem activeOpacity={1} containerStyle={[styles.containerStyle, { backgroundColor: props.isSelected ? colors.offWhite : colors.white }, props.containerStyle]}
             {...props}>
             {props.selectable && (props.isSelected ? <FontAwesome name="check-circle" color={colors.darkBlue} size={RFValue(27)} /> : <Feather name="circle" color={colors.primary} size={RFValue(23)} />)}
             <AvatarAtom
