@@ -4,7 +4,7 @@ import { Avatar, AvatarProps } from 'react-native-elements';
 import { moderateScale } from 'react-native-size-matters';
 
 export interface AvatarAtomProps extends AvatarProps {
-    imageSize?: 'sm' | 'bg'
+    imageSize?: 'sm' | 'bg',
 }
 
 const AvatarAtom = (props: AvatarAtomProps) => {
@@ -14,7 +14,6 @@ const AvatarAtom = (props: AvatarAtomProps) => {
         size={props && props.imageSize === 'sm' ? moderateScale(40) : moderateScale(54)}
         source={props.source || image.userPlaceHolder}
         {...props}
-
     />
 }
 

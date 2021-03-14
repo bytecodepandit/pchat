@@ -5,11 +5,6 @@ export const fetchChats = (payload: any) => ({
     payload
 });
 
-export const fetchUsersWithSection = (payload: any) => ({
-    type: FETCH_USER_WITH_SECTIONS,
-    payload
-});
-
 export const toggleChatSelection = (payload: any) => ({
     type: TOGGLE_CHAT_SELECTION,
     payload

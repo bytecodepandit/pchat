@@ -1,6 +1,6 @@
-import React, { forwardRef, memo, useEffect, useImperativeHandle, useRef, useState } from 'react'
+import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import { Dimensions, GestureResponderEvent, NativeScrollEvent, NativeSyntheticEvent, ScrollView, View } from 'react-native'
-import { fetchUsersWithSection } from '@app/store/actions/chat.action';
+import { fetchUsersWithSection } from '@app/store/actions';
 import { useDispatch } from 'react-redux';
 import NewChat from './NewChat';
 import NewGroup from './NewGroup';
@@ -21,9 +21,11 @@ const NewChatGroupActionSheet = ({ close, onScroll }: NewChatGroupActionSheetPro
     }
 
     const dispatch = useDispatch();
-
     useEffect(() => {
         getUsersWithSection('1', false);
+    }, [])
+    useEffect(() => {
+        
         scrollViewRef.current.scrollTo({ x: activePageNumber * width, y: 0, animated: true })
     }, [activePageNumber])
 
@@ -48,6 +50,7 @@ const NewChatGroupActionSheet = ({ close, onScroll }: NewChatGroupActionSheetPro
                 pagingEnabled={true}
                 showsHorizontalScrollIndicator={false}
                 ref={scrollViewRef}
+                scrollEnabled={false}
             >
                 <View style={{ width }}>
                     <NewChat

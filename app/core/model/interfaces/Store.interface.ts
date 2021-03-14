@@ -16,5 +16,8 @@ export default interface Store {
         data: { title: string, data: ChatItem }[];
         error: any;
     },
+    userForGroupCreation: {
+        data: ChatItem[]
+    }
     selectedChats: { data: string[] }
 }
