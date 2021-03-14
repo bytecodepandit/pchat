@@ -46,7 +46,10 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
             <ChatsEditBottomBar ref={chatsEditBottomBarRef} />
             <BottomActionSheet
                 ref={newChatBottomActionSheetRef}
-                children={<NewChatActionSheet close={() => newChatBottomActionSheetRef.current.toggle(false)} />}
+                children={<NewChatActionSheet
+                    close={() => newChatBottomActionSheetRef.current.toggle(false)}
+                    
+                />}
             />
         </SafeAreaView>
     )

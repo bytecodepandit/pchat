@@ -1,6 +1,6 @@
 import { Box, Text } from '@app/shared/atoms'
-import React, { useEffect } from 'react'
-import { GestureResponderEvent, SectionList, View } from 'react-native'
+import React, { memo, useEffect } from 'react'
+import { GestureResponderEvent, NativeScrollEvent, NativeSyntheticEvent, ScrollView, SectionList, View } from 'react-native'
 import SearchInputBox from '@app/shared/molecules/SearchInputBox';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { fetchUsersWithSection } from '@app/store/actions/chat.action';
@@ -15,10 +15,11 @@ import colors from '@app/theme/colors';
 
 
 interface NewChatActionSheetProps {
-    close: (event?: GestureResponderEvent) => void
+    close: (event?: GestureResponderEvent) => void,
+    onScroll?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
 }
 
-const NewChatActionSheet = ({ close }: NewChatActionSheetProps) => {
+const NewChatActionSheet = ({ close, onScroll }: NewChatActionSheetProps) => {
     const { userWithSection } = useSelector((state: Store) => state);
     const paginationDetails = {
         pageSize: 15,
@@ -61,7 +62,8 @@ const NewChatActionSheet = ({ close }: NewChatActionSheetProps) => {
             <UserInlineCard
                 name={item.title}
                 content={<Text color="grey3" fontSize={RFValue(12)}>{item.status}</Text>}
-                avatar={{ imageSize: 'sm' }}
+                avatar={{ imageSize: 'sm', source: { uri: item.image } }}
+
                 listItemContentStyle={{ minHeight: verticalScale(50) }}
                 listItemTitleStyle={{ fontWeight: '500', fontSize: RFValue(14) }}
                 listItemHeaderStyle={{ marginBottom: verticalScale(5) }}
@@ -82,15 +84,11 @@ const NewChatActionSheet = ({ close }: NewChatActionSheetProps) => {
         </Box>
     )
 
-    return (
-        <View>
-            <View style={{backgroundColor: colors.offWhite, paddingBottom: verticalScale(10), borderTopRightRadius: moderateScale(10), borderTopLeftRadius: moderateScale(10)}}>
-            {_renderHeader()}
-            <SearchInputBox />
-            </View>
+    const _renderSectionListHeader = () => {
+        return <>
             <UserInlineCard
                 name={"New Group"}
-                avatar={{ imageSize: 'sm', icon:{ name: 'home' } }}
+                avatar={{ imageSize: 'sm', icon: { name: 'home' } }}
                 listItemContentStyle={{ minHeight: verticalScale(50) }}
                 listItemTitleStyle={{ fontWeight: '500', fontSize: RFValue(16), color: colors.darkBlue }}
                 listItemHeaderStyle={{ marginBottom: verticalScale(5), marginTop: verticalScale(8) }}
@@ -102,15 +100,28 @@ const NewChatActionSheet = ({ close }: NewChatActionSheetProps) => {
                 listItemTitleStyle={{ fontWeight: '500', fontSize: RFValue(16), color: colors.darkBlue }}
                 listItemHeaderStyle={{ marginBottom: verticalScale(5), marginTop: verticalScale(8) }}
             />
+        </>
+    }
+
+    return (
+        <View style={{flex: 1}}>
+            <View style={{ backgroundColor: colors.offWhite, paddingBottom: verticalScale(10), borderTopRightRadius: moderateScale(10), borderTopLeftRadius: moderateScale(10) }}>
+                {_renderHeader()}
+                <SearchInputBox />
+            </View>
             <SectionList
-                // @ts-ignore
-                sections={userWithSection.data}
-                keyExtractor={(item, index) => item + index}
-                renderItem={({ item }) => _renderUserItem(item)}
-                renderSectionHeader={({ section: { title } }) => _renderSectionHeader(title)}
-            />
+                    // @ts-ignore
+                    sections={userWithSection.data}
+                    style={{flexGrow: 1}}
+                    scrollEnabled={true}
+                    keyExtractor={(item, index) => item + index}
+                    renderItem={({ item }) => _renderUserItem(item)}
+                    renderSectionHeader={({ section: { title } }) => _renderSectionHeader(title)}
+                    ListHeaderComponent={_renderSectionListHeader()}
+                    onScroll={onScroll}
+                />
         </View>
     )
 }
 
-export default NewChatActionSheet
+export default memo(NewChatActionSheet)

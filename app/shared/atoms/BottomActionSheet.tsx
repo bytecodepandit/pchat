@@ -10,18 +10,23 @@ interface BottomActionSheetProps extends ModalProps {
 
 const BottomActionSheet = (props: BottomActionSheetProps, ref: any) => {
     const [show, setShow] = useState<boolean>(false);
+    const [swipeToClose, setSwipeToClose] = useState<boolean>(false);
     useImperativeHandle(ref, () => ({
         toggle: (value: boolean) => setShow(value)
     }))
     return (
         <>
-            <Modal style={{ width: screen.width, height: screen.height - 50, justifyContent: 'center', borderTopRightRadius: moderateScale(10), borderTopLeftRadius: moderateScale(10), overflow: 'hidden' }}
+            <Modal style={{ width: screen.width, height: screen.height - 50, justifyContent: 'center', borderTopRightRadius: moderateScale(10), borderTopLeftRadius: moderateScale(10) }}
                 position='bottom'
                 backdrop={true}
                 ref={ref}
                 coverScreen={true}
                 isOpen={show}
-                onClosed={() => setShow(false)}
+                swipeToClose={swipeToClose}
+                onClosed={() => {
+                    setShow(false);
+                    setSwipeToClose(false)
+                }}
                 {...props}
             >
                 <View style={{ flex: 1 }}>
