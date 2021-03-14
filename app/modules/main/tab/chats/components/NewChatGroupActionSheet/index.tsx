@@ -25,7 +25,6 @@ const NewChatGroupActionSheet = ({ close, onScroll }: NewChatGroupActionSheetPro
         getUsersWithSection('1', false);
     }, [])
     useEffect(() => {
-        
         scrollViewRef.current.scrollTo({ x: activePageNumber * width, y: 0, animated: true })
     }, [activePageNumber])
 

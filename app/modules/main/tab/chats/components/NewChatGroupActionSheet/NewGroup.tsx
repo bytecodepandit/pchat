@@ -100,22 +100,24 @@ const NewGroup = ({ close, onScroll }: NewGroupProps) => {
 
 
     const _renderSelectedUsers = ({ item, index }: { item: ChatItem, index: number }) => (
-        <Box
-            style={{
-                paddingHorizontal: scale(5),
-                position: 'relative'
-            }}
-        >
-            <TouchableWithoutFeedback style={{  top: verticalScale(15), right: 10, zIndex: 1000 }} onPress={() => toggleUserFromParcipants(item, true, index)}>
-                <AntDesign name="closecircle" color={colors.secondary} size={RFValue(20)} />
-            </TouchableWithoutFeedback>
-            <View style={{ position: 'relative', zIndex: 5 }}>
-                <AvatarAtom
-                    source={{ uri: item.image }}
-                />
-            </View>
-            <Text style={{ maxWidth: scale(50), marginTop: verticalScale(5), fontSize: RFValue(10) }} numberOfLines={1}>{item.title}</Text>
-        </Box>
+        <TouchableWithoutFeedback onPress={() => toggleUserFromParcipants(item, true, index)}>
+            <Box
+                style={{
+                    paddingHorizontal: scale(5),
+                    position: 'relative'
+                }}
+            >
+
+                <AntDesign style={{ position: 'absolute', top: verticalScale(0), right: 0 }} name="closecircle" color={colors.primary} size={RFValue(20)} />
+
+                <View style={{ zIndex: 5 }}>
+                    <AvatarAtom
+                        source={{ uri: item.image }}
+                    />
+                </View>
+                <Text style={{ maxWidth: scale(50), marginTop: verticalScale(5), fontSize: RFValue(10) }} numberOfLines={1}>{item.title}</Text>
+            </Box>
+        </TouchableWithoutFeedback>
     )
 
     const _renderSelectUsers = () => {
