@@ -8,9 +8,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ChatItem, Store } from '@app/core/model/interfaces';
 import i18n from '@app/i18n';
 import UserInlineCard from '@app/shared/molecules/UserInlineCard';
-import { moderateScale, verticalScale } from 'react-native-size-matters';
+import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { Avatar, ListItem } from 'react-native-elements';
+// @ts-ignore
+import SectionListSidebar from 'react-native-sectionlist-sidebar';
 import colors from '@app/theme/colors';
 
 
@@ -104,22 +105,29 @@ const NewChatActionSheet = ({ close, onScroll }: NewChatActionSheetProps) => {
     }
 
     return (
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
             <View style={{ backgroundColor: colors.offWhite, paddingBottom: verticalScale(10), borderTopRightRadius: moderateScale(10), borderTopLeftRadius: moderateScale(10) }}>
                 {_renderHeader()}
                 <SearchInputBox />
             </View>
-            <SectionList
-                    // @ts-ignore
-                    sections={userWithSection.data}
-                    style={{flexGrow: 1}}
-                    scrollEnabled={true}
-                    keyExtractor={(item, index) => item + index}
-                    renderItem={({ item }) => _renderUserItem(item)}
-                    renderSectionHeader={({ section: { title } }) => _renderSectionHeader(title)}
-                    ListHeaderComponent={_renderSectionListHeader()}
-                    onScroll={onScroll}
-                />
+            <SectionListSidebar
+                // @ts-ignore
+                data={userWithSection.data}
+                renderItem={({ item }: any) => _renderUserItem(item)}
+                itemHeight={30}
+                renderSectionHeader={({section: {title}}: any) => _renderSectionHeader(title)}
+                ListHeaderComponent={_renderSectionListHeader()}
+                sidebarContainerStyle={{
+                    width: scale(15),
+                    position: 'absolute',
+                    right: 0,
+                    top: verticalScale(60)
+                }}
+                sidebarItemTextStyle={{
+                    color: colors.darkBlue,
+                    fontWeight: '500'
+                }}
+            />
         </View>
     )
 }
