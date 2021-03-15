@@ -1,8 +1,7 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { View, TouchableOpacity } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { View,TouchableOpacity, GestureResponderEvent } from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import { launchImageLibrary } from 'react-native-image-picker';
+import { ImagePickerResponse, launchImageLibrary } from 'react-native-image-picker';
 import { useFocusEffect, useIsFocused } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import { toggleTabVisibility, toggleStatusBar } from '@app/store/actions';
@@ -12,28 +11,24 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import { NavigationScreenProp } from 'react-navigation';
-import { CHATS_SCREEN } from '@app/routes/app-route-labels';
 import { colors } from 'react-native-elements';
 import { RFValue } from 'react-native-responsive-fontsize';
-import Camera from '@app/shared/molecules/Camera';
 
 interface CameraScreenProps {
-    navigation: NavigationScreenProp<any>;
+    close: (event?: GestureResponderEvent) => void;
+    capture: (event?: GestureResponderEvent) => void;
+    selectPhoto: (event?: ImagePickerResponse) => void;
 }
 
-export const CameraScreen = (props: CameraScreenProps) => {
+const Camera = ({close, capture, selectPhoto}: CameraScreenProps) => {
     const isFocused = useIsFocused()
     const cameraRef = useRef<any>(null);
     const [isFlashMode, setIsFlashMode] = useState<boolean>(true);
     const [isBackCamera, setIsBackCamera] = useState<boolean>(true);
-    const [showCamera, setShowCamera] = useState<boolean>(true);
     const dispatch = useDispatch();
-    const { navigation } = props;
 
     useEffect(() => {
         if (isFocused) {
-            setShowCamera(true);
             dispatch(toggleStatusBar(true));
             dispatch(toggleTabVisibility(false));
         }
@@ -44,7 +39,6 @@ export const CameraScreen = (props: CameraScreenProps) => {
             return () => {
                 dispatch(toggleStatusBar(false));
                 dispatch(toggleTabVisibility(true));
-                setShowCamera(false);
             }
         }, [])
     );
@@ -53,6 +47,7 @@ export const CameraScreen = (props: CameraScreenProps) => {
         try {
             const data = await cameraRef.current.takePictureAsync();
             console.log('Path to image: ' + data.uri);
+            capture(data);
         } catch (err) {
             // console.log('err: ', err);
         }
@@ -60,8 +55,9 @@ export const CameraScreen = (props: CameraScreenProps) => {
 
 
     const closeCamera = () => {
-        setShowCamera(false);
-        navigation.navigate(CHATS_SCREEN);
+        dispatch(toggleStatusBar(false));
+        dispatch(toggleTabVisibility(true));
+        close();
     }
 
     const _renderHeader = () => {
@@ -91,11 +87,11 @@ export const CameraScreen = (props: CameraScreenProps) => {
             paddingHorizontal="hm"
             alignItems="center"
             paddingVertical="vm">
-            <TouchableOpacity onPress={() => launchImageLibrary({ quality: 0.5, mediaType: 'photo' }, (event) => console.log('sdfsdfsdf', event))}>
+            <TouchableOpacity onPress={() => launchImageLibrary({ quality: 0.5, mediaType: 'photo' }, (event) => selectPhoto(event))}>
                 <FontAwesome name="photo" color={colors.white} size={RFValue(24)} />
             </TouchableOpacity>
             <View style={{
-                alignItems: "center"
+                alignItems:"center"
             }}>
                 <TouchableOpacity onPress={takePicture}>
                     <Entypo name="circle" color={colors.white} size={RFValue(70)} />
@@ -109,8 +105,19 @@ export const CameraScreen = (props: CameraScreenProps) => {
     }
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            {showCamera && <Camera close={() => closeCamera()} capture={(event) => console.log(event)} selectPhoto={(event) => console.log('on imge picker', event)} />}
-        </SafeAreaView>
+        <RNCamera
+                ref={cameraRef}
+                captureAudio={false}
+                type={RNCamera.Constants.Type[isBackCamera ? 'back' : 'front']}
+                flashMode={RNCamera.Constants.FlashMode[isFlashMode ? 'on' : 'off']}
+                style={{ flex: 1 }}
+            >
+                <Box flex={1} flexDirection="column" justifyContent="space-between">
+                    {_renderHeader()}
+                    {_renderFooter()}
+                </Box>
+            </RNCamera>
     )
 }
+
+export default Camera; 
