@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { View,TouchableOpacity, GestureResponderEvent } from 'react-native';
+import { View, TouchableOpacity, GestureResponderEvent } from 'react-native';
+import Orientation from 'react-native-orientation';
 import { RNCamera } from 'react-native-camera';
 import { ImagePickerResponse, launchImageLibrary } from 'react-native-image-picker';
 import { useFocusEffect, useIsFocused } from '@react-navigation/native';
@@ -20,7 +21,7 @@ interface CameraScreenProps {
     selectPhoto: (event?: ImagePickerResponse) => void;
 }
 
-const Camera = ({close, capture, selectPhoto}: CameraScreenProps) => {
+const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
     const isFocused = useIsFocused()
     const cameraRef = useRef<any>(null);
     const [isFlashMode, setIsFlashMode] = useState<boolean>(true);
@@ -31,6 +32,9 @@ const Camera = ({close, capture, selectPhoto}: CameraScreenProps) => {
         if (isFocused) {
             dispatch(toggleStatusBar(true));
             dispatch(toggleTabVisibility(false));
+            Orientation.addSpecificOrientationListener((event) => {
+                
+            })
         }
     }, [isFocused])
 
@@ -91,7 +95,7 @@ const Camera = ({close, capture, selectPhoto}: CameraScreenProps) => {
                 <FontAwesome name="photo" color={colors.white} size={RFValue(24)} />
             </TouchableOpacity>
             <View style={{
-                alignItems:"center"
+                alignItems: "center"
             }}>
                 <TouchableOpacity onPress={takePicture}>
                     <Entypo name="circle" color={colors.white} size={RFValue(70)} />
@@ -106,18 +110,17 @@ const Camera = ({close, capture, selectPhoto}: CameraScreenProps) => {
 
     return (
         <RNCamera
-                ref={cameraRef}
-                captureAudio={false}
-                type={RNCamera.Constants.Type[isBackCamera ? 'back' : 'front']}
-                flashMode={RNCamera.Constants.FlashMode[isFlashMode ? 'on' : 'off']}
-                style={{ flex: 1 }}
-            >
-                <Box flex={1} flexDirection="column" justifyContent="space-between">
-                    {_renderHeader()}
-                    {_renderFooter()}
-                </Box>
-            </RNCamera>
+            ref={cameraRef}
+            captureAudio={false}
+            type={RNCamera.Constants.Type[isBackCamera ? 'back' : 'front']}
+            flashMode={RNCamera.Constants.FlashMode[isFlashMode ? 'on' : 'off']}
+            style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}
+            onDoubleTap={() => setIsBackCamera(!isBackCamera)}
+        >
+            {_renderHeader()}
+            {_renderFooter()}   
+        </RNCamera>
     )
 }
 
-export default Camera; 
+export default Camera;

@@ -1,6 +1,6 @@
 import React from 'react';
 import colors from '@app/theme/colors';
-import { StyleSheet, StyleProp, ViewStyle, GestureResponderEvent } from 'react-native';
+import { StyleProp, ViewStyle, GestureResponderEvent } from 'react-native';
 import { RadioButtonInput } from 'react-native-simple-radio-button'
 import { moderateScale, scale } from 'react-native-size-matters';
 

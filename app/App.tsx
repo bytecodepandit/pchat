@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@shopify/restyle';
 import React, { useEffect } from 'react';
 import SplashScreen from 'react-native-splash-screen';
+import Orientation from 'react-native-orientation';
 import theme from '@app/theme';
 import { NavigationContainer } from '@react-navigation/native';
 import { Root, Container } from 'native-base';
@@ -11,6 +12,7 @@ import setUserLoginStatus from './store/actions/user-login-status.action';
 import { NetworkService } from './core/services/network.service';
 import { StatusBarAtom } from './shared/atoms';
 import { setAppForeBackGroundStatus } from './store/actions';
+import setDeviceOrientation from './store/actions/device-orientation.action';
 
 
 
@@ -20,14 +22,17 @@ const App = () => {
   const networkService = new NetworkService();
   const dispatch = useDispatch();
 
-
-
   useEffect(() => {
     SplashScreen.hide();
     networkService.init();
     dispatch(setUserLoginStatus(true));
+    // listening device foreground and background states 
     AppState.addEventListener("change", _handleAppStateChange);
 
+    // listening device orientation
+    Orientation.addSpecificOrientationListener((event) => {
+      dispatch(setDeviceOrientation(event));
+    })
     return () => {
       AppState.removeEventListener("change", _handleAppStateChange);
     };
