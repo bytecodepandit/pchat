@@ -1,4 +1,5 @@
 import ChatItem from "./ChatItem.interface";
+import SpecificOrientation from "./Orientation.type";
 
 
 export default interface Store {
@@ -21,4 +22,5 @@ export default interface Store {
     }
     selectedChats: { data: string[] }
     hideStatusBar: boolean;
+    deviceOrientation: SpecificOrientation;
 }

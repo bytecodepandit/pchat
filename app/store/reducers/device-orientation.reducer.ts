@@ -1,9 +1,10 @@
+import { SpecificOrientation } from "@app/core/model/interfaces";
 import { SET_DEVICE_ORIENTATION } from "../actions/action-types";
 import { Action } from "../actions/Action.interface";
 
-type specificOrientation = "LANDSCAPE-LEFT" | "LANDSCAPE-RIGHT" | "PORTRAIT" | "UNKNOWN" | "PORTRAITUPSIDEDOWN";
 
-const setDeviceOrientationReducer = (state: specificOrientation = 'PORTRAIT', action: Action) => {
+
+const setDeviceOrientationReducer = (state: SpecificOrientation = 'PORTRAIT', action: Action) => {
     const { type, payload } = action;
 
     switch (type) {
