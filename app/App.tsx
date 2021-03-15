@@ -9,6 +9,7 @@ import { LogBox } from 'react-native';
 import { useDispatch } from 'react-redux';
 import setUserLoginStatus from './store/actions/user-login-status.action';
 import { NetworkService } from './core/services/network.service';
+import { StatusBarAtom } from './shared/atoms';
 
 
 
@@ -31,6 +32,7 @@ const App = () => {
     <Root>
       <Container>
         <NavigationContainer>
+          <StatusBarAtom />
           {AppRoute()}
         </NavigationContainer>
       </Container>

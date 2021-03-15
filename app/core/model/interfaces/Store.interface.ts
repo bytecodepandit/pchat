@@ -20,4 +20,7 @@ export default interface Store {
         data: ChatItem[]
     }
     selectedChats: { data: string[] }
+    showStatusBar: {
+        hide: boolean;
+    }
 }

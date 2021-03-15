@@ -8,7 +8,7 @@ import userLoginStatus from './reducers/user-login-status.reducer';
 import networkConnection from './reducers/network.reducer';
 import { chatsReducer as chatList, chatSelectionReducer as selectedChats } from './reducers/chats.reducer';
 import { UsersWithSectionReducer as userWithSection, UsersForGroupCreationReducer as userForGroupCreation } from './reducers/users-with-section.reducer';
-
+import showStatusBar from './reducers/statusbar.reducer';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -20,7 +20,8 @@ const store = createStore(
         chatList,
         selectedChats,
         userWithSection,
-        userForGroupCreation
+        userForGroupCreation,
+        showStatusBar
     }), applyMiddleware(sagaMiddleware, logger)
 );
 

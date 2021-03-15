@@ -5,6 +5,7 @@ import ListLoaderAtom from "./ListLoaderAtom";
 import RadioButtonAtom from './RadioButtonAtom';
 import CircleAtom from './CircleAtom';
 import BottomActionSheet from './BottomActionSheet';
+import StatusBarAtom from './StatusBarAtom';
 
 export {
     Text,
@@ -13,5 +14,6 @@ export {
     ListLoaderAtom,
     RadioButtonAtom,
     CircleAtom,
+    StatusBarAtom,
     BottomActionSheet
 }
