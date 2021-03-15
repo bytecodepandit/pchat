@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 
 
 const StatusBarAtom = (props: any) => {
-    const { showStatusBar } = useSelector((state: Store) => state);
-    return <StatusBar hidden={showStatusBar.hide}/>
+    const { hideStatusBar } = useSelector((state: Store) => state);
+    return <StatusBar hidden={hideStatusBar}/>
 }
 
 export default StatusBarAtom; 

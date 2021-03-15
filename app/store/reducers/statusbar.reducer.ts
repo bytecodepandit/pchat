@@ -6,14 +6,14 @@ const initialState = {
     hide: false
 }
 
-const ToggleStatusBarReducer = (state = initialState, action: Action) => {
+const ToggleStatusBarReducer = (state = false, action: Action) => {
     const { type, payload } = action;
 
     switch (type) {
         case TOGGLE_STATUS_BAR:
-            return { hide: payload };
+            return payload;
         default:
-            return { ...state };
+            return state;
     }
 }
 
