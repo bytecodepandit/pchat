@@ -12,7 +12,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { PinchGestureHandler, ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { colors } from 'react-native-elements';
 import { RFValue } from 'react-native-responsive-fontsize';
 import RNFetchBlob from 'rn-fetch-blob';
@@ -34,9 +34,10 @@ const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
     const [isFlashMode, setIsFlashMode] = useState<boolean>(true);
     const [isBackCamera, setIsBackCamera] = useState<boolean>(true);
     const [localStoredImages, SetLocalStoredImages] = useState<string[]>([]);
-    const [showThumnails, setShowThumnails] = useState<boolean>(true);
+    const [showThumnails, setShowThumnails] = useState<boolean>(false);
+    const [zoom, setZoom] = useState<number>(0);
     const dispatch = useDispatch();
-    const translateY = useRef(new Animated.Value(0)).current;
+    const translateY = useRef(new Animated.Value(85)).current;
     const images = [
         'https://images.sadhguru.org/sites/default/files/media_files/love-quotes_0.jpg',
         'https://cdn11.bigcommerce.com/s-x49po/images/stencil/1280x1280/products/36835/50093/1547274864391_Screenshot_20190108_111037_copy__55052.1547528015.jpg?c=2',
@@ -53,6 +54,9 @@ const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
         if (isFocused) {
             dispatch(toggleStatusBar(true));
             dispatch(toggleTabVisibility(false));
+            setTimeout(() => {
+                setShowThumnails(true)
+            }, 500)
             RNFetchBlob.fs.ls(TRACK_FOLDER + '/Caches/Camera').then(files => {
                 console.log(TRACK_FOLDER + '/Caches/Camera', files);
 
@@ -167,16 +171,29 @@ const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
         /> : null
     }
 
+    const onPinchGestureEvent = (event: any) => {
+        console.log(event.nativeEvent.scale - 1);
+        const value = (event.nativeEvent.scale - 1)/ 10; 
+        setZoom(value <= 1 ? value > 0 ? value : 0  : 1)
+      }
+
     return (
         <RNCamera
             ref={cameraRef}
             captureAudio={false}
+            zoom={zoom}
+            maxZoom={1}
             type={RNCamera.Constants.Type[isBackCamera ? 'back' : 'front']}
             flashMode={RNCamera.Constants.FlashMode[isFlashMode ? 'on' : 'off']}
             style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}
             onDoubleTap={() => setIsBackCamera(!isBackCamera)}
         >
             {_renderHeader()}
+            <PinchGestureHandler
+                onGestureEvent={onPinchGestureEvent}
+            > 
+                <View style={{flex: 1}}></View>
+            </PinchGestureHandler>
             <View>
                 <View style={{ overflow: 'hidden', position: 'relative' }}>
                     <Animated.View
