@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { View, TouchableOpacity, GestureResponderEvent, FlatList, Image } from 'react-native';
+import { View, TouchableOpacity, GestureResponderEvent, FlatList, Image, Animated } from 'react-native';
 import Orientation from 'react-native-orientation';
 import { RNCamera } from 'react-native-camera';
 import { ImagePickerResponse, launchImageLibrary } from 'react-native-image-picker';
@@ -11,12 +11,14 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { colors } from 'react-native-elements';
 import { RFValue } from 'react-native-responsive-fontsize';
 import RNFetchBlob from 'rn-fetch-blob';
-import { moderateScale } from 'react-native-size-matters';
+import { moderateScale, verticalScale } from 'react-native-size-matters';
 import GestureRecognizer from 'react-native-swipe-gestures';
+const AnimatedIcon = Animated.createAnimatedComponent(Entypo);
 
 interface CameraScreenProps {
     close: (event?: GestureResponderEvent) => void;
@@ -32,7 +34,9 @@ const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
     const [isFlashMode, setIsFlashMode] = useState<boolean>(true);
     const [isBackCamera, setIsBackCamera] = useState<boolean>(true);
     const [localStoredImages, SetLocalStoredImages] = useState<string[]>([]);
+    const [showThumnails, setShowThumnails] = useState<boolean>(true);
     const dispatch = useDispatch();
+    const translateY = useRef(new Animated.Value(0)).current;
     const images = [
         'https://images.sadhguru.org/sites/default/files/media_files/love-quotes_0.jpg',
         'https://cdn11.bigcommerce.com/s-x49po/images/stencil/1280x1280/products/36835/50093/1547274864391_Screenshot_20190108_111037_copy__55052.1547528015.jpg?c=2',
@@ -55,6 +59,14 @@ const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
             }).catch(error => console.log(error));
         }
     }, [isFocused]);
+
+    useEffect(() => {
+        Animated.timing(translateY, {
+            toValue: showThumnails ? 0 : 85,
+            duration: 500,
+            useNativeDriver: true
+        }).start();
+    }, [showThumnails])
 
     useFocusEffect(
         useCallback(() => {
@@ -98,6 +110,7 @@ const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
         dispatch(toggleTabVisibility(true));
         close();
     }
+
 
     const _renderHeader = () => {
         return <Box
@@ -145,13 +158,13 @@ const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
 
     const _renderSharedImageVideos = () => {
         return localStoredImages.length > 0 ? <FlatList
-        horizontal={true}
-        data={localStoredImages}
-        showsHorizontalScrollIndicator={false}
-        renderItem={({ item, index }) => <Box paddingRight="hxs" key={`thum_image_${index}`}>
-            <Image style={{ width: moderateScale(80), height: moderateScale(80), opacity: 0.85 }} source={{ uri: item }} />
-        </Box>}
-    /> : null
+            horizontal={true}
+            data={localStoredImages}
+            showsHorizontalScrollIndicator={false}
+            renderItem={({ item, index }) => <Box paddingRight="hxs" key={`thum_image_${index}`}>
+                <Image style={{ width: moderateScale(80), height: moderateScale(80), opacity: 0.85 }} source={{ uri: item }} />
+            </Box>}
+        /> : null
     }
 
     return (
@@ -165,7 +178,25 @@ const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
         >
             {_renderHeader()}
             <View>
-                {_renderSharedImageVideos()}
+                <View style={{ overflow: 'hidden', position: 'relative' }}>
+                    <Animated.View
+                        style={{
+                            transform: [
+                                {
+                                    translateY: translateY
+                                }
+                            ]
+                        }}
+                    >
+                        <GestureRecognizer
+                            onSwipeUp={() => setShowThumnails(true)}
+                            onSwipeDown={() => setShowThumnails(false)}
+                            style={{ justifyContent: 'center', width: '100%', alignItems: 'center' }}>
+                            <AnimatedIcon name={showThumnails ? 'minus' : 'chevron-thin-up'} color={colors.white} style={{ height: verticalScale(40) }} size={RFValue(showThumnails ? 50 : 30)} />
+                        </GestureRecognizer>
+                        {_renderSharedImageVideos()}
+                    </Animated.View>
+                </View>
                 {_renderFooter()}
             </View>
         </RNCamera>
