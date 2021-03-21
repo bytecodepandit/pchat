@@ -889,6 +889,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-orientation\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-image-picker\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-safe-area-context\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-image-editor\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-simple-toast\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-splash-screen\"",
 					"\"${PODS_ROOT}/CocoaLibEvent/lib\"",
@@ -900,7 +901,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.legacyfantasysportsllc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.legacyfantasysports;
 				PRODUCT_NAME = PChat;
 				PROVISIONING_PROFILE_SPECIFIER = LegacyFantacySportsDevelopement;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1002,6 +1003,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-orientation\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-camera\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-config\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-image-editor\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/rn-fetch-blob\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-safe-area-context\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-simple-toast\"",
@@ -1015,7 +1017,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.legacyfantasysportsllc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.legacyfantasysports;
 				PRODUCT_NAME = PChat;
 				PROVISIONING_PROFILE_SPECIFIER = LegacyFantacySportsDevelopement;
 				SWIFT_VERSION = 5.0;
