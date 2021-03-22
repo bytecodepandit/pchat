@@ -23,4 +23,9 @@ export default interface Store {
     selectedChats: { data: string[] }
     hideStatusBar: boolean;
     deviceOrientation: SpecificOrientation;
+    callHistory: {
+        loading: boolean;
+        data: ChatItem[],
+        error: any;
+    },
 }

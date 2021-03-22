@@ -1,0 +1,80 @@
+[
+    {
+        "id": "1",
+        "image": "https://media.allure.com/photos/5e18dbcddd598a0008b3f783/master/pass/kaia-gerber-tattoo.jpg",
+        "title": "Allure",
+        "dateTime": "5:30 AM",
+        "callingType": "MISSED",
+        "callType": "GROUP",
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+    },
+    {
+        "id": "2",
+        "image": "https://i.pinimg.com/originals/b5/a5/bb/b5a5bbaf4c0e744001eb1d1eff2b6c0b.jpg",
+        "title": "Wahaj Ali",
+        "dateTime": "Today",
+        "callingType": "OUTGOING",
+        "callType": "INDIVIDUAL",
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+    },
+    {
+        "id": "3",
+        "image": "https://i.imgur.com/zj0t895.jpg",
+        "title": "Anna Kendrick",
+        "dateTime": "10:30 PM",
+        "callingType": "OUTGOING",
+        "callType": "INDIVIDUAL",
+        "chatCommunicationType": "SENDER",
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+    },
+    {
+        "id": "4",
+        "image": "http://2.bp.blogspot.com/-SoWH6umH4aE/TnWB7DvYBdI/AAAAAAAABTc/hzqarL1M6S4/s1600/Chris-Pine-2.jpg",
+        "title": "Chris Pine",
+        "dateTime": "5:30 AM",
+        "callingType": "VIWED",
+        "callType": "GROUP",
+        "chatCommunicationType": "RECEIVER",
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+    },
+    {
+        "id": "5",
+        "image": "https://i.pinimg.com/originals/6a/e0/6c/6ae06cd2b03a2906be528207fa87544e.jpg",
+        "title": "Scarlett Johansson",
+        "dateTime": "5:30 AM",
+        "callingType": "INCOMING",
+        "callType": "INDIVIDUAL",
+        "chatCommunicationType": "SENDER",
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+    },
+    {
+        "id": "6",
+        "image": "https://hollywoodlife.com/wp-content/uploads/2017/01/deepika-padukone-biopic.jpg?w=330",
+        "title": "Deepika Padukone",
+        "dateTime": "5:30 AM",
+        "callingType": "INCOMING",
+        "callType": "GROUP",
+        "chatCommunicationType": "RECEIVER",
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+    },
+    {
+        "id": "7",
+        "image": "https://cdn.wallpaperjam.com/static/images/m/09/54/095457819d00a8ac486e10e0f7aedca398a82427.jpg",
+        "title": "Kristen Stewat",
+        "dateTime": "Today",
+        "callingType": "MISSED",
+        "callType": "INDIVIDUAL",
+        "chatCommunicationType": "RECEIVER",
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+    },
+    {
+        "id": "8",
+        "image": "https://hollywoodlife.com/wp-content/uploads/2015/06/alicia-cargile-bio-getty.jpg?w=330",
+        "title": "Alicia Cargile",
+        "dateTime": "Yesterday",
+        "callingType": "OUTGOING",
+        "callType": "GROUP",
+        "chatCommunicationType": "SENDER",
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+    }
+]

@@ -10,7 +10,9 @@ import { chatsReducer as chatList, chatSelectionReducer as selectedChats } from 
 import { UsersWithSectionReducer as userWithSection, UsersForGroupCreationReducer as userForGroupCreation } from './reducers/users-with-section.reducer';
 import hideStatusBar from './reducers/statusbar.reducer';
 import appForeBackGroundStatus from './reducers/app-forgroun-background-status.reducer';
-import deviceOrientation from './reducers/device-orientation.reducer'
+import deviceOrientation from './reducers/device-orientation.reducer';
+import { setUsersCallHistoryReducer as callHistory } from './reducers/call-history.reducer';
+
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
     combineReducers({
@@ -24,7 +26,8 @@ const store = createStore(
         userForGroupCreation,
         hideStatusBar,
         appForeBackGroundStatus,
-        deviceOrientation
+        deviceOrientation,
+        callHistory
     }), applyMiddleware(sagaMiddleware, logger)
 );
 
