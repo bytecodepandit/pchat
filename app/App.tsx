@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@shopify/restyle';
+import { backgroundColor, ThemeProvider } from '@shopify/restyle';
 import React, { useEffect } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import Orientation from 'react-native-orientation';
@@ -13,6 +13,7 @@ import { NetworkService } from './core/services/network.service';
 import { StatusBarAtom } from './shared/atoms';
 import { setAppForeBackGroundStatus } from './store/actions';
 import setDeviceOrientation from './store/actions/device-orientation.action';
+import colors from '@app/theme/colors';
 
 
 

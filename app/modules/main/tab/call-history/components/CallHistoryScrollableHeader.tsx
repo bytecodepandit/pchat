@@ -4,8 +4,6 @@ import { Animated } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import i18n from '@app/i18n';
 import SearchInputBox from '@app/shared/molecules/SearchInputBox';
-import RNTextSwitch from '@app/shared/molecules/RNTextSwitchView';
-import SwitchSelector from 'react-native-switch-selector';
 
 interface CallHistoryScrollableHeaderProps {
     opacity: any,
