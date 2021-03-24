@@ -8,11 +8,15 @@ target 'PChat' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'React', :path => '../node_modules/react-native/'
+  
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
   pod 'RNI18n', :path => '../node_modules/react-native-i18n'
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  pod 'RCRunkeeperSwitch'
 
   target 'PChatTests' do
     inherit! :complete

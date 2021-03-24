@@ -20,25 +20,25 @@ interface CallHistoryItemProps {
     onPress?: (event?: GestureResponderEvent) => void;
 }
 
-const _renderContent = ( callType: CallType, callingType: CallingType) => (
-    <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-        <Ionicons name="call" size={RFValue(16)} color={colors.primary}/>
-        <Text style={{textTransform: 'capitalize', marginLeft: scale(5), color: colors.primary}}>{callingType}</Text>
+const _renderContent = (callType: CallType, callingType: CallingType) => (
+    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+        <Ionicons name="call" size={RFValue(16)} color={colors.primary} />
+        <Text style={{ textTransform: 'capitalize', marginLeft: scale(5), color: colors.primary }}>{callingType}</Text>
     </View>
 )
 
 const CallHistoryItem = ({ title, image, onPress, dateTime, callType, callingType }: CallHistoryItemProps) => {
     return (
         <UserInlineCard
-            avatar={{ source: image }}
+            avatar={{ source: image, imageSize: 'sm' }}
             name={title}
-            listItemTitleStyle={{color: callingType === 'MISSED' ? colors.error : colors.secondary}}
+            listItemTitleStyle={{ color: callingType === 'MISSED' ? colors.error : colors.secondary, fontWeight: 'normal' }}
             content={_renderContent(callType, callingType)}
             onPress={onPress}
-            listItemContentStyle={{minHeight: verticalScale(40)}}
-            rightChidren={<View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            listItemContentStyle={{ minHeight: verticalScale(40) }}
+            rightChidren={<View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
                 <Text style={{ color: colors.primary, marginRight: scale(10) }}>{dateTime}</Text>
-                <Ionicons name="information-circle-outline" size={RFValue(24)} color={colors.darkBlue}/>
+                <Ionicons name="information-circle-outline" size={RFValue(24)} color={colors.darkBlue} />
             </View>}
         />
     )

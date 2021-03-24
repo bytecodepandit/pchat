@@ -33,6 +33,7 @@
 		8B776CC5987F4724BE6275BA /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D7B3DD37A822402A839C3C3C /* Zocial.ttf */; };
 		997838D42733483E89714370 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE5020901EDE44A79C3916BB /* FontAwesome5_Solid.ttf */; };
 		A08EE4F89EB943CEBBFB4182 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 749415D5D58743149A6F55CE /* EvilIcons.ttf */; };
+		B09083F9260A7103003A8CFA /* RNTextSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = B09083F8260A7103003A8CFA /* RNTextSwitch.m */; };
 		B7D0EF4446074DE4A08404D7 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FD2F63514B8475498278E66 /* MaterialIcons.ttf */; };
 		C990BF18270F45D9BCDF0DD2 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E721705F69EF475F823F557E /* MaterialCommunityIcons.ttf */; };
 		FE0963AEAF794EADA5D1BC3A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3671195DA259445ABFA8AEAF /* FontAwesome.ttf */; };
@@ -90,6 +91,8 @@
 		A27209991977D744D1AAAA8B /* libPods-PChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6A55C37344D475CBE76590A /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		A8DDFB2C276E4AAD839D002D /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		B09083F7260A7103003A8CFA /* RNTextSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNTextSwitch.h; path = PChat/RNTextSwitch.h; sourceTree = "<group>"; };
+		B09083F8260A7103003A8CFA /* RNTextSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNTextSwitch.m; path = PChat/RNTextSwitch.m; sourceTree = "<group>"; };
 		B7AE2C5B1BF8C7EAE11D0F67 /* libPods-PChat-PChatTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PChat-PChatTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5020901EDE44A79C3916BB /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		CC3CF4F0525A4DCC883D9C49 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
+				B09083F7260A7103003A8CFA /* RNTextSwitch.h */,
+				B09083F8260A7103003A8CFA /* RNTextSwitch.m */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -707,6 +712,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				B09083F9260A7103003A8CFA /* RNTextSwitch.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -857,6 +863,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RCTTypeSafety\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNCMaskedView\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RCRunkeeperSwitch\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNGestureHandler\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNI18n\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNReanimated\"",
@@ -972,6 +979,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Folly\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RCTTypeSafety\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RCRunkeeperSwitch\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNCMaskedView\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNGestureHandler\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNI18n\"",

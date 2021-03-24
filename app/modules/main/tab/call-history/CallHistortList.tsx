@@ -36,6 +36,8 @@ const CallHistortList = () => {
     const _renderCallItem = (item: CallHistoryItemInterface, index: number) => (
         <CallHistoryItem
             {...item}
+            // @ts-ignore
+            image={{ uri: item.image }}
             key={`callHistory_${index}`}
         />
     )

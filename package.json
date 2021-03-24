@@ -11,6 +11,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "-": "0.0.1",
     "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/image-editor": "^2.3.0",
     "@react-native-community/masked-view": "^0.1.10",
@@ -30,6 +31,8 @@
     "@types/redux-logger": "^3.0.8",
     "@types/redux-saga": "^0.10.5",
     "axios": "^0.21.1",
+    "create-react-native-module": "^0.20.0",
+    "g": "^2.0.1",
     "lodash": "^4.17.20",
     "native-base": "^2.15.2",
     "react": "16.13.1",
@@ -57,6 +60,7 @@
     "react-native-swipe-gestures": "^1.0.5",
     "react-native-swipe-modal-up-down": "^1.0.9",
     "react-native-swipeout": "^2.3.6",
+    "react-native-switch-selector": "^2.1.4",
     "react-native-vector-icons": "^8.0.0",
     "react-navigation": "^4.4.3",
     "react-redux": "^7.2.2",
@@ -78,6 +82,7 @@
     "eslint": "^6.5.1",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
+    "react-native-create-bridge": "^2.0.1",
     "react-test-renderer": "16.13.1",
     "typescript": "^3.8.3"
   },
