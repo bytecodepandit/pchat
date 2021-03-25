@@ -11,7 +11,7 @@ import { UsersWithSectionReducer as userWithSection, UsersForGroupCreationReduce
 import hideStatusBar from './reducers/statusbar.reducer';
 import appForeBackGroundStatus from './reducers/app-forgroun-background-status.reducer';
 import deviceOrientation from './reducers/device-orientation.reducer';
-import { setUsersCallHistoryReducer as callHistory } from './reducers/call-history.reducer';
+import { setUsersCallHistoryReducer as callHistory, setCallingTypeReducer as callingType } from './reducers/call-history.reducer';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -27,7 +27,8 @@ const store = createStore(
         hideStatusBar,
         appForeBackGroundStatus,
         deviceOrientation,
-        callHistory
+        callHistory,
+        callingType
     }), applyMiddleware(sagaMiddleware, logger)
 );
 

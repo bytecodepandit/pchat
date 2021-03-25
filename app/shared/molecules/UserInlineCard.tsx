@@ -17,36 +17,43 @@ interface UserInlineCardProps extends ListItemProps {
     nameStyle?: React.ComponentType<TextProps & { right?: boolean }>;
     content?: React.ReactElement<any>;
     rightChidren?: React.ReactElement<any>;
+    leftChildren?: React.ReactElement<any>;
     selectable?: boolean;
     isSelected?: boolean;
     onPress?: (event: GestureResponderEvent) => void;
     listItemContentStyle?: StyleProp<ViewStyle>;
     listItemHeaderStyle?: StyleProp<ViewStyle>;
     listItemTitleStyle?: StyleProp<TextStyle>;
-    containerStyle?: StyleProp<TextStyle>;
+    containerStyle?: StyleProp<ViewStyle>;
+    mainContainerStyle?: StyleProp<ViewStyle>;
 }
 
 const UserInlineCard = (props: UserInlineCardProps) => {
     return (
-        <ListItem activeOpacity={1} containerStyle={[styles.containerStyle, { backgroundColor: props.isSelected ? colors.offWhite : colors.white }, props.containerStyle]}
-            {...props}>
-            {props.selectable && (props.isSelected ? <FontAwesome name="check-circle" color={colors.darkBlue} size={RFValue(27)} /> : <Feather name="circle" color={colors.primary} size={RFValue(23)} />)}
-            <AvatarAtom
-                title={props.name[0]}
-                {...props.avatar}
-            />
-            <ListItem.Content style={[styles.listItemContentStyle, props.listItemContentStyle]}>
-                <View style={[styles.listItemHeaderStyle, props.listItemHeaderStyle]}>
-                    <ListItem.Title
-                        style={[styles.listItemTitleStyle, props.listItemTitleStyle]}
-                        numberOfLines={1}
-                        {...props.nameStyle}
-                    >{props.name}</ListItem.Title>
-                    <View>{props.rightChidren}</View>
-                </View>
-                <View>{props.content}</View>
-            </ListItem.Content>
-        </ListItem>
+        <View style={[{ flexDirection: 'row', backgroundColor: colors.white }, props.mainContainerStyle]}>
+             {props.leftChildren}
+            <View style={{flex: 1}}>
+                <ListItem activeOpacity={1} containerStyle={[styles.containerStyle, props.containerStyle]}
+                    {...props}>
+                   
+                    <AvatarAtom
+                        title={props.name[0]}
+                        {...props.avatar}
+                    />
+                    <ListItem.Content style={[styles.listItemContentStyle, props.listItemContentStyle]}>
+                        <View style={[styles.listItemHeaderStyle, props.listItemHeaderStyle]}>
+                            <ListItem.Title
+                                style={[styles.listItemTitleStyle, props.listItemTitleStyle]}
+                                numberOfLines={1}
+                                {...props.nameStyle}
+                            >{props.name}</ListItem.Title>
+                            <View>{props.rightChidren}</View>
+                        </View>
+                        <View>{props.content}</View>
+                    </ListItem.Content>
+                </ListItem>
+            </View>
+        </View>
     )
 }
 

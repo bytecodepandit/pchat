@@ -2,17 +2,23 @@ import { Store } from '@app/core/model/interfaces'
 import { CallHistoryItem as CallHistoryItemInterface } from '@app/core/model/interfaces/CallItem.interface'
 import { ListLoaderAtom } from '@app/shared/atoms'
 import { getUsersCallHistory } from '@app/store/actions/call-history.action'
-import React, { useEffect, useRef } from 'react'
+import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import { Animated } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import CallHistoryItem from './components/CallHistoryItem'
 import CallHistoryScrollableHeader from './components/CallHistoryScrollableHeader'
 
-const CallHistortList = () => {
+const CallHistortList = (props: any, ref: any) => {
 
     const dispath = useDispatch();
-    const { callHistory } = useSelector((state: Store) => state);
+    const { callHistory, callingType } = useSelector((state: Store) => state);
     const scrollY = useRef<any>(new Animated.Value(0)).current;
+    const [isEditing, setIsEditing] = useState<boolean>(false);
+
+    useImperativeHandle(ref,() => ({
+            toggleEditMode: (value: boolean) => setIsEditing(value)
+        }),[],
+    )
 
     useEffect(() => {
         getCallHistory(false);
@@ -30,7 +36,7 @@ const CallHistortList = () => {
 
 
     const getCallHistory = (scroll: boolean) => {
-        dispath(getUsersCallHistory({ userId: 1, scroll }));
+        dispath(getUsersCallHistory({ userId: 1, scroll, query: { callingType } }));
     }
 
     const _renderCallItem = (item: CallHistoryItemInterface, index: number) => (
@@ -39,6 +45,7 @@ const CallHistortList = () => {
             // @ts-ignore
             image={{ uri: item.image }}
             key={`callHistory_${index}`}
+            selectable={isEditing}
         />
     )
 
@@ -62,4 +69,4 @@ const CallHistortList = () => {
     )
 }
 
-export default CallHistortList
+export default forwardRef(CallHistortList)

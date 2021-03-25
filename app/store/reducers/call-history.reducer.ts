@@ -1,4 +1,4 @@
-import { FETCH_CALL_HISTORY, FETCH_CALL_HISTORY_REJECTED, FETCH_CALL_HISTORY_RESOLVED } from "../actions/action-types";
+import { FETCH_CALL_HISTORY, FETCH_CALL_HISTORY_REJECTED, FETCH_CALL_HISTORY_RESOLVED, SET_CALLING_TYPE } from "../actions/action-types";
 import { Action } from "../actions/Action.interface"
 
 
@@ -20,5 +20,16 @@ export const setUsersCallHistoryReducer = (state = initialState, action: Action)
             return { ...state, error: payload, loading: false }
         default:
             return { ...state };
+    }
+}
+
+
+export const setCallingTypeReducer = (state = 'ALL', action: Action) => {
+    const { type, payload } = action;
+    switch (type) {
+        case SET_CALLING_TYPE:
+            return payload;
+        default:
+            return state;
     }
 }

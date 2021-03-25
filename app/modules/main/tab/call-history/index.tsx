@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { View, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CallHistortList from './CallHistortList'
@@ -9,10 +9,11 @@ interface CallHistoryScreenProps {
 }
 
 export const CallHistoryScreen: React.FC = (props: CallHistoryScreenProps)=> {
+    const callHistortListRef = useRef<any>(null);
     return (
         <View>
-            <CallHistoryHeader />
-            <CallHistortList/>
+            <CallHistoryHeader editList={(value) => callHistortListRef.current.toggleEditMode(value)} addCall={() => {}} />
+            <CallHistortList ref={callHistortListRef}/>
         </View>
     )
 }

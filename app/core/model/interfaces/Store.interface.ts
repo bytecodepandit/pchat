@@ -1,3 +1,4 @@
+import { CallingType } from ".";
 import ChatItem from "./ChatItem.interface";
 import SpecificOrientation from "./Orientation.type";
 
@@ -28,4 +29,5 @@ export default interface Store {
         data: ChatItem[],
         error: any;
     },
+    callingType: CallingType
 }

@@ -12,6 +12,8 @@ import ChatTypeIcon from './ChatTypeIcon';
 import ChatStatusIcon from './ChatStatusIcon';
 import { Store } from '@app/core/model/interfaces';
 import { useSelector } from 'react-redux';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Feather from 'react-native-vector-icons/Feather';
 
 
 interface ChatListItemProps {
@@ -42,10 +44,11 @@ const ChatListItem = ({
 }: ChatListItemProps) => {
 
     const { selectedChats } = useSelector((state: Store) => state);
+    const isSelected = selectedChats.data.includes(id);
     
     const _renderContent = () => {
         return (
-            <Text style={{ color: colors.primary, lineHeight: RFValue(23), alignItems: 'center', flexDirection: 'row' }}>
+            <Text style={{ color: colors.primary, lineHeight: RFValue(23), alignItems: 'center', flexDirection: 'row' }} numberOfLines={2}>
                 {chatCommunicationType === ChatCommunicationType.SENDER && <Text><ChatStatusIcon chatStatus={chatStatus} /> </Text>}
                 <ChatTypeIcon chatType={chatType} content={content} />
                 <Text style={{ marginLeft: scale(10) }}> {content}</Text>
@@ -62,7 +65,10 @@ const ChatListItem = ({
             content={_renderContent()}
             onPress={onPress}
             selectable={selectable}
-            isSelected={selectedChats.data.includes(id)}
+            leftChildren={<>{selectable && <View style={{ alignItems: 'center', width: scale(40), justifyContent: 'center'}}>{(isSelected ? <FontAwesome name="check-circle" color={colors.darkBlue} size={RFValue(27)} /> : <Feather name="circle" color={colors.primary} size={RFValue(23)} />)}</View>}</>}
+            mainContainerStyle={{ backgroundColor: isSelected ? colors.offWhite : colors.white }}
+            containerStyle={{ backgroundColor: isSelected ? colors.offWhite : colors.white }}
+            isSelected={isSelected}
             rightChidren={<Text style={{ color: colors.primary }}>{time}</Text>}
         />
     )
