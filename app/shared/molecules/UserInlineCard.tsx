@@ -34,7 +34,7 @@ const UserInlineCard = (props: UserInlineCardProps) => {
              {props.leftChildren}
             <View style={{flex: 1}}>
                 <ListItem activeOpacity={1} containerStyle={[styles.containerStyle, props.containerStyle]}
-                    {...props}>
+                    >
                    
                     <AvatarAtom
                         title={props.name[0]}
