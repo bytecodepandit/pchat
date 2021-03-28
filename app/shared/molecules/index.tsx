@@ -1,9 +1,11 @@
 import UserInlineCard from './UserInlineCard';
 import SearchInputBox from './SearchInputBox';
 import Camera from './Camera';
+import NewCallChatGroupActionSheet from './NewCallChatGroupActionSheet';
 
-export default {
+export {
     UserInlineCard,
     SearchInputBox,
-    Camera
+    Camera,
+    NewCallChatGroupActionSheet
 }

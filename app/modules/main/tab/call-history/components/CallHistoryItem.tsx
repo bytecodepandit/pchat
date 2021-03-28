@@ -58,7 +58,7 @@ const CallHistoryItem = ({ title, image, onPress, dateTime, callType, callingTyp
                 listItemContentStyle={{ minHeight: verticalScale(40) }}
                 selectable={selectable}
                 leftChildren={<>{selectable && <Pressable onPress={() => setIsSelected(!isSelected)} style={{ alignItems: 'center',paddingLeft: scale(15), justifyContent: 'center'}}><Entypo name="circle-with-minus" size={RFValue(20)} color={colors.error}/></Pressable>}</>}
-                rightChidren={<View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                rightChidren={<View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', bottom: scale(-10) }}>
                     <Text style={{ color: colors.primary, marginRight: scale(10) }}>{dateTime}</Text>
                     <Ionicons name="information-circle-outline" size={RFValue(24)} color={colors.darkBlue} />
                 </View>}

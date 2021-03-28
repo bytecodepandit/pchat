@@ -4,15 +4,16 @@ import { fetchUsersWithSection } from '@app/store/actions';
 import { useDispatch } from 'react-redux';
 import NewChat from './NewChat';
 import NewGroup from './NewGroup';
+import NewCall from './NewCall';
 
 const { width } = Dimensions.get('window');
 
-interface NewChatGroupActionSheetProps {
+interface NewCallChatGroupActionSheetProps {
     close: (event?: GestureResponderEvent) => void,
     onScroll?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
 }
 
-const NewChatGroupActionSheet = ({ close, onScroll }: NewChatGroupActionSheetProps, ref: any) => {
+const NewCallChatGroupActionSheet = ({ close, onScroll }: NewCallChatGroupActionSheetProps, ref: any) => {
     const scrollViewRef = useRef<any>(null);
     const [activePageNumber, setActivePageNumber] = useState<number>(1);
     const paginationDetails = {
@@ -28,7 +29,7 @@ const NewChatGroupActionSheet = ({ close, onScroll }: NewChatGroupActionSheetPro
         scrollViewRef.current.scrollTo({ x: activePageNumber * width, y: 0, animated: true })
     }, [activePageNumber])
 
-   
+
     useImperativeHandle(ref, () => (
         {
             setActivePageNumber: (value: number) => setActivePageNumber(value)
@@ -54,16 +55,24 @@ const NewChatGroupActionSheet = ({ close, onScroll }: NewChatGroupActionSheetPro
                 <View style={{ width }}>
                     <NewChat
                         close={close}
-                        onNewGroup={() => setActivePageNumber(2)}
+                        onNewGroup={() => setActivePageNumber(1)}
                         onNewContact={() => { }}
                     />
                 </View>
                 <View style={{ width }}>
                     <NewGroup close={() => { close() }} />
                 </View>
+                <View style={{ width }}>
+                    <NewCall
+                        close={close}
+                        onNewGroup={() => setActivePageNumber(1)}
+                        onNormalCall={() => { }}
+                        onVideoCall={() => { }}
+                    />
+                </View>
             </ScrollView>
         </View>
     )
 }
 
-export default forwardRef(NewChatGroupActionSheet)
+export default forwardRef(NewCallChatGroupActionSheet)

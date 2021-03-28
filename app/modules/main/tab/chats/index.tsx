@@ -10,7 +10,8 @@ import { removeChatSelection } from '@app/store/actions/chat.action';
 import ChatListHeader from './components/ChatListHeader';
 import { Box } from '@app/shared/atoms';
 import { BottomActionSheet } from '@app/shared/atoms';
-import NewChatGroupActionSheet from './components/NewChatGroupActionSheet';
+import { NewCallChatGroupActionSheet } from '@app/shared/molecules';
+
 
 interface ChatsScreenProps {
 
@@ -41,7 +42,7 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
                     create={() => {
                         newChatBottomActionSheetRef.current.toggle(true);
                         setTimeout(() => {
-                            newChatGroupActionSheetRef.current.setActivePageNumber(1)
+                            newChatGroupActionSheetRef.current.setActivePageNumber(0)
                         })
                     }}
                 />
@@ -52,7 +53,7 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
                         onCreatNewGroup={() => {
                             newChatBottomActionSheetRef.current.toggle(true);
                             setTimeout(() => {
-                                newChatGroupActionSheetRef.current.setActivePageNumber(2)
+                                newChatGroupActionSheetRef.current.setActivePageNumber(1)
                             })
                         }}
                     />
@@ -62,10 +63,9 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
             <BottomActionSheet
                 ref={newChatBottomActionSheetRef}
                 children={
-                    <NewChatGroupActionSheet
+                    <NewCallChatGroupActionSheet
                         ref={newChatGroupActionSheetRef}
                         close={() => newChatBottomActionSheetRef.current.toggle(false)}
-
                     />}
             />
         </SafeAreaView>
