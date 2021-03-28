@@ -1,5 +1,5 @@
-import { FETCH_CHAT_LIST, FETCH_CHAT_LIST_REJECTED, FETCH_CHAT_LIST_RESOLVED, REMOVE_CHAT_SELECTION, TOGGLE_CHAT_SELECTION } from "../actions/action-types";
-import { Action } from "../actions/Action.interface";
+import { FETCH_CHAT_LIST, FETCH_CHAT_LIST_REJECTED, FETCH_CHAT_LIST_RESOLVED, REMOVE_CHAT_SELECTION, TOGGLE_CHAT_SELECTION } from "../../actions/action-types";
+import { Action } from "../../actions/Action.interface";
 
 
 const chatsInitialState = {

@@ -1,16 +1,22 @@
 
+import { Box } from '@app/shared/atoms'
+import colors from '@app/theme/colors'
 import React from 'react'
-import { Text } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { SafeAreaView, View } from 'react-native'
+import StatusHeader from './components/StatusHeader'
+import StatusList from './StatusList'
 
 interface StatusScreenProps {
 
 }
 
-export const StatusScreen: React.FC = (props: StatusScreenProps)=> {
+export const StatusScreen: React.FC = (props: StatusScreenProps) => {
     return (
-        <SafeAreaView>
-            <Text>Status</Text>
-        </SafeAreaView>
+        <View style={{ flex: 1, justifyContent: 'space-between', backgroundColor: colors.mainBackground }}>
+            <Box style={{ flex: 1 }} paddingVertical="vs">
+                <StatusHeader showPrivacy={() => { }} />
+                <StatusList />
+            </Box>
+        </View>
     )
 }

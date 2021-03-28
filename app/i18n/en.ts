@@ -19,5 +19,6 @@ export default {
     chat: 'Chat',
     add: 'Add',
     participants: 'Participants',
-    next: 'Next'
+    next: 'Next',
+    privacy: 'Privacy'
 }

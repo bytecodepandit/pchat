@@ -1,5 +1,5 @@
-import { FETCH_CALL_HISTORY, FETCH_CALL_HISTORY_REJECTED, FETCH_CALL_HISTORY_RESOLVED, SET_CALLING_TYPE } from "../actions/action-types";
-import { Action } from "../actions/Action.interface"
+import { FETCH_CALL_HISTORY, FETCH_CALL_HISTORY_REJECTED, FETCH_CALL_HISTORY_RESOLVED, SET_CALLING_TYPE } from "../../actions/action-types";
+import { Action } from "../../actions/Action.interface"
 
 
 const initialState = {

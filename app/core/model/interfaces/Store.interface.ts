@@ -29,5 +29,10 @@ export default interface Store {
         data: ChatItem[],
         error: any;
     },
-    callingType: CallingType
+    callingType: CallingType;
+    usersStatus: {
+        loading: boolean;
+        data: ChatItem[],
+        error: any;
+    },
 }
