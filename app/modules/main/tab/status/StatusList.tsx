@@ -2,18 +2,22 @@ import { Store } from '@app/core/model/interfaces'
 import { ListLoaderAtom } from '@app/shared/atoms'
 import { getStatus } from '@app/store/actions/status.action'
 import React, { forwardRef, useEffect, useRef } from 'react'
-import { Animated } from 'react-native'
+import { Animated, GestureResponderEvent } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import StatusItem from './components/StatusItem'
 import StatusScrollableHeader from './components/StatusScrollableHeader'
 import { UsersStatusItem as StatusItemInterface } from '@app/core/model/interfaces'
 
-const StatusList = (props: any, ref: any) => {
+interface StatusListProps {
+    addStatus: (event?: GestureResponderEvent) => void;
+}
+
+const StatusList = ({ addStatus }: StatusListProps, ref: any) => {
 
     const dispath = useDispatch();
     const { usersStatus } = useSelector((state: Store) => state);
     const scrollY = useRef<any>(new Animated.Value(0)).current;
-    
+
 
     useEffect(() => {
         getUserStatus(false);
@@ -31,7 +35,7 @@ const StatusList = (props: any, ref: any) => {
 
 
     const getUserStatus = (scroll: boolean) => {
-        dispath(getStatus({ userId: 1, scroll}));
+        dispath(getStatus({ userId: 1, scroll }));
     }
 
     const _renderCallItem = (item: StatusItemInterface, index: number) => (
@@ -52,7 +56,7 @@ const StatusList = (props: any, ref: any) => {
             onEndReached={() => getUserStatus(true)}
             onEndReachedThreshold={0.5}
             ListFooterComponent={<ListLoaderAtom show={usersStatus.loading} />}
-            ListHeaderComponent={<StatusScrollableHeader opacity={headingOpacity} headingScale={headingScale} />}
+            ListHeaderComponent={<StatusScrollableHeader addStatus={addStatus} opacity={headingOpacity} headingScale={headingScale} />}
             onScroll={Animated.event(
                 [
                     { nativeEvent: { contentOffset: { y: scrollY } } },

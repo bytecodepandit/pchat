@@ -50,9 +50,9 @@ const ChatListScrollableHeader = ({ opacity, headingScale, onCreatNewGroup }: Ch
 
             >
                 <Box flexDirection="row" alignItems="center">
-                    <CircleAtom
-                        content={<FontAwesome name="archive" color={colors.darkBlue} size={RFValue(16)} />}
-                    />
+                    <CircleAtom>
+                        <FontAwesome name="archive" color={colors.darkBlue} size={RFValue(16)} />
+                    </CircleAtom>
                     <Text paddingLeft="s" color="darkBlue" fontSize={RFValue(16)}>{i18n.t('archived')}</Text>
                 </Box>
                 <Text color="primary" fontSize={RFValue(16)}>1</Text>

@@ -19,9 +19,9 @@ interface StatusItemProps {
 const _renderLeftSwapOption = (data: any) => ([
     {
         component: <TouchableOpacity style={{ height: '100%', alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
-            <Text style={{ color: colors.white }}>Delete</Text>
+            <Text style={{ color: colors.white }}>Mute</Text>
         </TouchableOpacity>,
-        backgroundColor: colors.error,
+        backgroundColor: colors.fadeGrey,
         color: colors.white
     },
 ])

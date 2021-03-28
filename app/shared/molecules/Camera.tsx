@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { View, TouchableOpacity, GestureResponderEvent, FlatList, Image, Animated } from 'react-native';
 import Orientation from 'react-native-orientation';
 import { RNCamera } from 'react-native-camera';
@@ -13,7 +13,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import { PinchGestureHandler, ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import { colors } from 'react-native-elements';
+import { colors, Overlay } from 'react-native-elements';
 import { RFValue } from 'react-native-responsive-fontsize';
 import RNFetchBlob from 'rn-fetch-blob';
 import { moderateScale, verticalScale } from 'react-native-size-matters';
@@ -28,7 +28,7 @@ interface CameraScreenProps {
 
 var TRACK_FOLDER = RNFetchBlob.fs.dirs.LibraryDir;
 
-const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
+const Camera = ({ close, capture, selectPhoto }: CameraScreenProps, ref: any) => {
     const isFocused = useIsFocused()
     const cameraRef = useRef<any>(null);
     const [isFlashMode, setIsFlashMode] = useState<boolean>(true);
@@ -38,6 +38,7 @@ const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
     const [zoom, setZoom] = useState<number>(0);
     const dispatch = useDispatch();
     const translateY = useRef(new Animated.Value(85)).current;
+    const [showCamera, setShowCamera] = useState<boolean>(false);
     const images = [
         'https://images.sadhguru.org/sites/default/files/media_files/love-quotes_0.jpg',
         'https://cdn11.bigcommerce.com/s-x49po/images/stencil/1280x1280/products/36835/50093/1547274864391_Screenshot_20190108_111037_copy__55052.1547528015.jpg?c=2',
@@ -51,7 +52,7 @@ const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
 
     useEffect(() => {
         SetLocalStoredImages(images);
-        if (isFocused) {
+        if (isFocused && showCamera) {
             dispatch(toggleStatusBar(true));
             dispatch(toggleTabVisibility(false));
             setTimeout(() => {
@@ -62,7 +63,7 @@ const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
 
             }).catch(error => console.log(error));
         }
-    }, [isFocused]);
+    }, [isFocused, showCamera]);
 
     useEffect(() => {
         Animated.timing(translateY, {
@@ -80,6 +81,13 @@ const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
             }
         }, [])
     );
+
+
+    useImperativeHandle(ref, () => ({
+        toggle: (value: boolean) => setShowCamera(value)
+    }))
+
+
 
 
 
@@ -173,51 +181,56 @@ const Camera = ({ close, capture, selectPhoto }: CameraScreenProps) => {
 
     const onPinchGestureEvent = (event: any) => {
         console.log(event.nativeEvent.scale - 1);
-        const value = (event.nativeEvent.scale - 1)/ 10; 
-        setZoom(value <= 1 ? value > 0 ? value : 0  : 1)
-      }
+        const value = (event.nativeEvent.scale - 1) / 10;
+        setZoom(value <= 1 ? value > 0 ? value : 0 : 1)
+    }
 
     return (
-        <RNCamera
-            ref={cameraRef}
-            captureAudio={false}
-            zoom={zoom}
-            maxZoom={1}
-            type={RNCamera.Constants.Type[isBackCamera ? 'back' : 'front']}
-            flashMode={RNCamera.Constants.FlashMode[isFlashMode ? 'on' : 'off']}
-            style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}
-            onDoubleTap={() => setIsBackCamera(!isBackCamera)}
+        <Overlay
+            isVisible={showCamera}
+            overlayStyle={{ padding: 0, margin: 0 }}
         >
-            {_renderHeader()}
-            <PinchGestureHandler
-                onGestureEvent={onPinchGestureEvent}
-            > 
-                <View style={{flex: 1}}></View>
-            </PinchGestureHandler>
-            <View>
-                <View style={{ overflow: 'hidden', position: 'relative' }}>
-                    <Animated.View
-                        style={{
-                            transform: [
-                                {
-                                    translateY: translateY
-                                }
-                            ]
-                        }}
-                    >
-                        <GestureRecognizer
-                            onSwipeUp={() => setShowThumnails(true)}
-                            onSwipeDown={() => setShowThumnails(false)}
-                            style={{ justifyContent: 'center', width: '100%', alignItems: 'center' }}>
-                            <AnimatedIcon name={showThumnails ? 'minus' : 'chevron-thin-up'} color={colors.white} style={{ height: verticalScale(40) }} size={RFValue(showThumnails ? 50 : 30)} />
-                        </GestureRecognizer>
-                        {_renderSharedImageVideos()}
-                    </Animated.View>
+            <RNCamera
+                ref={cameraRef}
+                captureAudio={false}
+                zoom={zoom}
+                maxZoom={1}
+                type={RNCamera.Constants.Type[isBackCamera ? 'back' : 'front']}
+                flashMode={RNCamera.Constants.FlashMode[isFlashMode ? 'on' : 'off']}
+                style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}
+                onDoubleTap={() => setIsBackCamera(!isBackCamera)}
+            >
+                {_renderHeader()}
+                <PinchGestureHandler
+                    onGestureEvent={onPinchGestureEvent}
+                >
+                    <View style={{ flex: 1 }}></View>
+                </PinchGestureHandler>
+                <View>
+                    <View style={{ overflow: 'hidden', position: 'relative' }}>
+                        <Animated.View
+                            style={{
+                                transform: [
+                                    {
+                                        translateY: translateY
+                                    }
+                                ]
+                            }}
+                        >
+                            <GestureRecognizer
+                                onSwipeUp={() => setShowThumnails(true)}
+                                onSwipeDown={() => setShowThumnails(false)}
+                                style={{ justifyContent: 'center', width: '100%', alignItems: 'center' }}>
+                                <AnimatedIcon name={showThumnails ? 'minus' : 'chevron-thin-up'} color={colors.white} style={{ height: verticalScale(40) }} size={RFValue(showThumnails ? 50 : 30)} />
+                            </GestureRecognizer>
+                            {_renderSharedImageVideos()}
+                        </Animated.View>
+                    </View>
+                    {_renderFooter()}
                 </View>
-                {_renderFooter()}
-            </View>
-        </RNCamera>
+            </RNCamera>
+        </Overlay>
     )
 }
 
-export default Camera;
+export default forwardRef(Camera);

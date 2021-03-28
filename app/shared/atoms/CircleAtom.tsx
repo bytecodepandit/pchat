@@ -5,6 +5,7 @@ import { moderateScale } from 'react-native-size-matters'
 import Box from './BoxAtom'
 
 
+
 const CircleAtom = (props: any) => {
     return (
         <Box
@@ -17,7 +18,7 @@ const CircleAtom = (props: any) => {
             flexDirection="column"
             {...props}
         >
-            {props.content}
+            {props.children}
         </Box>
     )
 }
