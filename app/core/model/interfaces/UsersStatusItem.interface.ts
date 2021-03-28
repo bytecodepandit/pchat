@@ -1,13 +1,13 @@
+import { GestureResponderEvent, ImageSourcePropType } from "react-native";
+
 interface UsersStatusItem {
-    id: string,
-    image: string,
-    title: string,
-    time: string,
-    chatStatus: string,
-    chatType: string,
-    chatCommunicationType: string,
-    content: string;
-    status?: string;
+    id: string;
+    title: string;
+    time: string;
+    image?: ImageSourcePropType;
+    content?: any;
+    count?: number; 
+    onPress: (event?: GestureResponderEvent) => void;
 }
 
 export default UsersStatusItem; 

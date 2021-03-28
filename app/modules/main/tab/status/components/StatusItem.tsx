@@ -1,3 +1,4 @@
+import { UsersStatusItem } from '@app/core/model/interfaces'
 import { Text } from '@app/shared/atoms'
 import UserInlineCard from '@app/shared/molecules/UserInlineCard'
 import colors from '@app/theme/colors'
@@ -10,14 +11,6 @@ import Swipeout from 'react-native-swipeout'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import StatusAvatarItem from './StatusAvatarItem'
 
-interface StatusItemProps {
-    id: string;
-    title: string;
-    time: string;
-    image?: ImageSourcePropType;
-    count: number; 
-    onPress?: (event?: GestureResponderEvent) => void;
-}
 
 const _renderLeftSwapOption = (data: any) => ([
     {
@@ -36,7 +29,7 @@ const _renderContent = (time: any) => (
     </View>
 )
 
-const StatusItem = ({ title, image, onPress, id, time, count }: StatusItemProps) => {
+const StatusItem = ({ title, image, onPress, id, time, count }: UsersStatusItem) => {
     const [isSelected, setIsSelected] = useState<boolean>(false);
     return (
         <Swipeout
@@ -46,17 +39,17 @@ const StatusItem = ({ title, image, onPress, id, time, count }: StatusItemProps)
             onClose={() => setIsSelected(false)}
         >
             <UserInlineCard
-                // avatar={{ source: image, imageSize: 'sm' }}
                 avatarComponent={<StatusAvatarItem 
-                    source={image}
+                    // @ts-ignore
+                    source={{uri: image}}
                     rounded
                     size="medium"
-                    count={count}
+                    count={count ? count : 1}
                 />}
                 name={title}
                 content={_renderContent(time)}
                 listItemHeaderStyle={{ marginBottom: verticalScale(3) }}
-                listItemContentStyle={{ minHeight: verticalScale(40) }}
+                listItemContentStyle={{ minHeight: verticalScale(40), paddingVertical: verticalScale(15) }}
             />
         </Swipeout>
     )

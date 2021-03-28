@@ -39,14 +39,10 @@ const StatusList = ({ addStatus }: StatusListProps, ref: any) => {
     }
 
     const _renderCallItem = (item: StatusItemInterface, index: number) => (
-        <Box marginBottom="vs">
-            <StatusItem
+        <StatusItem
                 {...item}
-                // @ts-ignore
-                image={{ uri: item.image }}
                 key={`callHistory_${index}`}
             />
-        </Box>
     )
 
     return (
