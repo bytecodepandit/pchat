@@ -7,6 +7,7 @@
         "time": "5:30 AM",
         "callingType": "MISSED",
         "callType": "GROUP",
+        "count": 2,
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
     },
     {
@@ -16,6 +17,7 @@
         "time": "Today",
         "callingType": "OUTGOING",
         "callType": "INDIVIDUAL",
+        "count": 3,
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
     },
     {
@@ -25,6 +27,7 @@
         "time": "10:30 PM",
         "callingType": "OUTGOING",
         "callType": "INDIVIDUAL",
+        "count": 7,
         "chatCommunicationType": "SENDER",
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
     },
@@ -35,6 +38,7 @@
         "time": "5:30 AM",
         "callingType": "INCOMING",
         "callType": "GROUP",
+        "count": 10,
         "chatCommunicationType": "RECEIVER",
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
     },
@@ -46,6 +50,7 @@
         "callingType": "INCOMING",
         "callType": "INDIVIDUAL",
         "chatCommunicationType": "SENDER",
+        "count": 5,
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
     },
     {
@@ -56,6 +61,7 @@
         "callingType": "INCOMING",
         "callType": "GROUP",
         "chatCommunicationType": "RECEIVER",
+        "count": 4,
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
     },
     {
@@ -66,6 +72,7 @@
         "callingType": "MISSED",
         "callType": "INDIVIDUAL",
         "chatCommunicationType": "RECEIVER",
+        "count": 1,
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
     },
     {
@@ -76,6 +83,7 @@
         "callingType": "OUTGOING",
         "callType": "GROUP",
         "chatCommunicationType": "SENDER",
+        "count": 1,
         "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
     }
 ]

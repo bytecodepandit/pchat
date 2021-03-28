@@ -3,16 +3,19 @@ import UserInlineCard from '@app/shared/molecules/UserInlineCard'
 import colors from '@app/theme/colors'
 import React, { useState } from 'react'
 import { View, ImageSourcePropType, GestureResponderEvent, TouchableOpacity } from 'react-native'
+import { Avatar } from 'react-native-elements'
 import { RFValue } from 'react-native-responsive-fontsize'
 import { scale, verticalScale } from 'react-native-size-matters'
 import Swipeout from 'react-native-swipeout'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import StatusAvatarItem from './StatusAvatarItem'
 
 interface StatusItemProps {
     id: string;
     title: string;
     time: string;
     image?: ImageSourcePropType;
+    count: number; 
     onPress?: (event?: GestureResponderEvent) => void;
 }
 
@@ -33,7 +36,7 @@ const _renderContent = (time: any) => (
     </View>
 )
 
-const StatusItem = ({ title, image, onPress, id, time }: StatusItemProps) => {
+const StatusItem = ({ title, image, onPress, id, time, count }: StatusItemProps) => {
     const [isSelected, setIsSelected] = useState<boolean>(false);
     return (
         <Swipeout
@@ -43,7 +46,13 @@ const StatusItem = ({ title, image, onPress, id, time }: StatusItemProps) => {
             onClose={() => setIsSelected(false)}
         >
             <UserInlineCard
-                avatar={{ source: image, imageSize: 'sm' }}
+                // avatar={{ source: image, imageSize: 'sm' }}
+                avatarComponent={<StatusAvatarItem 
+                    source={image}
+                    rounded
+                    size="medium"
+                    count={count}
+                />}
                 name={title}
                 content={_renderContent(time)}
                 listItemHeaderStyle={{ marginBottom: verticalScale(3) }}

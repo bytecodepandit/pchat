@@ -1,5 +1,5 @@
 import { Store } from '@app/core/model/interfaces'
-import { ListLoaderAtom } from '@app/shared/atoms'
+import { Box, ListLoaderAtom } from '@app/shared/atoms'
 import { getStatus } from '@app/store/actions/status.action'
 import React, { forwardRef, useEffect, useRef } from 'react'
 import { Animated, GestureResponderEvent } from 'react-native'
@@ -39,12 +39,14 @@ const StatusList = ({ addStatus }: StatusListProps, ref: any) => {
     }
 
     const _renderCallItem = (item: StatusItemInterface, index: number) => (
-        <StatusItem
-            {...item}
-            // @ts-ignore
-            image={{ uri: item.image }}
-            key={`callHistory_${index}`}
-        />
+        <Box marginBottom="vs">
+            <StatusItem
+                {...item}
+                // @ts-ignore
+                image={{ uri: item.image }}
+                key={`callHistory_${index}`}
+            />
+        </Box>
     )
 
     return (

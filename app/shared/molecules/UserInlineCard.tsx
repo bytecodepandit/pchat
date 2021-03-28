@@ -14,6 +14,7 @@ import Feather from 'react-native-vector-icons/Feather';
 interface UserInlineCardProps extends ListItemProps {
     name: string;
     avatar?: AvatarAtomProps,
+    avatarComponent?: React.ReactElement<any>,
     nameStyle?: React.ComponentType<TextProps & { right?: boolean }>;
     content?: React.ReactElement<any>;
     rightChidren?: React.ReactElement<any>;
@@ -26,6 +27,7 @@ interface UserInlineCardProps extends ListItemProps {
     listItemTitleStyle?: StyleProp<TextStyle>;
     containerStyle?: StyleProp<ViewStyle>;
     mainContainerStyle?: StyleProp<ViewStyle>;
+
 }
 
 const UserInlineCard = (props: UserInlineCardProps) => {
@@ -35,11 +37,10 @@ const UserInlineCard = (props: UserInlineCardProps) => {
             <View style={{flex: 1}}>
                 <ListItem activeOpacity={1} containerStyle={[styles.containerStyle, props.containerStyle]}
                     >
-                   
-                    <AvatarAtom
+                   {!props.avatarComponent ? <AvatarAtom
                         title={props.name[0]}
                         {...props.avatar}
-                    />
+                    /> : props.avatarComponent}
                     <ListItem.Content style={[styles.listItemContentStyle, props.listItemContentStyle]}>
                         <View style={[styles.listItemHeaderStyle, props.listItemHeaderStyle]}>
                             <ListItem.Title

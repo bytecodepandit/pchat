@@ -14,7 +14,7 @@ const StatusHeader = ({ showPrivacy }: StatusHeaderProps) => {
 
     return (
         <Header
-            containerStyle={{ paddingTop: verticalScale(20) }}
+            containerStyle={{ paddingTop: verticalScale(5) }}
             leftComponent={<Pressable onPress={showPrivacy}>
                 <Text color="darkBlue">{i18n.t('privacy')}</Text>
             </Pressable>}
