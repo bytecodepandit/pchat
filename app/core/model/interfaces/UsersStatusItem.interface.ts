@@ -4,6 +4,7 @@ interface UsersStatusItem {
     id: string;
     title: string;
     time: string;
+    statusContent: string[];
     image?: ImageSourcePropType;
     content?: any;
     count?: number; 

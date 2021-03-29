@@ -1,4 +1,3 @@
-
 [
     {
         "id": "1",
@@ -8,7 +7,12 @@
         "callingType": "MISSED",
         "callType": "GROUP",
         "count": 2,
-        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://www.goodmorningimageshddownload.com/wp-content/uploads/2018/12/Whatsapp-Status-Images-5.jpg",
+            "https://static.statusqueen.in/imagestatus/thumbnail/shak-57-254.jpg",
+            "https://static1.squarespace.com/static/5cb06a6cd7456246c1156693/t/5cc494c0e79c701e37bdd462/1556387011824/S10%2B+Wallpaper+-+01.jpg"
+        ]
     },
     {
         "id": "2",
@@ -18,7 +22,11 @@
         "callingType": "OUTGOING",
         "callType": "INDIVIDUAL",
         "count": 3,
-        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTepU94GL3aWTWb40AA8zr8RU1ka8ixGxadwQ&usqp=CAU",
+            "https://static1.squarespace.com/static/5cb06a6cd7456246c1156693/t/5cc494c0e79c701e37bdd462/1556387011824/S10%2B+Wallpaper+-+01.jpg"
+        ]
     },
     {
         "id": "3",
@@ -29,7 +37,13 @@
         "callType": "INDIVIDUAL",
         "count": 7,
         "chatCommunicationType": "SENDER",
-        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZgJtbHBislTLgrB1FoNNhHxFRwRrOTXOcUcHzfw9hEXC2VbX8jesqwkkbQhH45E25Txo&usqp=CAU",
+            "https://i.pinimg.com/originals/dc/c6/d4/dcc6d4ea22c553ae169e6637c085e389.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQePPwfmljFGbT3DB_aGzSfMG_l5uNbB6fOU6v9qaiEp2qKgYGktWAI6NfALQivmTiioAA&usqp=CAU",
+            "https://i.pinimg.com/originals/a8/4b/45/a84b45caf987ad803d5a0e4360da449f.jpg"
+        ]
     },
     {
         "id": "4",
@@ -40,7 +54,10 @@
         "callType": "GROUP",
         "count": 10,
         "chatCommunicationType": "RECEIVER",
-        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://i.pinimg.com/originals/dc/c6/d4/dcc6d4ea22c553ae169e6637c085e389.jpg"
+        ]
     },
     {
         "id": "5",
@@ -51,7 +68,11 @@
         "callType": "INDIVIDUAL",
         "chatCommunicationType": "SENDER",
         "count": 5,
-        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://i.pinimg.com/originals/dc/c6/d4/dcc6d4ea22c553ae169e6637c085e389.jpg",
+            "https://urduquote.in/wp-content/uploads/2020/10/romantic-status-for-whatsapp-in-urdu-22.jpg"
+        ]
     },
     {
         "id": "6",
@@ -62,7 +83,13 @@
         "callType": "GROUP",
         "chatCommunicationType": "RECEIVER",
         "count": 4,
-        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://i.pinimg.com/originals/dc/c6/d4/dcc6d4ea22c553ae169e6637c085e389.jpg",
+            "https://urduquote.in/wp-content/uploads/2020/10/romantic-status-for-whatsapp-in-urdu-22.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQePPwfmljFGbT3DB_aGzSfMG_l5uNbB6fOU6v9qaiEp2qKgYGktWAI6NfALQivmTiioAA&usqp=CAU",
+            "https://i.pinimg.com/originals/a8/4b/45/a84b45caf987ad803d5a0e4360da449f.jpg"
+        ]
     },
     {
         "id": "7",
@@ -73,7 +100,10 @@
         "callType": "INDIVIDUAL",
         "chatCommunicationType": "RECEIVER",
         "count": 1,
-        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://one-week-in.com/wp-content/uploads/2019/12/never-stop-doing-your-best.jpg"
+        ]
     },
     {
         "id": "8",
@@ -84,6 +114,12 @@
         "callType": "GROUP",
         "chatCommunicationType": "SENDER",
         "count": 1,
-        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆"
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://i.pinimg.com/originals/dc/c6/d4/dcc6d4ea22c553ae169e6637c085e389.jpg",
+            "https://urduquote.in/wp-content/uploads/2020/10/romantic-status-for-whatsapp-in-urdu-22.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQePPwfmljFGbT3DB_aGzSfMG_l5uNbB6fOU6v9qaiEp2qKgYGktWAI6NfALQivmTiioAA&usqp=CAU",
+            "https://i.pinimg.com/originals/a8/4b/45/a84b45caf987ad803d5a0e4360da449f.jpg"
+        ]
     }
 ]

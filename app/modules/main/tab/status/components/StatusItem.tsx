@@ -37,6 +37,7 @@ const StatusItem = ({ title, image, onPress, id, time, count }: UsersStatusItem)
             buttonWidth={80}
             openRight={isSelected}
             onClose={() => setIsSelected(false)}
+            
         >
             <UserInlineCard
                 avatarComponent={<StatusAvatarItem 
