@@ -1,6 +1,8 @@
-import React, { forwardRef, useImperativeHandle, useState } from 'react'
+import { toggleStatusBar, toggleTabVisibility } from '@app/store/actions';
+import React, { forwardRef, useEffect, useImperativeHandle, useState } from 'react'
 import { View, Dimensions, GestureResponderEvent } from 'react-native';
 import { Overlay } from 'react-native-elements';
+import { useDispatch } from 'react-redux';
 import StoryContainer from './story-viewer/stories/StoryContainer';
 
 const { width, height } = Dimensions.get('screen');
@@ -14,6 +16,7 @@ const StatusCarousel = ({ onComplete }: StatusCarouselProps, ref: any) => {
     const [refreshStoryContainer, setRefreshStoryContainer] = useState<boolean>(true);
     const [profileDetails, setProfileDetails] = useState<{ image: string; title: string; time: string }>({ image: '', title: '', time: '' });
     const [statusContent, setStatusContent] = useState<string[]>([]);
+    const dispatch = useDispatch();
 
     useImperativeHandle((ref), () => ({
         toggle: (value: boolean) => setShowStatus(value),
@@ -28,13 +31,12 @@ const StatusCarousel = ({ onComplete }: StatusCarouselProps, ref: any) => {
     }))
 
 
+
+
     return (
         <Overlay
             isVisible={showStatus}
-            style={{
-                padding: 0,
-                margin: 0
-            }}
+            overlayStyle={{ padding: 0, margin: 0 }}
         >
             <View style={{ flex: 1, height, width }}>
                 <StoryContainer
@@ -48,7 +50,9 @@ const StatusCarousel = ({ onComplete }: StatusCarouselProps, ref: any) => {
                         userMessage: profileDetails.time,
                         imageArrow: require('./story-viewer/images/back.png'),
                         onImageClick: () => {
-                            setShowStatus(false)
+                            setShowStatus(false);
+                            dispatch(toggleStatusBar(false));
+                            dispatch(toggleTabVisibility(true));
                         },
                     }}
                     replyView={{

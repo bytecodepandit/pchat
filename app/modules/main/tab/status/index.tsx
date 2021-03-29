@@ -4,9 +4,11 @@ import { Camera } from '@app/shared/molecules'
 import colors from '@app/theme/colors'
 import React, { useRef } from 'react'
 import { SafeAreaView, View } from 'react-native'
+import { useDispatch } from 'react-redux'
 import StatusCarousel from './components/StatusCarousel'
 import StatusHeader from './components/StatusHeader'
 import StatusList from './StatusList'
+import { toggleStatusBar, toggleTabVisibility } from '@app/store/actions';
 
 interface StatusScreenProps {
 
@@ -16,11 +18,13 @@ export const StatusScreen: React.FC = (props: StatusScreenProps) => {
     const statusCameraRef = useRef<any>(null);
     const statusCarouselRef = useRef<any>(null);
     const statusListRef = useRef<any>(null);
-
+    const dispatch = useDispatch();
     const showStatus = (item: any) => {
         statusCarouselRef.current.toggle(true);
         statusCarouselRef.current.setProfileDetails(item);
         statusCarouselRef.current.setRefreshStoryContainer();
+        dispatch(toggleStatusBar(true));
+        dispatch(toggleTabVisibility(false));
         getStatusContent(item.statusContent);
     }
 

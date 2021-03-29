@@ -8,6 +8,7 @@ import StatusItem from './components/StatusItem'
 import StatusScrollableHeader from './components/StatusScrollableHeader'
 import { UsersStatusItem as StatusItemInterface } from '@app/core/model/interfaces'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { toggleStatusBar, toggleTabVisibility } from '@app/store/actions';
 
 interface StatusListProps {
     addStatus: (event?: GestureResponderEvent) => void;
@@ -17,9 +18,10 @@ interface StatusListProps {
 
 const StatusList = ({ addStatus, showStatus, closeStatus }: StatusListProps, ref: any) => {
     const [selectedIndex, setSelectedIndex] = useState<any>(null);
-    const dispath = useDispatch();
+    const dispatch = useDispatch();
     const { usersStatus } = useSelector((state: Store) => state);
     const scrollY = useRef<any>(new Animated.Value(0)).current;
+    
 
     useImperativeHandle(ref, () => ({
         nextStatus: () => nextStatus()
@@ -42,7 +44,7 @@ const StatusList = ({ addStatus, showStatus, closeStatus }: StatusListProps, ref
 
 
     const getUserStatus = (scroll: boolean) => {
-        dispath(getStatus({ userId: 1, scroll }));
+        dispatch(getStatus({ userId: 1, scroll }));
     }
 
     const nextStatus = () => {
@@ -52,6 +54,8 @@ const StatusList = ({ addStatus, showStatus, closeStatus }: StatusListProps, ref
             setSelectedIndex(selectedIndex + 1);
         } else {
             closeStatus();
+            dispatch(toggleStatusBar(false));
+            dispatch(toggleTabVisibility(true));
         }
     }
 

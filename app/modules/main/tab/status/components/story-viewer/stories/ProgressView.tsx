@@ -3,6 +3,7 @@ import ProgressItem from './ProgressItem'
 import { GRAY, WHITE, GREEN, LIGHT_GREEN, LIGHT_GRAY_0, TINT_GRAY } from "../utils/colors";
 import { ProgressViewProps } from "../utils/interfaceHelper";
 import { View, StyleSheet, ScrollView, FlatList } from "react-native";
+import { verticalScale } from "react-native-size-matters";
 
 function ProgressView(props: ProgressViewProps) {
 
@@ -14,14 +15,14 @@ function ProgressView(props: ProgressViewProps) {
   }, [props.progressIndex])
 
   useEffect(() => {
-    setProgressIndex(progressIndex) 
+    setProgressIndex(progressIndex)
   }, [props.enableProgress])
 
   function changePosition() {
     if (props.enableProgress) {
       if (progressIndex < props.images.length) {
         const mProgress = progressIndex + 1
-        console.log("changePosition " + mProgress) 
+        console.log("changePosition " + mProgress)
         props.onChange(mProgress)
 
         setTimeout(() => {
@@ -78,12 +79,11 @@ const styles = StyleSheet.create({
   parent: {
     top: 0,
     left: 0,
-    right: 0, 
+    right: 0,
     width: '100%',
     position: 'absolute',
     flexDirection: 'row',
-    flex: 1,  
-    backgroundColor:TINT_GRAY
+    flex: 1
   },
   flatStyle: {
     flex: 1,
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingLeft: '3%',
     paddingRight: '3%',
-    paddingTop: '5%',
+    paddingTop: verticalScale(10),
     paddingBottom: '4%',
   }
 });

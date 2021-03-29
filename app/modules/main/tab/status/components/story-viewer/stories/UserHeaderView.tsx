@@ -39,11 +39,10 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0, 
     right:0,
-    marginTop: '10%',
+    marginTop: '6%',
     justifyContent: 'flex-start',
     flexDirection: 'row',
-    alignItems: 'flex-start', 
-    backgroundColor: TINT_GRAY, 
+    alignItems: 'flex-start',
     paddingBottom: '3%'
   },
 
