@@ -15,3 +15,6 @@ export const LOGIN_SCREEN = 'LOGIN_SCREEN';
 export const MAIN_ROUTE = 'MAIN_ROUTE';
 export const AUTH_ROUTE = 'AUTH_ROUTE';
 export const HELP_ROUTE = 'HELP_ROUTE';
+
+// navigator 
+export const CHATS_NAVIGATOR = 'CHATS_NAVIGATOR';
