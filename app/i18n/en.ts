@@ -22,5 +22,15 @@ export default {
     next: 'Next',
     privacy: 'Privacy',
     recent: 'Recent',
-    updates: 'Updates'
+    updates: 'Updates',
+    from: 'from',
+    help: 'help',
+    and: 'and',
+    storage: 'storage',
+    account: 'account',
+    favorite: 'favorite',
+    invite: 'invite',
+    payments: 'payments',
+    notifications: 'notifications',
+    data: 'data'
 }

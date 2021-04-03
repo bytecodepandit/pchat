@@ -20,5 +20,6 @@ export default {
     add: 'Add',
     participants: 'Participants',
     next: 'Next',
-    privacy: 'Privacy'
+    privacy: 'Privacy',
+    from: 'from'
 }
