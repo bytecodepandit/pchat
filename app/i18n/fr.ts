@@ -8,6 +8,17 @@ export default {
     done: 'Fait',
     archived: 'Archivé',
     broadcastList: 'Des listes de diffusion',
+    broadcast: 'Broadcast',
+    list: 'List',
     newGroup: 'Nouveau groupe',
-    typeHere: 'Écrivez ici'
+    typeHere: 'Écrivez ici',
+    search: 'Search',
+    new: 'New',
+    group: 'Group',
+    cancel: 'Cancel',
+    chat: 'Chat',
+    add: 'Add',
+    participants: 'Participants',
+    next: 'Next',
+    privacy: 'Privacy'
 }

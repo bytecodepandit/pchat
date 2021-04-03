@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useIsFocused } from '@react-navigation/native';
 import { NavigationScreenProp } from 'react-navigation';
@@ -11,31 +11,31 @@ interface CameraScreenProps {
 
 export const CameraScreen = (props: CameraScreenProps) => {
     const isFocused = useIsFocused()
-    const [showCamera, setShowCamera] = useState<boolean>(true);
     const { navigation } = props;
+    const cameraRef = useRef<any>(null);
 
     useEffect(() => {
         if (isFocused) {
-            setShowCamera(true);
+            cameraRef.current.toggle(true);
         }
     }, [isFocused])
 
     useFocusEffect(
         useCallback(() => {
             return () => {
-                setShowCamera(false);
+                cameraRef.current.toggle(false);
             }
         }, [])
     );
 
     const closeCamera = () => {
-        setShowCamera(false);
-        navigation.navigate(CHATS_SCREEN);
+        cameraRef.current.toggle(false);
+        navigation.goBack();
     }
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            {showCamera && <Camera close={() => closeCamera()} capture={(event) => console.log(event)} selectPhoto={(event) => console.log('on imge picker', event)} />}
+            <Camera ref={cameraRef} close={() => closeCamera()} capture={(event) => console.log(event)} selectPhoto={(event) => console.log('on imge picker', event)} />
         </SafeAreaView>
     )
 }

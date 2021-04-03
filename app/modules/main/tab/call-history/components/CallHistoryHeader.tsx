@@ -10,6 +10,7 @@ import { RFValue } from 'react-native-responsive-fontsize'
 import { useDispatch } from 'react-redux'
 import { getUsersCallHistory, setCallingType } from '@app/store/actions/call-history.action'
 import { CallingType } from '@app/core/model/interfaces'
+import i18n from '@app/i18n'
 
 interface CallHistoryHeaderProps {
     editList: (event?: boolean) => void;
@@ -28,7 +29,7 @@ const CallHistoryHeader = ({editList, addCall}: CallHistoryHeaderProps) => {
     return (
         <Header
             leftComponent={<Pressable onPress={() => {editList(!isEditingMode); setIsEditingMode(!isEditingMode)}} style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text color="darkBlue">{!isEditingMode ? 'Edit' : 'Done'}</Text>
+                <Text color="darkBlue">{!isEditingMode ? i18n.t('edit') : i18n.t('done')}</Text>
             </Pressable>}
             backgroundColor={colors.white}
             centerComponent={

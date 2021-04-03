@@ -17,6 +17,10 @@ const ApiEndPoints = {
     getUsersCallHistoryByUserId: {
         method: 'GET',
         api: (input: APIInput) =>  `${BASE_URL}/calls/${input.userId}/call-history.json`
+    },
+    getUsersStatusByUserId: {
+        method: 'GET',
+        api: (input: APIInput) =>  `${BASE_URL}/status/${input.userId}/status.json`
     }
 }
 

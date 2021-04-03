@@ -2,7 +2,7 @@ import { CallHistoryItem, Store } from "@app/core/model/interfaces";
 import ApiEndPoints from "@app/core/services/https/ApiEndPoints";
 import { RestApiService } from "@app/core/services/https/restapi.service";
 import { put, select } from "@redux-saga/core/effects";
-import { FETCH_CALL_HISTORY_REJECTED, FETCH_CALL_HISTORY_RESOLVED } from "../actions/action-types";
+import { FETCH_CALL_HISTORY_REJECTED, FETCH_CALL_HISTORY_RESOLVED } from "../../actions/action-types";
 
 type Params = {
     payload: {

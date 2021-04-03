@@ -1,0 +1,125 @@
+[
+    {
+        "id": "1",
+        "image": "https://media.allure.com/photos/5e18dbcddd598a0008b3f783/master/pass/kaia-gerber-tattoo.jpg",
+        "title": "Allure",
+        "time": "5:30 AM",
+        "callingType": "MISSED",
+        "callType": "GROUP",
+        "count": 2,
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://www.goodmorningimageshddownload.com/wp-content/uploads/2018/12/Whatsapp-Status-Images-5.jpg",
+            "https://static.statusqueen.in/imagestatus/thumbnail/shak-57-254.jpg",
+            "https://static1.squarespace.com/static/5cb06a6cd7456246c1156693/t/5cc494c0e79c701e37bdd462/1556387011824/S10%2B+Wallpaper+-+01.jpg"
+        ]
+    },
+    {
+        "id": "2",
+        "image": "https://i.pinimg.com/originals/b5/a5/bb/b5a5bbaf4c0e744001eb1d1eff2b6c0b.jpg",
+        "title": "Wahaj Ali",
+        "time": "Today",
+        "callingType": "OUTGOING",
+        "callType": "INDIVIDUAL",
+        "count": 3,
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTepU94GL3aWTWb40AA8zr8RU1ka8ixGxadwQ&usqp=CAU",
+            "https://static1.squarespace.com/static/5cb06a6cd7456246c1156693/t/5cc494c0e79c701e37bdd462/1556387011824/S10%2B+Wallpaper+-+01.jpg"
+        ]
+    },
+    {
+        "id": "3",
+        "image": "https://i.imgur.com/zj0t895.jpg",
+        "title": "Anna Kendrick",
+        "time": "10:30 PM",
+        "callingType": "OUTGOING",
+        "callType": "INDIVIDUAL",
+        "count": 7,
+        "chatCommunicationType": "SENDER",
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZgJtbHBislTLgrB1FoNNhHxFRwRrOTXOcUcHzfw9hEXC2VbX8jesqwkkbQhH45E25Txo&usqp=CAU",
+            "https://i.pinimg.com/originals/dc/c6/d4/dcc6d4ea22c553ae169e6637c085e389.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQePPwfmljFGbT3DB_aGzSfMG_l5uNbB6fOU6v9qaiEp2qKgYGktWAI6NfALQivmTiioAA&usqp=CAU",
+            "https://i.pinimg.com/originals/a8/4b/45/a84b45caf987ad803d5a0e4360da449f.jpg"
+        ]
+    },
+    {
+        "id": "4",
+        "image": "http://2.bp.blogspot.com/-SoWH6umH4aE/TnWB7DvYBdI/AAAAAAAABTc/hzqarL1M6S4/s1600/Chris-Pine-2.jpg",
+        "title": "Chris Pine",
+        "time": "5:30 AM",
+        "callingType": "INCOMING",
+        "callType": "GROUP",
+        "count": 10,
+        "chatCommunicationType": "RECEIVER",
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://i.pinimg.com/originals/dc/c6/d4/dcc6d4ea22c553ae169e6637c085e389.jpg"
+        ]
+    },
+    {
+        "id": "5",
+        "image": "https://i.pinimg.com/originals/6a/e0/6c/6ae06cd2b03a2906be528207fa87544e.jpg",
+        "title": "Scarlett Johansson",
+        "time": "5:30 AM",
+        "callingType": "INCOMING",
+        "callType": "INDIVIDUAL",
+        "chatCommunicationType": "SENDER",
+        "count": 5,
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://i.pinimg.com/originals/dc/c6/d4/dcc6d4ea22c553ae169e6637c085e389.jpg",
+            "https://urduquote.in/wp-content/uploads/2020/10/romantic-status-for-whatsapp-in-urdu-22.jpg"
+        ]
+    },
+    {
+        "id": "6",
+        "image": "https://hollywoodlife.com/wp-content/uploads/2017/01/deepika-padukone-biopic.jpg?w=330",
+        "title": "Deepika Padukone",
+        "time": "5:30 AM",
+        "callingType": "INCOMING",
+        "callType": "GROUP",
+        "chatCommunicationType": "RECEIVER",
+        "count": 4,
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://i.pinimg.com/originals/dc/c6/d4/dcc6d4ea22c553ae169e6637c085e389.jpg",
+            "https://urduquote.in/wp-content/uploads/2020/10/romantic-status-for-whatsapp-in-urdu-22.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQePPwfmljFGbT3DB_aGzSfMG_l5uNbB6fOU6v9qaiEp2qKgYGktWAI6NfALQivmTiioAA&usqp=CAU",
+            "https://i.pinimg.com/originals/a8/4b/45/a84b45caf987ad803d5a0e4360da449f.jpg"
+        ]
+    },
+    {
+        "id": "7",
+        "image": "https://cdn.wallpaperjam.com/static/images/m/09/54/095457819d00a8ac486e10e0f7aedca398a82427.jpg",
+        "title": "Kristen Stewat",
+        "time": "Today",
+        "callingType": "MISSED",
+        "callType": "INDIVIDUAL",
+        "chatCommunicationType": "RECEIVER",
+        "count": 1,
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://one-week-in.com/wp-content/uploads/2019/12/never-stop-doing-your-best.jpg"
+        ]
+    },
+    {
+        "id": "8",
+        "image": "https://hollywoodlife.com/wp-content/uploads/2015/06/alicia-cargile-bio-getty.jpg?w=330",
+        "title": "Alicia Cargile",
+        "time": "Yesterday",
+        "callingType": "OUTGOING",
+        "callType": "GROUP",
+        "chatCommunicationType": "SENDER",
+        "count": 1,
+        "content": "Lorem Ipsum dolor sit amet, consectetur adipiscing elit 😆",
+        "statusContent": [
+            "https://i.pinimg.com/originals/dc/c6/d4/dcc6d4ea22c553ae169e6637c085e389.jpg",
+            "https://urduquote.in/wp-content/uploads/2020/10/romantic-status-for-whatsapp-in-urdu-22.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQePPwfmljFGbT3DB_aGzSfMG_l5uNbB6fOU6v9qaiEp2qKgYGktWAI6NfALQivmTiioAA&usqp=CAU",
+            "https://i.pinimg.com/originals/a8/4b/45/a84b45caf987ad803d5a0e4360da449f.jpg"
+        ]
+    }
+]
