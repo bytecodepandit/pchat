@@ -27,7 +27,9 @@ const SettingItems = ({ icon, title, hasPadding, onPress }: SettingItemsProps) =
                 justifyContent: 'center',
                 backgroundColor: colors.white
             }}>
-            <SettingListImage name={icon} />
+            <View style={{marginVertical: spacing.vs}}>
+                <SettingListImage name={icon} />
+            </View>
             <Box style={{
                 flex: 1,
                 borderBottomWidth: !hasPadding ? verticalScale(1) : 0,
