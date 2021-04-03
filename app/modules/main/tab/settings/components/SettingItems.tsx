@@ -1,32 +1,35 @@
 import { AvatarAtom, Box, Text } from '@app/shared/atoms'
 import { colors, ListItem } from 'react-native-elements'
 import React from 'react'
-import { View, Image } from 'react-native'
+import { View, Image, GestureResponderEvent } from 'react-native'
 import { verticalScale } from 'react-native-size-matters'
 import spacing from '@app/theme/spacing'
 import SettingListImage from './SettingListImage'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 
 
 interface SettingItemsProps {
     icon: string;
     title: string;
     hasPadding?: boolean;
-    routeUrl?: string;
+    onPress?: (event?: GestureResponderEvent) => void;
 }
 
-const SettingItems = ({ icon, title, hasPadding, routeUrl }: SettingItemsProps) => {
+const SettingItems = ({ icon, title, hasPadding, onPress }: SettingItemsProps) => {
     return (
-        <Box style={{
-            marginBottom: hasPadding ? spacing.vxl : 0,
-            paddingLeft: spacing.hm, marginVertical: 0, width: '100%',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: colors.white
-        }}>
+        <TouchableWithoutFeedback
+            onPress={onPress}
+            style={{
+                marginBottom: hasPadding ? spacing.vxl : 0,
+                paddingLeft: spacing.hm, marginVertical: 0, width: '100%',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: colors.white
+            }}>
             <SettingListImage name={icon} />
             <Box style={{
-                flex: 1, 
+                flex: 1,
                 borderBottomWidth: !hasPadding ? verticalScale(1) : 0,
                 borderBottomColor: colors.divider,
                 paddingBottom: spacing.vs,
@@ -37,10 +40,10 @@ const SettingItems = ({ icon, title, hasPadding, routeUrl }: SettingItemsProps) 
                 paddingRight: spacing.hs,
                 marginLeft: spacing.hs
             }}>
-                <Text style={{fontWeight: '500', textTransform: 'capitalize'}}>{title}</Text>
-                <ListItem.Chevron onPress={() => { }}/>
+                <Text style={{ fontWeight: '500', textTransform: 'capitalize' }}>{title}</Text>
+                <ListItem.Chevron onPress={() => { }} />
             </Box>
-        </Box>
+        </TouchableWithoutFeedback>
     )
 }
 

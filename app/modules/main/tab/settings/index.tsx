@@ -30,7 +30,7 @@ export const SettingsScreen: React.FC = (props: SettingsScreenProps) => {
         outputRange: [1, 1.3 ]
     })
     const _renderSettingItem = ({ item, index }: any) => (
-        <SettingItems {...item} key={`setting_list_item_${index}`} />
+        <SettingItems {...item} key={`setting_list_item_${index}`} onPress={() => {}}/>
     )
     return (
         <Box
