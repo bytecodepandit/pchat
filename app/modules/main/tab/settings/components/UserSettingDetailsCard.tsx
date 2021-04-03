@@ -27,7 +27,7 @@ const UserSettingDetailsCard = ({ image, name, status }: UserSettingDetailsCardP
                     }}>
                     <Box paddingRight="hxs">
                         <ListItem.Title style={{fontWeight: '500', color: colors.secondary, marginBottom: spacing.vxs}}>{name}</ListItem.Title>
-                        <ListItem.Subtitle style={{color: colors.primary, lineHeight: RFValue(24)}}>{status}</ListItem.Subtitle>
+                        <ListItem.Subtitle style={{color: colors.primary, lineHeight: RFValue(24), fontSize: RFValue(18)}}>{status}</ListItem.Subtitle>
                     </Box>
                     <Box>
                         <CircleAtom>

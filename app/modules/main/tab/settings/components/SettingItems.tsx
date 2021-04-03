@@ -42,7 +42,7 @@ const SettingItems = ({ icon, title, hasPadding, onPress }: SettingItemsProps) =
                 paddingRight: spacing.hs,
                 marginLeft: spacing.hs
             }}>
-                <Text style={{ fontWeight: '500', textTransform: 'capitalize' }}>{title}</Text>
+                <Text style={{ fontWeight: '500', textTransform: 'capitalize'}} variant="headingM">{title}</Text>
                 <ListItem.Chevron onPress={() => { }} />
             </Box>
         </TouchableWithoutFeedback>
