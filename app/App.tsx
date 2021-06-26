@@ -1,5 +1,5 @@
-import { backgroundColor, ThemeProvider } from '@shopify/restyle';
-import React, { useEffect } from 'react';
+import { ThemeProvider } from '@shopify/restyle';
+import React, { useEffect, useCallback } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import Orientation from 'react-native-orientation';
 import theme from '@app/theme';
@@ -13,48 +13,47 @@ import { NetworkService } from './core/services/network.service';
 import { StatusBarAtom } from './shared/atoms';
 import { setAppForeBackGroundStatus } from './store/actions';
 import setDeviceOrientation from './store/actions/device-orientation.action';
-import colors from '@app/theme/colors';
-
-
-
 
 const App = () => {
   LogBox.ignoreAllLogs(); // to hide the all unwanted warning logs
   const networkService = new NetworkService();
   const dispatch = useDispatch();
 
+  const _handleAppStateChange = useCallback(
+    (nextAppState: any) => {
+      dispatch(setAppForeBackGroundStatus(nextAppState));
+    },
+    [dispatch],
+  );
+
   useEffect(() => {
     SplashScreen.hide();
     networkService.init();
     dispatch(setUserLoginStatus(true));
-    // listening device foreground and background states 
-    AppState.addEventListener("change", _handleAppStateChange);
+    // listening device foreground and background states
+    AppState.addEventListener('change', _handleAppStateChange);
 
     // listening device orientation
     Orientation.addSpecificOrientationListener((event) => {
       dispatch(setDeviceOrientation(event));
-    })
+    });
     return () => {
-      AppState.removeEventListener("change", _handleAppStateChange);
+      AppState.removeEventListener('change', _handleAppStateChange);
     };
-  }, [])
+  }, [_handleAppStateChange, dispatch, networkService]);
 
-  const _handleAppStateChange = (nextAppState: any) => {
-    dispatch(setAppForeBackGroundStatus(nextAppState));
-  };
-
-
-
-  return <ThemeProvider theme={theme}>
-    <Root>
-      <Container>
-        <NavigationContainer>
-          <StatusBarAtom />
-          {AppRoute()}
-        </NavigationContainer>
-      </Container>
-    </Root>
-  </ThemeProvider >
+  return (
+    <ThemeProvider theme={theme}>
+      <Root>
+        <Container>
+          <NavigationContainer>
+            <StatusBarAtom />
+            {AppRoute()}
+          </NavigationContainer>
+        </Container>
+      </Root>
+    </ThemeProvider>
+  );
 };
 
 export default App;
