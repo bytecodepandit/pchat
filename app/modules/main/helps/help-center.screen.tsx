@@ -1,15 +1,12 @@
+import React from 'react';
+import { View, Text } from 'react-native';
 
-import React from 'react'
-import { View, Text } from 'react-native'
+interface HelpCenterScreenProps {}
 
-interface HelpCenterScreenProps {
-
-}
-
-export const HelpCenterScreen: React.FC = (props: HelpCenterScreenProps)=> {
-    return (
-        <View>
-            <Text>HelpCenter</Text>
-        </View>
-    )
-}
+export const HelpCenterScreen: React.FC = (props: HelpCenterScreenProps) => {
+  return (
+    <View>
+      <Text>HelpCenter</Text>
+    </View>
+  );
+};

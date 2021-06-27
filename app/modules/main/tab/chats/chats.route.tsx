@@ -6,10 +6,9 @@ import { CHATS_SCREEN } from '@app/routes/app-route-labels';
 const Stack = createStackNavigator();
 
 export const ChatsNavigator = () => {
-    return <Stack.Navigator initialRouteName={CHATS_SCREEN} headerMode="none">
-        <Stack.Screen
-            name={CHATS_SCREEN}
-            component={ChatsScreen}
-        />
+  return (
+    <Stack.Navigator initialRouteName={CHATS_SCREEN} headerMode="none">
+      <Stack.Screen name={CHATS_SCREEN} component={ChatsScreen} />
     </Stack.Navigator>
-}
+  );
+};

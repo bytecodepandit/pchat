@@ -20,28 +20,23 @@ class ProgressiveImage extends React.Component {
   imageAnimated = new Animated.Value(0);
 
   handleThumbnailLoad = () => {
-    console.log("Thumbnail Loaded")
+    console.log('Thumbnail Loaded');
     Animated.timing(this.thumbnailAnimated, {
       toValue: 1,
-      useNativeDriver: false
+      useNativeDriver: false,
     }).start();
-  }
+  };
 
   onImageLoad = () => {
-    console.log("Image Loaded")
+    console.log('Image Loaded');
     Animated.timing(this.imageAnimated, {
       toValue: 1,
-      useNativeDriver: false
+      useNativeDriver: false,
     }).start();
-  }
+  };
 
   render() {
-    const {
-      thumbnailSource,
-      source,
-      style,
-      ...props
-    } = this.props;
+    const { thumbnailSource, source, style, ...props } = this.props;
 
     return (
       <View style={styles.container}>
@@ -50,7 +45,7 @@ class ProgressiveImage extends React.Component {
           source={thumbnailSource}
           style={[style, { opacity: this.thumbnailAnimated }]}
           onLoad={this.handleThumbnailLoad}
-          // blurRadius={1}
+        // blurRadius={1}
         />
         <Animated.Image
           {...props}

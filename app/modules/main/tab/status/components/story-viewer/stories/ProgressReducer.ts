@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const initialState = {
   progress: 0,
   stopProgress: false,
@@ -18,9 +16,9 @@ export const progressReducer = (state: any, action: ActionType) => {
 
   switch (action.type) {
     case PROGRESS:
-      return {...state, progress: action.payload};
+      return { ...state, progress: action.payload };
 
     case STOP_PROGRESS:
-      return {...state, stopProgress: action.payload};
+      return { ...state, stopProgress: action.payload };
   }
 };
