@@ -1,42 +1,39 @@
-import React, { useEffect, useState } from "react";
-import ProgressItem from './ProgressItem'
-import { GRAY, WHITE, GREEN, LIGHT_GREEN, LIGHT_GRAY_0, TINT_GRAY } from "../utils/colors";
-import { ProgressViewProps } from "../utils/interfaceHelper";
-import { View, StyleSheet, ScrollView, FlatList } from "react-native";
-import { verticalScale } from "react-native-size-matters";
+import React, { useEffect, useState } from 'react';
+import ProgressItem from './ProgressItem';
+import { ProgressViewProps } from '../utils/interfaceHelper';
+import { View, StyleSheet, FlatList } from 'react-native';
+import { verticalScale } from 'react-native-size-matters';
 
 function ProgressView(props: ProgressViewProps) {
-
-  const [progressIndex, setProgressIndex] = useState(0)
+  const [progressIndex, setProgressIndex] = useState(0);
 
   useEffect(() => {
-    setProgressIndex(props.progressIndex)
+    setProgressIndex(props.progressIndex);
     // alert(props.progressIndex)
-  }, [props.progressIndex])
+  }, [props.progressIndex]);
 
   useEffect(() => {
-    setProgressIndex(progressIndex)
-  }, [props.enableProgress])
+    setProgressIndex(progressIndex);
+  }, [props.enableProgress]);
 
   function changePosition() {
     if (props.enableProgress) {
       if (progressIndex < props.images.length) {
-        const mProgress = progressIndex + 1
-        console.log("changePosition " + mProgress)
-        props.onChange(mProgress)
+        const mProgress = progressIndex + 1;
+        console.log('changePosition ' + mProgress);
+        props.onChange(mProgress);
 
         setTimeout(() => {
-          setProgressIndex(mProgress)
-        }, 1500)
+          setProgressIndex(mProgress);
+        }, 1500);
       }
     } else {
-      setProgressIndex(progressIndex)
+      setProgressIndex(progressIndex);
     }
   }
 
   return (
-    <View style={styles.parent}  >
-
+    <View style={styles.parent}>
       {/* {
         props.images.map((value, index) => (
           <ProgressItem
@@ -66,7 +63,8 @@ function ProgressView(props: ProgressViewProps) {
             barStyle={props.barStyle}
             progressIndex={progressIndex}
             currentIndex={index}
-            onChangePosition={() => changePosition()} />
+            onChangePosition={() => changePosition()}
+          />
         )}
       />
     </View>
@@ -83,7 +81,7 @@ const styles = StyleSheet.create({
     width: '100%',
     position: 'absolute',
     flexDirection: 'row',
-    flex: 1
+    flex: 1,
   },
   flatStyle: {
     flex: 1,
@@ -95,5 +93,5 @@ const styles = StyleSheet.create({
     paddingRight: '3%',
     paddingTop: verticalScale(10),
     paddingBottom: '4%',
-  }
+  },
 });

@@ -1,15 +1,12 @@
+import React from 'react';
+import { View, Text } from 'react-native';
 
-import React from 'react'
-import { View, Text } from 'react-native'
+interface LicencseScreenProps {}
 
-interface LicencseScreenProps {
-
-}
-
-export const LicencseScreen: React.FC = (props: LicencseScreenProps)=> {
-    return (
-        <View>
-            <Text>LicencseScreen</Text>
-        </View>
-    )
-}
+export const LicencseScreen: React.FC = (props: LicencseScreenProps) => {
+  return (
+    <View>
+      <Text>LicencseScreen</Text>
+    </View>
+  );
+};

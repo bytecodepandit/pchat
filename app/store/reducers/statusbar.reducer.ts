@@ -1,15 +1,15 @@
-import { TOGGLE_STATUS_BAR } from "../actions/action-types";
-import { Action } from "../actions/Action.interface"
+import { TOGGLE_STATUS_BAR } from '../actions/action-types';
+import { Action } from '../actions/Action.interface';
 
 const ToggleStatusBarReducer = (state = false, action: Action) => {
-    const { type, payload } = action;
+  const { type, payload } = action;
 
-    switch (type) {
-        case TOGGLE_STATUS_BAR:
-            return payload;
-        default:
-            return state;
-    }
-}
+  switch (type) {
+    case TOGGLE_STATUS_BAR:
+      return payload;
+    default:
+      return state;
+  }
+};
 
 export default ToggleStatusBarReducer;

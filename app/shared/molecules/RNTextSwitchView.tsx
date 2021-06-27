@@ -1,15 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { requireNativeComponent } from "react-native";
+import { requireNativeComponent } from 'react-native';
 
-const TextSwitch = requireNativeComponent("RNTextSwitch");
+const TextSwitch = requireNativeComponent('RNTextSwitch');
 
 const RNTextSwitch = (props?: any) => {
-  return <TextSwitch 
-    {...props}
-  />
-}
+  return <TextSwitch {...props} />;
+};
 
-
-
-export default RNTextSwitch; 
+export default RNTextSwitch;

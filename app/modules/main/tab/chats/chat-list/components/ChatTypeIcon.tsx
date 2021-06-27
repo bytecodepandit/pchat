@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import ChatType from '@app/core/model/enums/chats/ChatType'
+import ChatType from '@app/core/model/enums/chats/ChatType';
 import colors from '@app/theme/colors';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { scale } from 'react-native-size-matters';
@@ -10,42 +10,60 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { Text } from '@app/shared/atoms';
 
 interface ChatTypeIconProps {
-    chatType: ChatType;
-    content?: string;
-
+  chatType: ChatType;
+  content?: string;
 }
 
 const ChatTypeIcon = ({ chatType, content }: ChatTypeIconProps) => {
-    const _renderChatType = () => {
-        switch (chatType) {
-            case ChatType.IMAGE:
-                return <Text style={{ marginRight: scale(4) }}>
-                    <Entypo name="camera" size={RFValue(16)} color={colors.primary} style={style.chatTypeIconStyle} />
-                    <Text>{!content ? '  Photo' : null}</Text>
-                </Text>
-            case ChatType.VIDEO:
-                return <Text>
-                    <IonIcons name="md-videocam" size={RFValue(16)} color={colors.primary} style={style.chatTypeIconStyle} />
-                    {!content ? '  Video' : null}
-                </Text>
-            case ChatType.VOICE:
-                return <Text>
-                    <MaterialIcons name="keyboard-voice" size={RFValue(16)} color={colors.primary} style={[style.chatTypeIconStyle,]} />
-                    {!content ? '  Voice' : null}
-                </Text>
-            default:
-                return null;
-        }
+  const _renderChatType = () => {
+    switch (chatType) {
+      case ChatType.IMAGE:
+        return (
+          <Text style={{ marginRight: scale(4) }}>
+            <Entypo
+              name="camera"
+              size={RFValue(16)}
+              color={colors.primary}
+              style={style.chatTypeIconStyle}
+            />
+            <Text>{!content ? '  Photo' : null}</Text>
+          </Text>
+        );
+      case ChatType.VIDEO:
+        return (
+          <Text>
+            <IonIcons
+              name="md-videocam"
+              size={RFValue(16)}
+              color={colors.primary}
+              style={style.chatTypeIconStyle}
+            />
+            {!content ? '  Video' : null}
+          </Text>
+        );
+      case ChatType.VOICE:
+        return (
+          <Text>
+            <MaterialIcons
+              name="keyboard-voice"
+              size={RFValue(16)}
+              color={colors.primary}
+              style={[style.chatTypeIconStyle]}
+            />
+            {!content ? '  Voice' : null}
+          </Text>
+        );
+      default:
+        return null;
     }
-    return _renderChatType()
-}
+  };
+  return _renderChatType();
+};
 
 export default ChatTypeIcon;
 
-
 const style = StyleSheet.create({
-    chatTypeIconStyle: {
-        marginRight: scale(6),
-    }
-})
-
+  chatTypeIconStyle: {
+    marginRight: scale(6),
+  },
+});
