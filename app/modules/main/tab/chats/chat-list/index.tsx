@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import { View} from 'react-native';
+import {View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
 import {toggleTabVisibility} from '@app/store/actions';
@@ -35,7 +35,7 @@ export const ChatsScreen: React.FC = (props: ChatsScreenProps) => {
         justifyContent: 'space-between',
         backgroundColor: colors.mainBackground,
       }}>
-      <Box style={{flex: 1}} paddingVertical="vs">
+      <Box style={{flex: 1}}>
         <ChatListHeader
           edit={() => selectChats(true)}
           done={() => selectChats(false)}
