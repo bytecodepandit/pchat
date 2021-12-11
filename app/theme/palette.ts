@@ -1,4 +1,4 @@
-import { colors } from 'react-native-elements';
+import {colors} from 'react-native-elements';
 
 export default {
   ...colors,
@@ -9,5 +9,5 @@ export default {
   skyblue: '#59acf8',
   darkBlue: '#3478f5',
   offWhite: '#f6f6f6',
-  fadeGrey: '#e6e6e6'
+  fadeGrey: '#e6e6e6',
 };
