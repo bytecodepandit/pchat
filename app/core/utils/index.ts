@@ -1,5 +1,3 @@
-import { httpErrorHandler } from './httpErrorHandler';
+import {httpErrorHandler} from './httpErrorHandler';
 
-export  {
-    httpErrorHandler
-}
+export {httpErrorHandler};

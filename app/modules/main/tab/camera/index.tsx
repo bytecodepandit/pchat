@@ -3,7 +3,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useIsFocused } from '@react-navigation/native';
 import { NavigationScreenProp } from 'react-navigation';
 import { CHATS_SCREEN } from '@app/routes/app-route-labels';
-import {Camera} from '@app/shared/molecules';
+import { Camera } from '@app/shared/molecules';
 
 interface CameraScreenProps {
     navigation: NavigationScreenProp<any>;

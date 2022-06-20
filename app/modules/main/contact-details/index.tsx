@@ -6,7 +6,7 @@ interface ContactDetailsScreenProps {
 
 }
 
-export const ContactDetailsScreen: React.FC = (props: ContactDetailsScreenProps)=> {
+export const ContactDetailsScreen: React.FC = (props: ContactDetailsScreenProps) => {
     return (
         <View>
             <Text>Status</Text>

@@ -7,14 +7,14 @@ import { View, Text } from 'react-native'
 import { verticalScale } from 'react-native-size-matters'
 
 interface SettingListFooterProps {
-    
+
 }
 
 const SettingListFooter = () => {
     return (
-        <Box style={{height: verticalScale(100), justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-            <Text style={{color: colors.primary, marginBottom: spacing.vxs}}>{i18n.t('from')}</Text>
-            <Text style={{color: colors.secondary, textTransform: 'uppercase', fontWeight: '500'}}>ByteCode Pandit</Text>
+        <Box style={{ height: verticalScale(100), justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+            <Text style={{ color: colors.primary, marginBottom: spacing.vxs }}>{i18n.t('from')}</Text>
+            <Text style={{ color: colors.secondary, textTransform: 'uppercase', fontWeight: '500' }}>ByteCode Pandit</Text>
         </Box>
     )
 }

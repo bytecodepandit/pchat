@@ -1,4 +1,4 @@
 export default {
-    phone: 0,
-    tablet: 768,
-}
+  phone: 0,
+  tablet: 768,
+};

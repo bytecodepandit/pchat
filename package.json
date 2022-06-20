@@ -8,7 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "server": "cd app/core/mock && http-server -p 3001",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'"
   },
   "dependencies": {
     "-": "0.0.1",

@@ -27,7 +27,7 @@ const SettingItems = ({ icon, title, hasPadding, onPress }: SettingItemsProps) =
                 justifyContent: 'center',
                 backgroundColor: colors.white
             }}>
-            <View style={{marginVertical: spacing.vs}}>
+            <View style={{ marginVertical: spacing.vs }}>
                 <SettingListImage name={icon} />
             </View>
             <Box style={{
@@ -42,7 +42,7 @@ const SettingItems = ({ icon, title, hasPadding, onPress }: SettingItemsProps) =
                 paddingRight: spacing.hs,
                 marginLeft: spacing.hs
             }}>
-                <Text style={{ fontWeight: '500', textTransform: 'capitalize'}} variant="headingM">{title}</Text>
+                <Text style={{ fontWeight: '500', textTransform: 'capitalize' }} variant="headingM">{title}</Text>
                 <ListItem.Chevron onPress={() => { }} />
             </Box>
         </TouchableWithoutFeedback>

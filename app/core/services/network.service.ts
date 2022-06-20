@@ -1,13 +1,12 @@
-
-import store from "@app/store";
-import setNetworkConnectivity from "@app/store/actions/network.action";
-import NetInfo from "@react-native-community/netinfo";
+import store from '@app/store';
+import setNetworkConnectivity from '@app/store/actions/network.action';
+import NetInfo from '@react-native-community/netinfo';
 export class NetworkService {
-    constructor() { }
+  constructor() {}
 
-    init() {
-        NetInfo.addEventListener((state: any) => {
-            store.dispatch(setNetworkConnectivity(state));
-        });
-    }
+  init() {
+    NetInfo.addEventListener((state: any) => {
+      store.dispatch(setNetworkConnectivity(state));
+    });
+  }
 }

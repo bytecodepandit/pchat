@@ -6,7 +6,7 @@ interface HelpCenterScreenProps {
 
 }
 
-export const HelpCenterScreen: React.FC = (props: HelpCenterScreenProps)=> {
+export const HelpCenterScreen: React.FC = (props: HelpCenterScreenProps) => {
     return (
         <View>
             <Text>HelpCenter</Text>
